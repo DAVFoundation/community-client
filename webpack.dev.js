@@ -21,7 +21,8 @@ module.exports = merge(common, {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: path.resolve(__dirname, 'src/index.html'),
-      favicon: path.resolve(__dirname, 'assets/images/favicon.ico')
+      favicon: path.resolve(__dirname, 'assets/images/favicon.ico'),
+      inject: 'body'
     }),
 
     //prevents webpack CLI from stopping due to errors 
