@@ -5,28 +5,46 @@ class Footer extends Component {
   render(){
     return (
       <div>
-        <h1>This is a footer</h1> 
         <SocialMediaBar />
+        <CopyrightInfo />
       </div>
     )
   }
 }
 
 class SocialMediaBar extends Component {
+
+  constructor(props){
+    super(props);
+
+    this.socialLinks = [
+      {
+        name: "reddit",
+        link: "http://reddit.com"
+      },
+      {
+        name: "twitter",
+        link: "http://twitter.com"
+      }
+    ]
+  }
+
   render(){
+
+    var linkList = this.socialLinks.map(function(media, index){
+      return <SocialMediaIcon key={index} name={media.name} link={media.link} />
+    })
+
     return (
       <div>
-        <h2>Social Media Bar</h2>
-        <ul>
-          <SocialMediaIcon name="reddit" link="http://reddit.com" />
-          <SocialMediaIcon name="twitter" link="http://twitter.com" />
-        </ul>
+        <ul>{linkList}</ul>
       </div>
     )
   }
 }
 
 class SocialMediaIcon extends Component {
+
   render(){
     return (
       <li>
@@ -39,8 +57,16 @@ class SocialMediaIcon extends Component {
 }
 
 SocialMediaIcon.propTypes = {
-  name: PropTypes.string,
-  link: PropTypes.string
+  name: PropTypes.string.isRequired,
+  link: PropTypes.string.isRequired
+}
+
+class CopyrightInfo extends Component {
+  render(){
+    return (
+      <h5>Copyright DAV 2017</h5>
+    )
+  }
 }
 
 export {
