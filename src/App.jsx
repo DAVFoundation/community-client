@@ -1,15 +1,23 @@
 import React, {Component} from 'react'
-import {Footer} from './components/Footer.jsx'
+import {Footer} from './components/presentationals/Footer.jsx'
+import BadgeContainer from './components/containers/BadgeContainer.jsx'
+import PropTypes from 'prop-types'
+import store from './store/store'
 
 class App extends Component {
   render(){
     return (
       <div>
-        <h1>React component setup</h1>
+        <h1>Community Client</h1>
+        <BadgeContainer store={store} />
         <Footer />
       </div>
     )
   }
+}
+
+App.propTypes = {
+  store: PropTypes.object
 }
 
 export default App
