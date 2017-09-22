@@ -1,3 +1,5 @@
+import {handleActions} from 'redux-actions'
+import {addBadge} from '../actions'
 
 const initialState = {
   badges : [1,2],
@@ -15,9 +17,25 @@ const initialState = {
   }
 }
 
-function BadgeReducer(state=initialState){
+function BadgeReducer(state=initialState, action){
+  switch(action.type){
 
-  return state
+  case 'ADD_BADGE':
+    return state
+
+  case 'REMOVE_BADGE':
+    return state
+
+  default:
+    return state
+  }
 }
+
+const reducer = handleActions({
+  [addBadge]: (state) => {
+    return state
+  }
+}, initialState)
+
 
 export default BadgeReducer

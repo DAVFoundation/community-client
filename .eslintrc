@@ -37,7 +37,8 @@
     "semi": [
       "off",
       "always"
-    ]
+    ],
+    "no-unused-vars": 1
   },
   "globals": {
     "process": false

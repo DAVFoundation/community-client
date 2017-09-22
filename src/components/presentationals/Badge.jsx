@@ -6,7 +6,7 @@ class Badge extends Component {
   render(){
     var self = this;
     var badgeList = this.props.stateProps.badges.map(function(badgeId, index){
-      return (<li key={index}>{self.props.stateProps.badgesById[badgeId].title}</li>)
+      return <BadgeIcon key={index} badgeDetails={self.props.stateProps.badgesById[badgeId]} />
     })
     return(
       <div>
@@ -16,9 +16,21 @@ class Badge extends Component {
   }
 }
 
+class BadgeIcon extends Component {
+
+  render(){
+    return (
+      <li>{this.props.badgeDetails.title}</li>
+    )
+  }
+}
+
 Badge.propTypes = {
-  stateProps: PropTypes.object,
-  badges: PropTypes.array
+  stateProps: PropTypes.object.isRequired
+}
+
+BadgeIcon.propTypes = {
+  badgeDetails: PropTypes.object.isRequired
 }
 
 export default Badge
