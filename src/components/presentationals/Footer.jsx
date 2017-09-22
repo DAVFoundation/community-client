@@ -48,7 +48,7 @@ class SocialMediaIcon extends Component {
   render(){
     return (
       <li>
-        <a href={this.props.link}>
+        <a href={this.props.link} target="_blank">
           {this.props.name}
         </a>
       </li>
