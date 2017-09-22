@@ -3,7 +3,6 @@ import Badge from '../presentationals/Badge.jsx'
 
 export default connect(
   (state) => ({
-    badges: state.badges,
-    badgesById: state.badgesById,
+    badges: state.badges.map(badgeId => state.badgesById[badgeId]),
   })
 )(Badge);
