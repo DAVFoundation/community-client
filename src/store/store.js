@@ -1,9 +1,8 @@
 import {createStore} from 'redux'
-import BadgeReducer from '../reducers/Badges'
+import BadgeReducer from '../reducers/badges'
 
 const initStore = () => {
   const store = createStore(BadgeReducer)
-  console.log(store.getState())
   return store
 }
 

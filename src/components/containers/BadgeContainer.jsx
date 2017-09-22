@@ -6,7 +6,6 @@ import PropTypes from 'prop-types'
 class BadgeContainer extends Component {
   render(){
     const stateProps = this.props.store.getState()
-    console.log(stateProps)
     return (
       <div>
         <h2>Badges</h2>
