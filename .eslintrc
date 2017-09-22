@@ -35,7 +35,7 @@
       { "allowTemplateLiterals": true }
     ],
     "semi": [
-      "off",
+      "error",
       "always"
     ],
     "no-unused-vars": 1

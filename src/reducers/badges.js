@@ -1,5 +1,5 @@
-import {handleActions} from 'redux-actions'
-import {addBadge} from '../actions'
+import {handleActions} from 'redux-actions';
+import {addBadge} from '../actions';
 
 const initialState = {
   badgeIds : [1,2],
@@ -15,27 +15,27 @@ const initialState = {
       title: "Contributor"
     }
   }
-}
+};
 
 function BadgeReducer(state=initialState, action){
   switch(action.type){
 
   case 'ADD_BADGE':
-    return state
+    return state;
 
   case 'REMOVE_BADGE':
-    return state
+    return state;
 
   default:
-    return state
+    return state;
   }
 }
 
 const reducer = handleActions({
   [addBadge]: (state) => {
-    return state
+    return state;
   }
-}, initialState)
+}, initialState);
 
 
-export default BadgeReducer
+export default BadgeReducer;

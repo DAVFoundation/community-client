@@ -1,3 +1,3 @@
-import {createAction} from 'redux-actions'
+import {createAction} from 'redux-actions';
 
-export const addBadge = createAction('ADD_BADGE')
+export const addBadge = createAction('ADD_BADGE');

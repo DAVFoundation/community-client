@@ -1,11 +1,4 @@
-import {createStore} from 'redux'
-import BadgeReducer from '../reducers/badges'
+import {createStore} from 'redux';
+import reducers from '../reducers';
 
-const initStore = () => {
-  const store = createStore(BadgeReducer)
-  return store
-}
-
-const store = initStore()
-
-export default store
+export default createStore(reducers);
