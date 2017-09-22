@@ -2,7 +2,7 @@ import {handleActions} from 'redux-actions'
 import {addBadge} from '../actions'
 
 const initialState = {
-  badges : [1,2],
+  badgeIds : [1,2],
   badgesById : {
     1 : {
       id: 1,

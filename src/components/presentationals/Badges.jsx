@@ -1,13 +1,16 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
-class Badge extends Component {
+class Badges extends Component {
 
   render(){
     var self = this;
-    var badgeList = this.props.stateProps.badges.map(function(badgeId, index){
-      return <BadgeIcon key={index} badgeDetails={self.props.stateProps.badgesById[badgeId]} />
+    console.log(this.props.stateProps)
+    console.log(this.props.stateProps.BadgeReducer.badgeIds)
+    var badgeList = this.props.stateProps.BadgeReducer.badgeIds.map(function(badgeId, index){
+      return <BadgeIcon key={index} badgeDetails={self.props.stateProps.BadgeReducer.badgesById[badgeId]} />
     })
+
     return(
       <div>
         <ul>{badgeList}</ul>
@@ -25,7 +28,7 @@ class BadgeIcon extends Component {
   }
 }
 
-Badge.propTypes = {
+Badges.propTypes = {
   stateProps: PropTypes.object.isRequired
 }
 
@@ -33,4 +36,4 @@ BadgeIcon.propTypes = {
   badgeDetails: PropTypes.object.isRequired
 }
 
-export default Badge
+export default Badges

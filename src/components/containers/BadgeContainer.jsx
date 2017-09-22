@@ -1,6 +1,12 @@
+// connect store state and action creators to react component props
+
 import React, {Component} from 'react'
 //import {getState} from 'redux'
-import Badge from '../presentationals/Badge.jsx'
+
+import {connect} from 'react-redux'
+import {addBadge} from '../../actions'
+
+import Badges from '../presentationals/Badges.jsx'
 import PropTypes from 'prop-types'
 
 class BadgeContainer extends Component {
@@ -9,7 +15,7 @@ class BadgeContainer extends Component {
     return (
       <div>
         <h2>Badges</h2>
-        <Badge stateProps = {stateProps} />
+        <Badges stateProps = {stateProps} />
       </div>
     )
   }
@@ -18,5 +24,15 @@ class BadgeContainer extends Component {
 BadgeContainer.propTypes = {
   store: PropTypes.object
 }
+
+const mapDispatchToProps = (dispatch) => ({
+  addBadge: () => dispatch(addBadge())
+})
+
+const mapStateToProps = (state) => ({
+
+})
+
+//export default connect(mapStateToProps, mapDispatchToProps)(Badge)
 
 export default BadgeContainer
