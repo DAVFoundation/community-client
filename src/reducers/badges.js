@@ -1,5 +1,5 @@
 import {handleActions} from 'redux-actions';
-import {addBadge} from '../actions';
+import {addBadge, addBadgeAsync} from '../actions';
 
 const initialState = {
   badgeIds : [1,2],
@@ -33,6 +33,12 @@ function BadgeReducer(state=initialState, action){
 
 export default handleActions({
   [addBadge]: (state) => {
+    console.log("add badge action in reducer");
+    return state;
+  },
+
+  [addBadgeAsync]: (state) => {
+    console.log("add badge async in reducer");
     return state;
   }
 }, initialState);

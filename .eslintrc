@@ -38,6 +38,7 @@
       "error",
       "always"
     ],
+    "require-yield":1,
     "no-unused-vars": 1
   },
   "globals": {

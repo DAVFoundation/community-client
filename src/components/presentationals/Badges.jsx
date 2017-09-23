@@ -3,6 +3,22 @@ import PropTypes from 'prop-types';
 
 class Badges extends Component {
 
+  constructor(props){
+    super(props);
+    this.addBadge = this.addBadge.bind(this);
+    this.addBadgeAsync = this.addBadgeAsync.bind(this);
+  }
+
+  addBadge(e){
+    console.log("Add badge immediately");
+    this.props.addBadge();
+  }
+
+  addBadgeAsync(e){
+    console.log("Add badge async");
+    this.props.addBadgeAsync();
+  }
+
   render(){
     console.log(this.props);
     var badgeList = this.props.badgeIds.map(
@@ -12,6 +28,8 @@ class Badges extends Component {
     return(
       <div>
         <ul>{badgeList}</ul>
+        <button onClick={this.addBadge}>Add Badge</button>
+        <button onClick={this.addBadgeAsync}>Add Badge Async</button>
       </div>
     );
   }
@@ -28,7 +46,9 @@ class BadgeIcon extends Component {
 
 Badges.propTypes = {
   badgeIds: PropTypes.array,
-  badgesById: PropTypes.object
+  badgesById: PropTypes.object,
+  addBadge: PropTypes.func,
+  addBadgeAsync: PropTypes.func
 };
 
 BadgeIcon.propTypes = {
