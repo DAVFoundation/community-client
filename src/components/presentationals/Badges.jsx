@@ -4,12 +4,10 @@ import PropTypes from 'prop-types';
 class Badges extends Component {
 
   render(){
-    var self = this;
-    console.log(this.props.stateProps);
-    console.log(this.props.stateProps.BadgeReducer.badgeIds);
-    var badgeList = this.props.stateProps.BadgeReducer.badgeIds.map(function(badgeId, index){
-      return <BadgeIcon key={index} badgeDetails={self.props.stateProps.BadgeReducer.badgesById[badgeId]} />;
-    });
+    console.log(this.props);
+    var badgeList = this.props.badgeIds.map(
+      (badgeId, index) => (<BadgeIcon key={index} badgeDetails={this.props.badgesById[badgeId]} />)
+    );
 
     return(
       <div>
@@ -29,7 +27,8 @@ class BadgeIcon extends Component {
 }
 
 Badges.propTypes = {
-  stateProps: PropTypes.object.isRequired
+  badgeIds: PropTypes.array,
+  badgesById: PropTypes.object
 };
 
 BadgeIcon.propTypes = {

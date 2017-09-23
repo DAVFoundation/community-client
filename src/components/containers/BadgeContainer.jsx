@@ -7,7 +7,8 @@ import {connect} from 'react-redux';
 import {addBadge} from '../../actions';
 
 import Badges from '../presentationals/Badges.jsx';
-import PropTypes from 'prop-types';
+
+/*import PropTypes from 'prop-types';
 
 class BadgeContainer extends Component {
   render(){
@@ -23,16 +24,17 @@ class BadgeContainer extends Component {
 
 BadgeContainer.propTypes = {
   store: PropTypes.object
-};
+};*/
 
 const mapDispatchToProps = (dispatch) => ({
   addBadge: () => dispatch(addBadge())
 });
 
 const mapStateToProps = (state) => ({
-
+  badgeIds: state.BadgeReducer.badgeIds,
+  badgesById: state.BadgeReducer.badgesById
 });
 
-//export default connect(mapStateToProps, mapDispatchToProps)(Badge)
+export default connect(mapStateToProps, mapDispatchToProps)(Badges);
 
-export default BadgeContainer;
+//export default BadgeContainer;

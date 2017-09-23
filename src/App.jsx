@@ -9,15 +9,11 @@ class App extends Component {
     return (
       <div>
         <h1>Community Client</h1>
-        <BadgeContainer store={store} />
+        <BadgeContainer />
         <Footer />
       </div>
     );
   }
 }
-
-App.propTypes = {
-  store: PropTypes.object.isRequired
-};
 
 export default App;
