@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Footer} from './components/presentationals/Footer.jsx';
-import BadgeContainer from './components/containers/BadgeContainer.jsx';
+import BadgesContainer from './components/containers/BadgesContainer.jsx';
 import PropTypes from 'prop-types';
 import store from './store';
 
@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div>
         <h1>Community Client</h1>
-        <BadgeContainer />
+        <BadgesContainer />
         <Footer />
       </div>
     );
