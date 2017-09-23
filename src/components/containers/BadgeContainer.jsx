@@ -31,8 +31,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
-  badgeIds: state.BadgeReducer.badgeIds,
-  badgesById: state.BadgeReducer.badgesById
+  badgeIds: state.badges.badgeIds,
+  badgesById: state.badges.badgesById
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Badges);

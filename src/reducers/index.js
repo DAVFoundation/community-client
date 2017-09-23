@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import BadgeReducer from './badges';
+import badges from './badges';
 
 export default combineReducers({
-  BadgeReducer
+  badges
 });

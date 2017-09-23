@@ -31,11 +31,8 @@ function BadgeReducer(state=initialState, action){
   }
 }
 
-const reducer = handleActions({
+export default handleActions({
   [addBadge]: (state) => {
     return state;
   }
 }, initialState);
-
-
-export default BadgeReducer;
