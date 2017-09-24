@@ -11,7 +11,7 @@ export function* helloSaga(){
 export function* incrementAsync(){
   console.log("worker saga");
   yield call(delay,1000);
-  yield put({type:'ADD_BADGE'});
+  yield put({type:'ADD_BADGE', payload:1});
 }
 
 // Watcher Saga

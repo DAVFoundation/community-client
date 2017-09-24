@@ -32,13 +32,17 @@ function BadgeReducer(state=initialState, action){
 }
 
 export default handleActions({
-  [addBadge]: (state) => {
-    console.log("add badge action in reducer");
-    return state;
+  [addBadge]: (state, action) => {
+    console.log(action);
+    let edited = Object.assign({}, state, {
+      badgeIds: [action.payload,action.payload]
+    });
+    return edited;
   },
 
-  [addBadgeAsync]: (state) => {
-    console.log("add badge async in reducer");
-    return state;
-  }
+  // NO need to handle all saga watcher actions
+  // [addBadgeAsync]: (state) => {
+  //   console.log("add badge async in reducer");
+  //   return state;
+  // }
 }, initialState);

@@ -5,7 +5,7 @@ import {addBadge, addBadgeAsync} from '../../actions';
 import Badges from '../presentationals/Badges.jsx';
 
 const mapDispatchToProps = (dispatch) => ({
-  addBadge: () => dispatch(addBadge()),
+  addBadge: (val) => dispatch(addBadge(val)),
   addBadgeAsync: () => dispatch(addBadgeAsync())
 });
 

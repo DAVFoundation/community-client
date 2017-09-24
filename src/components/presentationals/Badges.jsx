@@ -9,9 +9,10 @@ class Badges extends Component {
     this.addBadgeAsync = this.addBadgeAsync.bind(this);
   }
 
-  addBadge(e){
+  addBadge(val){
     console.log("Add badge immediately");
-    this.props.addBadge();
+    console.log(val);
+    this.props.addBadge(val);
   }
 
   addBadgeAsync(e){
@@ -28,9 +29,28 @@ class Badges extends Component {
     return(
       <div>
         <ul>{badgeList}</ul>
-        <button onClick={this.addBadge}>Add Badge</button>
+        <Button onRootClick={this.addBadge} value={1} name="Add Badge1" />
+        <Button onRootClick={this.addBadge} value={2} name="Add Badge2" />
         <button onClick={this.addBadgeAsync}>Add Badge Async</button>
       </div>
+    );
+  }
+}
+
+class Button extends Component {
+
+  constructor(props){
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick (){
+    this.props.onRootClick(this.props.value);
+  }
+
+  render(){
+    return (
+      <button onClick={this.handleClick}>{this.props.name}</button>
     );
   }
 }
@@ -49,6 +69,12 @@ Badges.propTypes = {
   badgesById: PropTypes.object,
   addBadge: PropTypes.func,
   addBadgeAsync: PropTypes.func
+};
+
+Button.propTypes = {
+  onRootClick: PropTypes.func,
+  value: PropTypes.number,
+  name: PropTypes.string
 };
 
 BadgeIcon.propTypes = {
