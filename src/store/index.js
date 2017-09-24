@@ -10,6 +10,7 @@ const store = createStore(
   applyMiddleware(sagaMiddleware)
 );
 
+// runs all watcher sagas registered in root saga
 sagaMiddleware.run(rootSaga);
 
 export default store;
