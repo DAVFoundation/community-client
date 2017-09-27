@@ -1,6 +1,7 @@
 import {delay} from 'redux-saga';
 import {put,call,takeEvery, takeLatest} from 'redux-saga/effects';
 import {addBadge, addBadgeAsync, getUserBadges, getUserBadgesSuccess, getUserBadgesError} from '../actions';
+import {apiGetUserBadges} from '../lib/api';
 
 // WATCHER SAGAS
 export function* watchAddBadge() {
@@ -23,7 +24,7 @@ export function* workerAddBadge(){
 
 export function* workerGetUserBadges(){
   try{
-    const resp = yield call(badgeApi);
+    const resp = yield call(apiGetUserBadges);
 
     yield put(getUserBadgesSuccess(resp));
   } catch(error){
@@ -31,19 +32,4 @@ export function* workerGetUserBadges(){
   }
 }
 
-function badgeApi(){
-  return fetch("http://localhost:3000/api/badges", {
-    method: 'GET'
-  })
-    .then(handleApiErrors)
-    .then(resp => resp.json())
-    .then(json => json)
-    .catch((error) => {throw error;});
-
-}
-
-function handleApiErrors(resp){
-  if(!resp.ok) throw Error(resp.statusText);
-  return resp;
-}
 
