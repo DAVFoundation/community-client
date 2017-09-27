@@ -41,7 +41,7 @@ class NewsItem extends Component {
 NewsFeed.propTypes = {
   newsIds: PropTypes.array,
   newsById: PropTypes.object
-}
+};
 
 NewsItem.propTypes = {
   details: PropTypes.object.isRequired
