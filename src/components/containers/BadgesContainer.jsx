@@ -1,12 +1,13 @@
 // connect store state and action creators to react component props
 
 import {connect} from 'react-redux';
-import {addBadge, addBadgeAsync} from '../../actions';
+import {addBadge, addBadgeAsync, getUserBadges} from '../../actions';
 import Badges from '../presentationals/Badges.jsx';
 
 const mapDispatchToProps = (dispatch) => ({
   addBadge: (val) => dispatch(addBadge(val)),
-  addBadgeAsync: () => dispatch(addBadgeAsync())
+  addBadgeAsync: () => dispatch(addBadgeAsync()),
+  getUserBadges: () => dispatch(getUserBadges())
 });
 
 const mapStateToProps = (state) => ({

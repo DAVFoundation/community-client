@@ -17,7 +17,7 @@ class Badges extends Component {
 
   addBadgeAsync(e){
     console.log("Add badge async");
-    this.props.addBadgeAsync();
+    this.props.getUserBadges();
   }
 
   render(){
@@ -68,7 +68,7 @@ Badges.propTypes = {
   badgeIds: PropTypes.array,
   badgesById: PropTypes.object,
   addBadge: PropTypes.func,
-  addBadgeAsync: PropTypes.func
+  getUserBadges: PropTypes.func
 };
 
 Button.propTypes = {
