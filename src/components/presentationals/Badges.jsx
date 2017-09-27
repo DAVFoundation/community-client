@@ -9,6 +9,11 @@ class Badges extends Component {
     this.addBadgeAsync = this.addBadgeAsync.bind(this);
   }
 
+  componentDidMount(){
+    console.log("badge component is mounted");
+    this.props.getUserBadges();
+  }
+
   addBadge(val){
     console.log("Add badge immediately");
     console.log(val);
@@ -21,7 +26,7 @@ class Badges extends Component {
   }
 
   render(){
-    console.log(this.props);
+
     var badgeList = this.props.badgeIds.map(
       (badgeId, index) => (<BadgeIcon key={index} badgeDetails={this.props.badgesById[badgeId]} />)
     );
