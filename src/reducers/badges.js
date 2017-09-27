@@ -1,5 +1,5 @@
 import {handleActions} from 'redux-actions';
-import {addBadge, addBadgeAsync} from '../actions';
+import {addBadge, addBadgeAsync, getUserBadgesSuccess} from '../actions';
 
 const initialState = {
   badgeIds : [1,2],
@@ -39,6 +39,11 @@ export default handleActions({
     });
     return edited;
   },
+
+  [getUserBadgesSuccess]: (state, action) => {
+    let edited = Object.assign({}, state, action.payload);
+    return edited;
+  }
 
   // NO need to handle all saga watcher actions
   // [addBadgeAsync]: (state) => {
