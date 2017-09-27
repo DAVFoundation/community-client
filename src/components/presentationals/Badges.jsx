@@ -28,7 +28,7 @@ class Badges extends Component {
   render(){
 
     var badgeList = this.props.badgeIds.map(
-      (badgeId, index) => (<BadgeIcon key={index} badgeDetails={this.props.badgesById[badgeId]} />)
+      (badgeId, index) => (<BadgeIcon key={index} details={this.props.badgesById[badgeId]} />)
     );
 
     return(
@@ -64,7 +64,7 @@ class BadgeIcon extends Component {
 
   render(){
     return (
-      <li>{this.props.badgeDetails.title}</li>
+      <li>{this.props.details.title}</li>
     );
   }
 }
@@ -83,7 +83,7 @@ Button.propTypes = {
 };
 
 BadgeIcon.propTypes = {
-  badgeDetails: PropTypes.object.isRequired
+  details: PropTypes.object.isRequired
 };
 
 export default Badges;

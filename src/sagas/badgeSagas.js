@@ -24,7 +24,6 @@ export function* workerAddBadge(){
 export function* workerGetUserBadges(){
   try{
     const resp = yield call(badgeApi);
-    console.log(resp);
 
     yield put(getUserBadgesSuccess(resp));
   } catch(error){
@@ -41,21 +40,6 @@ function badgeApi(){
     .then(json => json)
     .catch((error) => {throw error;});
 
-  /*return {
-    badgeIds : [3,5],
-    badgesById : {
-      3 : {
-        id: 3,
-        img: "founder",
-        title: "API Founder"
-      },
-      5 : {
-        id: 5,
-        img : "contributor",
-        title: "API Contributor"
-      }
-    }
-  };*/
 }
 
 function handleApiErrors(resp){
