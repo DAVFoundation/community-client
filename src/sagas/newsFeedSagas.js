@@ -1,5 +1,6 @@
 import {put, call, takeLatest} from 'redux-saga/effects';
 import {getUserNewsFeed, getUserNewsFeedSuccess, getUserNewsFeedError} from '../actions';
+import {apiGetUserNewsFeed} from '../lib/api';
 
 // WATCHER SAGAS
 export function* watchGetUserNewsFeed(){
@@ -11,7 +12,7 @@ export function* watchGetUserNewsFeed(){
 export function* workerGetUserNewsFeed(){
 
   try{
-    const resp = yield call(newsFeedApi);
+    const resp = yield call(apiGetUserNewsFeed);
     yield put(getUserNewsFeedSuccess(resp));
 
   } catch(error){
@@ -20,6 +21,3 @@ export function* workerGetUserNewsFeed(){
   }
 }
 
-function newsFeedApi(){
-  console.log("news feed");
-}
