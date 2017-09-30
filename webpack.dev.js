@@ -14,6 +14,7 @@ module.exports = merge(common, {
     port: 8080,
     hot: true,
     inline: true,
+    //public: 'localhost.com'
   },
   plugins: [
 
@@ -25,7 +26,7 @@ module.exports = merge(common, {
       inject: 'body'
     }),
 
-    //prevents webpack CLI from stopping due to errors 
+    //prevents webpack CLI from stopping due to errors
     new webpack.NoEmitOnErrorsPlugin(),
 
     //improve logging in the console
@@ -41,5 +42,8 @@ module.exports = merge(common, {
       }
     })
 
-  ]
+  ],
+  externals: {
+    config: JSON.stringify(require("./src/config/config.dev.js"))
+  }
 })
