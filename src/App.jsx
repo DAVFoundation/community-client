@@ -2,11 +2,11 @@ import React, {Component} from 'react';
 import {Footer} from './components/presentationals/Footer.jsx';
 import BadgesContainer from './components/containers/BadgesContainer.jsx';
 import NewsFeedContainer from './components/containers/NewsFeedContainer.jsx';
-import initializeApp from './lib/init';
+import initApp from './lib/init.js';
 
 class App extends Component {
   componentDidMount() {
-    initializeApp();
+    initApp();
   }
 
   render(){
