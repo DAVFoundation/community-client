@@ -11,8 +11,15 @@ export function apiGetUserBadges(){
     .catch(error => {throw error;});
 }
 
-export function apiGetUserDetails(){
-  return fetch(`${config.api.endpoint}/api/user`);
+export function apiGetUser(){
+  return fetch(`${config.api.endpoint}/api/user`,{
+    method: 'GET',
+    credentials: 'include'
+  })
+    .then(handleApiErrors)
+    .then(resp => resp.json())
+    .then(json => json)
+    .catch(error => {throw error;});
 }
 
 function handleApiErrors(resp){
