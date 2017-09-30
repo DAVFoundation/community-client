@@ -6,3 +6,5 @@
 
 npm-debug.log*
 package-lock.json
+
+/src/config/config.dev.js
