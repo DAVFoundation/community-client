@@ -2,10 +2,11 @@ import React, {Component} from 'react';
 import {Footer} from './components/presentationals/Footer.jsx';
 import BadgesContainer from './components/containers/BadgesContainer.jsx';
 import NewsFeedContainer from './components/containers/NewsFeedContainer.jsx';
+import initializeApp from './lib/init';
 
 class App extends Component {
   componentDidMount() {
-    console.log("App component is mounted");
+    initializeApp();
   }
 
   render(){
