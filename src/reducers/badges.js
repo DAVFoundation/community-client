@@ -1,5 +1,5 @@
 import {handleActions} from 'redux-actions';
-import {addBadge, addBadgeAsync, getUserBadgesSuccess} from '../actions';
+import {addBadge, getUserBadgesSuccess} from '../actions';
 
 const initialState = {
   badgeIds : [],
