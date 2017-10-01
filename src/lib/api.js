@@ -1,7 +1,7 @@
 import config from 'config';
 
 export function apiGetUserBadges(){
-  return fetch(`${config.api.endpoint}/api/badges`, {
+  return fetch(`${config.api.endpoint}/api/user/badges`, {
     method: 'GET',
     credentials: 'include'
   })
@@ -28,8 +28,9 @@ function handleApiErrors(resp){
 }
 
 export function apiGetUserNewsFeed(){
-  return fetch("http://localhost:3000/api/news", {
-    method: 'GET'
+  return fetch(`${config.api.endpoint}/api/user/updates`, {
+    method: 'GET',
+    credentials: 'include'
   })
     .then(handleApiErrors)
     .then(resp => resp.json())
