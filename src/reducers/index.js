@@ -1,10 +1,10 @@
 import {combineReducers} from 'redux';
 import badges from './badges';
-import newsfeed from './newsfeed';
+import updates from './updates';
 import user from './user';
 
 export default combineReducers({
   user,
   badges,
-  newsfeed
+  updates
 });

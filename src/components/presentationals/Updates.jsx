@@ -1,31 +1,31 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
-class NewsFeed extends Component {
+class Updates extends Component {
 
   constructor(props){
     super(props);
   }
 
   componentDidMount(){
-    this.props.getUserNewsFeed();
+    this.props.getUserUpdates();
   }
 
   render(){
 
-    var newslist = this.props.updateIds.map(
-      (updateId, index) => (<NewsItem key={index} details={this.props.updatesById[updateId]} />)
+    var updatelist = this.props.updateIds.map(
+      (updateId, index) => (<UpdateItem key={index} details={this.props.updatesById[updateId]} />)
     );
 
     return(
       <div>
-        <ul>{newslist}</ul>
+        <ul>{updatelist}</ul>
       </div>
     );
   }
 }
 
-class NewsItem extends Component {
+class UpdateItem extends Component {
 
   constructor(props){
     super(props);
@@ -38,14 +38,14 @@ class NewsItem extends Component {
   }
 }
 
-NewsFeed.propTypes = {
+Updates.propTypes = {
   updateIds: PropTypes.array,
   updatesById: PropTypes.object,
-  getUserNewsFeed: PropTypes.func
+  getUserUpdates: PropTypes.func
 };
 
-NewsItem.propTypes = {
+UpdateItem.propTypes = {
   details: PropTypes.object.isRequired
 };
 
-export default NewsFeed;
+export default Updates;

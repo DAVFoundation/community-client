@@ -20,8 +20,8 @@ export const addUserBadge = createAction('ADD_USER_BADGE');
 
 export const removeUserBadge = createAction('REMOVE_USER_BADGE');
 
-export const getUserNewsFeed = createAction('GET_USER_NEWS_FEED');
+export const getUserUpdates = createAction('GET_USER_UPDATES');
 
-export const getUserNewsFeedSuccess = createAction('GET_USER_NEWS_FEED_SUCCESS');
+export const getUserUpdatesSuccess = createAction('GET_USER_UPDATES_SUCCESS');
 
-export const getUserNewsFeedError = createAction('GET_USER_NEWS_FEED_ERROR');
+export const getUserUpdatesError = createAction('GET_USER_UPDATES_ERROR');

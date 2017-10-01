@@ -27,7 +27,7 @@ function handleApiErrors(resp){
   return resp;
 }
 
-export function apiGetUserNewsFeed(){
+export function apiGetUserUpdates(){
   return fetch(`${config.api.endpoint}/api/user/updates`, {
     method: 'GET',
     credentials: 'include'

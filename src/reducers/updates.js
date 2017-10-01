@@ -1,5 +1,5 @@
 import {handleActions} from 'redux-actions';
-import {getUserNewsFeedSuccess} from '../actions';
+import {getUserUpdatesSuccess} from '../actions';
 
 const initialState = {
   updateIds : [],
@@ -7,7 +7,7 @@ const initialState = {
 };
 
 export default handleActions({
-  [getUserNewsFeedSuccess]: (state, action) => {
+  [getUserUpdatesSuccess]: (state, action) => {
     let edited = Object.assign({}, state, action.payload);
     return edited;
   }

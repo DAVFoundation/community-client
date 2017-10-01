@@ -1,9 +1,8 @@
 import "regenerator-runtime/runtime";
-import {delay} from 'redux-saga';
-import {put,call, takeEvery, all} from 'redux-saga/effects';
+import {all} from 'redux-saga/effects';
 import {watchAddBadge, watchGetUserBadges} from './badgeSagas';
 import {watchGetUser} from './userSagas';
-import {watchGetUserNewsFeed} from './newsFeedSagas';
+import {watchGetUserUpdates} from './updateSagas';
 
 // register watcher sagas
 export default function* rootSaga(){
@@ -11,6 +10,6 @@ export default function* rootSaga(){
     watchAddBadge(),
     watchGetUserBadges(),
     watchGetUser(),
-    watchGetUserNewsFeed()
+    watchGetUserUpdates()
   ]);
 }
