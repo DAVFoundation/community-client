@@ -2,8 +2,8 @@ import {handleActions} from 'redux-actions';
 import {getUserNewsFeedSuccess} from '../actions';
 
 const initialState = {
-  newsIds : [],
-  newsById : {}
+  updateIds : [],
+  updatesById : {}
 };
 
 export default handleActions({

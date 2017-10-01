@@ -8,13 +8,13 @@ class NewsFeed extends Component {
   }
 
   componentDidMount(){
-
+    this.props.getUserNewsFeed();
   }
 
   render(){
 
-    var newslist = this.props.newsIds.map(
-      (newsId, index) => (<NewsItem key={index} details={this.props.newsById[newsId]} />)
+    var newslist = this.props.updateIds.map(
+      (updateId, index) => (<NewsItem key={index} details={this.props.updatesById[updateId]} />)
     );
 
     return(
@@ -39,8 +39,9 @@ class NewsItem extends Component {
 }
 
 NewsFeed.propTypes = {
-  newsIds: PropTypes.array,
-  newsById: PropTypes.object
+  updateIds: PropTypes.array,
+  updatesById: PropTypes.object,
+  getUserNewsFeed: PropTypes.func
 };
 
 NewsItem.propTypes = {

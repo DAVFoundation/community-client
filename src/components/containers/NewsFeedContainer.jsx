@@ -7,8 +7,8 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 const mapStateToProps = (state) => ({
-  newsIds: state.newsfeed.newsIds,
-  newsById: state.newsfeed.newsById
+  updateIds: state.newsfeed.updateIds,
+  updatesById: state.newsfeed.updatesById
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewsFeed);
