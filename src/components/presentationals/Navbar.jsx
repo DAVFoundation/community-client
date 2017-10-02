@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 
 class Navbar extends Component {
   constructor(props){
@@ -15,8 +14,14 @@ class Navbar extends Component {
   render(){
     return(
       <div>
-        <h1>Community Logo</h1>
-        <a href='#' onClick={this.logout}>Logout</a>
+        <nav className="navbar">
+          <a className="navbar-brand">Community</a>
+          <ul className='navbar-nav'>
+            <li className='nav-item'>
+              <a href='#' onClick={this.logout}>Logout</a>
+            </li>
+          </ul>
+        </nav>
       </div>
     );
   }
