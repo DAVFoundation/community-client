@@ -1,0 +1,70 @@
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
+
+class ProfileTasks extends Component {
+
+  constructor(props){
+    super(props);
+    this.taskIds = [1,2];
+    this.tasksById = {
+      1: {
+        title: "sign up",
+        status: "incomplete"
+      },
+      2: {
+        title: "like on social media",
+        status: "incomplete"
+      }
+    };
+  }
+
+  render(){
+    var completedTasks = 0;
+    var taskList = this.taskIds.map((taskId, index) => {
+      if(this.tasksById[taskId].status=="complete") completedTasks+=1;
+      return (<TaskItem key={index} details={this.tasksById[taskId]} />);
+    });
+    return(
+      <div>
+        <ProgressBar completion={(completedTasks/taskList.length)*100} />
+        <ul>{taskList}</ul>
+      </div>
+    );
+  }
+}
+
+class ProgressBar extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  render(){
+    return(
+      <div>
+        <h2>Progress Status: {this.props.completion}</h2>
+      </div>
+    );
+  }
+}
+
+class TaskItem extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  render(){
+    return(
+      <li className={this.props.details.status}>{this.props.details.title}</li>
+    );
+  }
+}
+
+ProgressBar.propTypes = {
+  completion: PropTypes.number
+};
+
+TaskItem.propTypes = {
+  details: PropTypes.object
+};
+
+export default ProfileTasks;
