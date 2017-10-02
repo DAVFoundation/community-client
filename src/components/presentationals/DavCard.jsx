@@ -11,12 +11,18 @@ class DavCard extends Component {
     return(
       <div>
         <h3>Dav Card</h3>
-        <h5>0x4248217480237408124215125</h5>
-        <h5>0 dav balance</h5>
-        <h5>Abhishek Singh</h5>
+        <h5>{this.props.uid}</h5>
+        <h5>{this.props.balance} dav balance</h5>
+        <h5>{this.props.name}</h5>
       </div>
     );
   }
 }
+
+DavCard.propTypes = {
+  uid: PropTypes.string,
+  balance: PropTypes.number,
+  name: PropTypes.string
+};
 
 export default DavCard;
