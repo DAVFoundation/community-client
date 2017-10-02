@@ -9,12 +9,18 @@ class NotificationBar extends Component {
   render(){
     return(
       <div>
-        <h4>Welcome Aboard</h4>
-        <p>This is the notification text message</p>
-        <button>Do stuff</button>
+        <h4>{this.props.title}</h4>
+        <p>{this.props.description}</p>
+        <button>{this.props.action}</button>
       </div>
     );
   }
 }
+
+NotificationBar.propTypes = {
+  title: PropTypes.string,
+  description: PropTypes.string,
+  action: PropTypes.string
+};
 
 export default NotificationBar;

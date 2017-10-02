@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Navbar from './components/presentationals/Navbar.jsx';
-import NotificationBar from './components/presentationals/NotificationBar.jsx';
+import NotificationBarContainer from './components/containers/NotificationBarContainer.jsx';
 import DavCardContainer from './components/containers/DavCardContainer.jsx';
 import ProfileTasksContainer from './components/containers/ProfileTasksContainer.jsx';
 import {Footer} from './components/presentationals/Footer.jsx';
@@ -18,7 +18,7 @@ class App extends Component {
     return (
       <div>
         <Navbar />
-        <NotificationBar />
+        <NotificationBarContainer />
         <DavCardContainer />
         <ProfileTasksContainer />
         <Bounties />
