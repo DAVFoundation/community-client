@@ -5,24 +5,13 @@ class ProfileTasks extends Component {
 
   constructor(props){
     super(props);
-    this.taskIds = [1,2];
-    this.tasksById = {
-      1: {
-        title: "sign up",
-        status: "incomplete"
-      },
-      2: {
-        title: "like on social media",
-        status: "incomplete"
-      }
-    };
   }
 
   render(){
     var completedTasks = 0;
-    var taskList = this.taskIds.map((taskId, index) => {
-      if(this.tasksById[taskId].status=="complete") completedTasks+=1;
-      return (<TaskItem key={index} details={this.tasksById[taskId]} />);
+    var taskList = this.props.taskIds.map((taskId, index) => {
+      if(this.props.tasksById[taskId].status=="complete") completedTasks+=1;
+      return (<TaskItem key={index} details={this.props.tasksById[taskId]} />);
     });
     return(
       <div>
@@ -58,6 +47,11 @@ class TaskItem extends Component {
     );
   }
 }
+
+ProfileTasks.propTypes = {
+  taskIds: PropTypes.array,
+  tasksById: PropTypes.object
+};
 
 ProgressBar.propTypes = {
   completion: PropTypes.number

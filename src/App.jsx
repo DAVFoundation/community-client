@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import Navbar from './components/presentationals/Navbar.jsx';
 import NotificationBar from './components/presentationals/NotificationBar.jsx';
 import DavCard from './components/presentationals/DavCard.jsx';
-import ProfileTasks from './components/presentationals/ProfileTasks.jsx';
+import ProfileTasksContainer from './components/containers/ProfileTasksContainer.jsx';
 import {Footer} from './components/presentationals/Footer.jsx';
 import Bounties from './components/presentationals/Bounties.jsx';
 import BadgesContainer from './components/containers/BadgesContainer.jsx';
@@ -20,7 +20,7 @@ class App extends Component {
         <Navbar />
         <NotificationBar />
         <DavCard />
-        <ProfileTasks />
+        <ProfileTasksContainer />
         <Bounties />
         <BadgesContainer />
         <UpdatesContainer />
