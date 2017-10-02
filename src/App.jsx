@@ -4,7 +4,7 @@ import NotificationBarContainer from './components/containers/NotificationBarCon
 import DavCardContainer from './components/containers/DavCardContainer.jsx';
 import ProfileTasksContainer from './components/containers/ProfileTasksContainer.jsx';
 import {Footer} from './components/presentationals/Footer.jsx';
-import Bounties from './components/presentationals/Bounties.jsx';
+import BountiesContainer from './components/containers/BountiesContainer.jsx';
 import BadgesContainer from './components/containers/BadgesContainer.jsx';
 import UpdatesContainer from './components/containers/UpdatesContainer.jsx';
 import initApp from './lib/init.js';
@@ -21,7 +21,7 @@ class App extends Component {
         <NotificationBarContainer />
         <DavCardContainer />
         <ProfileTasksContainer />
-        <Bounties />
+        <BountiesContainer />
         <BadgesContainer />
         <UpdatesContainer />
         <Footer />

@@ -5,6 +5,7 @@ import user from './user';
 import tasks from './tasks';
 import card from './card';
 import notification from './notification';
+import bounties from './bounties';
 
 export default combineReducers({
   user,
@@ -12,5 +13,6 @@ export default combineReducers({
   updates,
   tasks,
   card,
-  notification
+  notification,
+  bounties
 });

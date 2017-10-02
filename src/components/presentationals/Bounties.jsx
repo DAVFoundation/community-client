@@ -4,22 +4,11 @@ import PropTypes from 'prop-types';
 class Bounties extends Component {
   constructor(props){
     super(props);
-
-    this.bounties = [
-      {
-        title: "add station",
-        action: "addStation"
-      },
-      {
-        title: "verify member",
-        action: "verifyMember"
-      }
-    ];
   }
 
   render(){
-
-    var bountyList = this.bounties.map((bounty, index) => {
+    console.log(this.props);
+    var bountyList = this.props.bountyList.map((bounty, index) => {
       return <BountyItem key={index} title={bounty.title} />;
     });
 
@@ -43,6 +32,10 @@ class BountyItem extends Component {
   }
 
 }
+
+Bounties.propTypes = {
+  bountyList: PropTypes.array
+};
 
 BountyItem.propTypes = {
   title: PropTypes.string.isRequired
