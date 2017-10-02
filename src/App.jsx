@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Navbar from './components/presentationals/Navbar.jsx';
+import NotificationBar from './components/presentationals/NotificationBar.jsx';
 import {Footer} from './components/presentationals/Footer.jsx';
 import BadgesContainer from './components/containers/BadgesContainer.jsx';
 import UpdatesContainer from './components/containers/UpdatesContainer.jsx';
@@ -15,6 +16,7 @@ class App extends Component {
       <div>
         <h1>Community Client</h1>
         <Navbar />
+        <NotificationBar />
         <BadgesContainer />
         <UpdatesContainer />
         <Footer />
