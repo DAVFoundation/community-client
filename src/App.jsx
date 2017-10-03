@@ -17,14 +17,48 @@ class App extends Component {
   render(){
     return (
       <div>
-        <Navbar />
-        <NotificationBarContainer />
-        <DavCardContainer />
-        <ProfileTasksContainer />
-        <BountiesContainer />
-        <BadgesContainer />
-        <UpdatesContainer />
-        <Footer />
+        <div className='container-fluid'>
+          <Navbar />
+          <div className="row">
+            <div className="col-xs-12">
+              <NotificationBarContainer />
+            </div>
+          </div>
+        </div>
+        <div className="container">
+          <div className="row">
+            <div className="col-md-4">
+              <div className="row">
+                <div className="col-xs-12">
+                  <DavCardContainer />
+                </div>
+                <div className="col-xs-12">
+                  <BadgesContainer />
+                </div>
+              </div>
+            </div>
+            <div className="col-md-8">
+              <div className="row">
+                <div className="col-md-12">
+                  <ProfileTasksContainer />
+                </div>
+                <div className="col-md-12">
+                  <BountiesContainer />
+                </div>
+                <div className="col-md-12">
+                  <UpdatesContainer />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-12">
+              <Footer />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
