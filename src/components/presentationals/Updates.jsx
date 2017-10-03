@@ -19,7 +19,7 @@ class Updates extends Component {
 
     return(
       <div>
-        <ul>{updatelist}</ul>
+        <ul className='list-group'>{updatelist}</ul>
       </div>
     );
   }
@@ -33,7 +33,7 @@ class UpdateItem extends Component {
 
   render(){
     return (
-      <li>{this.props.details.description}</li>
+      <li className='list-group-item'>{this.props.details.description}</li>
     );
   }
 }
