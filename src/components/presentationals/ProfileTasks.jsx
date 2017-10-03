@@ -29,8 +29,8 @@ class ProgressBar extends Component {
 
   render(){
     return(
-      <div>
-        <h2>Progress Status: {this.props.completion}</h2>
+      <div className="progress">
+        <div className="progress-bar" role="progressbar" style={{width: "25%"}} aria-valuenow="25" ariav-valuemin="0" aria-valuemax="100"></div>
       </div>
     );
   }
