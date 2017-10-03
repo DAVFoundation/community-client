@@ -16,7 +16,7 @@ class ProfileTasks extends Component {
     return(
       <div>
         <ProgressBar completion={(completedTasks/taskList.length)*100} />
-        <ul>{taskList}</ul>
+        <ul className="list-unstyled">{taskList}</ul>
       </div>
     );
   }
