@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class Footer extends Component {
   render(){
     return (
-      <div>
+      <div className="text-center">
         <SocialMediaBar />
         <CopyrightInfo />
       </div>
@@ -37,7 +37,7 @@ class SocialMediaBar extends Component {
 
     return (
       <div>
-        <ul>{linkList}</ul>
+        <ul className="list-inline">{linkList}</ul>
       </div>
     );
   }
@@ -47,7 +47,7 @@ class SocialMediaIcon extends Component {
 
   render(){
     return (
-      <li>
+      <li className='list-inline-item'>
         <a href={this.props.link} target="_blank">
           {this.props.name}
         </a>
@@ -64,7 +64,7 @@ SocialMediaIcon.propTypes = {
 class CopyrightInfo extends Component {
   render(){
     return (
-      <h5>Copyright DAV 2017</h5>
+      <h6>Copyright DAV 2017</h6>
     );
   }
 }
