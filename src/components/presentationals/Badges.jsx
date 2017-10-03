@@ -33,38 +33,18 @@ class Badges extends Component {
 
     return(
       <div>
-        <ul>{badgeList}</ul>
-        <Button onRootClick={this.addBadge} value={1} name="Add Badge1" />
-        <Button onRootClick={this.addBadge} value={2} name="Add Badge2" />
-        <button onClick={this.addBadgeAsync}>Add Badge Async</button>
+        <ul className="list-inline">{badgeList}</ul>
       </div>
     );
   }
 }
 
-class Button extends Component {
-
-  constructor(props){
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick (){
-    this.props.onRootClick(this.props.value);
-  }
-
-  render(){
-    return (
-      <button onClick={this.handleClick}>{this.props.name}</button>
-    );
-  }
-}
 
 class BadgeIcon extends Component {
 
   render(){
     return (
-      <li>{this.props.details.title}</li>
+      <li className="list-inline-item">{this.props.details.title}</li>
     );
   }
 }
@@ -76,11 +56,6 @@ Badges.propTypes = {
   getUserBadges: PropTypes.func
 };
 
-Button.propTypes = {
-  onRootClick: PropTypes.func,
-  value: PropTypes.number,
-  name: PropTypes.string
-};
 
 BadgeIcon.propTypes = {
   details: PropTypes.object.isRequired
