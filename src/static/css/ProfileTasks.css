@@ -1,0 +1,38 @@
+.progress {
+  border-radius: 25px;
+  margin-bottom: 2rem;
+}
+
+.progress-bar{
+  background: #3f1c78;
+}
+
+#task-list li{
+  color: #506177;
+}
+
+.task-title {
+  display: inline-block;
+}
+
+.task-checkbox {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  transform: translateY(5px);
+  background: #d9e6e9;
+  border-radius: 2px;
+  margin-right: 14px;
+}
+
+#task-list li.complete .task-title{
+  color: #512ca3;
+}
+
+#task-list li.complete .task-checkbox{
+  background: #3f1c78;
+  background-image: url("../images/checkmark.png");
+  background-size: 50%;
+  background-repeat: no-repeat;
+  background-position: center;
+}

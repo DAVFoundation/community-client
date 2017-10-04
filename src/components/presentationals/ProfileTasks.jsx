@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import '../../static/css/ProfileTasks.css';
 
 class ProfileTasks extends Component {
 
@@ -15,8 +16,9 @@ class ProfileTasks extends Component {
     });
     return(
       <div>
-        <ProgressBar completion={(completedTasks/taskList.length)*100} />
-        <ul className="list-unstyled">{taskList}</ul>
+        <h2 className="section-heading">Earn Bounties and Complete Your Profile</h2>
+        <ProgressBar completion={(completedTasks/taskList.length)*100+25} />
+        <ul id="task-list" className="list-unstyled">{taskList}</ul>
       </div>
     );
   }
@@ -47,7 +49,10 @@ class TaskItem extends Component {
 
   render(){
     return(
-      <li className={this.props.details.status}>{this.props.details.title}</li>
+      <li className={this.props.details.status}>
+        <div className="task-checkbox"></div>
+        <p className="task-title">{this.props.details.title}</p>
+      </li>
     );
   }
 }
