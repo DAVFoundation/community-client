@@ -1,0 +1,25 @@
+.navbar-custom {
+  background: #3f1c78;
+  padding:.5rem 3rem;
+}
+
+.navbar-brand {
+  padding: 0;
+}
+
+.nav-item a {
+  color: white;
+}
+
+.nav-item a:hover {
+  color: #eee;
+}
+
+.logo {
+  height: 40px;
+}
+
+.nav-item {
+  text-transform: uppercase;
+  font-size: 12px;
+}
