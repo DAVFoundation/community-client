@@ -6,6 +6,8 @@ export const getUserSuccess = createAction('GET_USER_SUCCESS');
 
 export const getUserError = createAction('GET_USER_ERROR');
 
+export const logoutUser = createAction('LOGOUT_USER');
+
 export const addBadge = createAction('ADD_BADGE');
 
 export const addBadgeAsync = createAction('ADD_BADGE_ASYNC');
