@@ -22,7 +22,6 @@ function BadgeReducer(state=initialState, action){
 
 export default handleActions({
   [addBadge]: (state, action) => {
-    console.log(action);
     let edited = Object.assign({}, state, {
       badgeIds: [action.payload,action.payload]
     });
