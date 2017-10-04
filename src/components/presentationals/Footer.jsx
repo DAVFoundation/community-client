@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import '../../static/css/Footer.css';
 
 class Footer extends Component {
   render(){
     return (
-      <div className="text-center">
+      <div id="footer" className="col-md-12 text-center">
         <SocialMediaBar />
         <CopyrightInfo />
       </div>
@@ -46,10 +47,11 @@ class SocialMediaBar extends Component {
 class SocialMediaIcon extends Component {
 
   render(){
+    var imgSrc = `../../static/images/social-icons/${this.props.name.toLowerCase()}.png`;
     return (
       <li className='list-inline-item'>
         <a href={this.props.link} target="_blank">
-          {this.props.name}
+          <img src={imgSrc} />
         </a>
       </li>
     );
@@ -64,7 +66,17 @@ SocialMediaIcon.propTypes = {
 class CopyrightInfo extends Component {
   render(){
     return (
-      <h6>Copyright DAV 2017</h6>
+      <div>
+        <h6 className="copyright">&copy; Copyright 2017 DAV - All Rights Reserved -- DAV is a registered nonprofit in Zug, Switzerland</h6>
+        <ul className="list-inline copyright">
+          <li className='list-inline-item'>
+            <a href="#">Privacy Policy</a>
+          </li>
+          <li className='list-inline-item'>
+            <a href="#">Terms and Conditions</a>
+          </li>
+        </ul>
+      </div>
     );
   }
 }
