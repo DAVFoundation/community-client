@@ -1,0 +1,9 @@
+#bounty-list li {
+  padding: 0 1rem;
+}
+
+.bounty-title{
+  color: #512ca3;
+  font-size: 12px;
+  font-weight: 500;
+}
