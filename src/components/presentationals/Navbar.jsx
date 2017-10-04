@@ -1,4 +1,7 @@
 import React, {Component} from 'react';
+import '../../static/css/Navbar.css';
+import store from '../../store';
+import {logoutUser} from '../../actions';
 
 class Navbar extends Component {
   constructor(props){
@@ -9,13 +12,16 @@ class Navbar extends Component {
   logout(e){
     e.preventDefault();
     console.log("logout");
+    store.dispatch(logoutUser());
   }
 
   render(){
     return(
       <div>
-        <nav className="navbar">
-          <a className="navbar-brand">Community</a>
+        <nav className="navbar navbar-custom">
+          <a className="navbar-brand">
+            <img src="../../static/images/logo.png" className="logo"/>
+          </a>
           <ul className='navbar-nav'>
             <li className='nav-item'>
               <a href='#' onClick={this.logout}>Logout</a>
