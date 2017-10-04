@@ -1,0 +1,18 @@
+.badge-list {
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.badge-list li {
+  margin-right: 1rem;
+}
+
+h6.badge-header {
+  font-size: 18px;
+  padding: 0;
+  margin: 0;
+}
+
+.upcoming img {
+  filter: grayscale(100%);
+}

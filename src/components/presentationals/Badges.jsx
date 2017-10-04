@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import '../../static/css/Badges.css';
 
 class Badges extends Component {
 
@@ -33,7 +34,13 @@ class Badges extends Component {
 
     return(
       <div>
-        <ul className="list-inline">{badgeList}</ul>
+        <ul className="badge-list list-inline">{badgeList}</ul>
+        <h6 className="section-header badge-header">Earn more</h6>
+        <ul className="badge-list list-inline">
+          <li className="list-inline-item badge-item upcoming">
+            <img src='../../static/images/contributor-badge.png' />
+          </li>
+        </ul>
       </div>
     );
   }
@@ -45,9 +52,11 @@ class BadgeIcon extends Component {
   render(){
     var imgSrc = `../../static/images/${this.props.details.title.toLowerCase()}-badge.png`;
     return (
-      <li className="list-inline-item">
-        <img src={imgSrc} />
-      </li>
+      <div>
+        <li className="list-inline-item badge-item">
+          <img src={imgSrc} />
+        </li>
+      </div>
     );
   }
 }
