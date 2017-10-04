@@ -8,10 +8,11 @@ import BountiesContainer from './components/containers/BountiesContainer.jsx';
 import BadgesContainer from './components/containers/BadgesContainer.jsx';
 import UpdatesContainer from './components/containers/UpdatesContainer.jsx';
 import initApp from './lib/init.js';
+import './static/css/overrides.css';
 
 class App extends Component {
   componentDidMount() {
-    initApp();
+    //initApp();
   }
 
   render(){
@@ -20,19 +21,17 @@ class App extends Component {
         <div className='container-fluid'>
           <Navbar />
           <div className="row">
-            <div className="col-xs-12">
-              <NotificationBarContainer />
-            </div>
+            <NotificationBarContainer />
           </div>
         </div>
         <div className="container">
           <div className="row">
             <div className="col-md-4">
               <div className="row">
-                <div className="col-xs-12">
-                  <DavCardContainer />
-                </div>
-                <div className="col-xs-12">
+
+                <DavCardContainer />
+
+                <div className="col-sm-12">
                   <BadgesContainer />
                 </div>
               </div>
@@ -54,9 +53,7 @@ class App extends Component {
         </div>
         <div className="container-fluid">
           <div className="row">
-            <div className="col-md-12">
-              <Footer />
-            </div>
+            <Footer />
           </div>
         </div>
       </div>
