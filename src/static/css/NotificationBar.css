@@ -1,0 +1,16 @@
+#notification-bar {
+  padding: .5rem 4rem;
+  background: #e6ddf3;
+  color: #512ca3;
+}
+
+.notification-button {
+  background: #979ec4;
+  border-radius: 3px;
+  border: none;
+  text-transform: uppercase;
+  color: white;
+  font-size: 12px;
+  padding: .4rem 2rem;
+}
+
