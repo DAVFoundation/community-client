@@ -22,6 +22,19 @@ export function apiGetUser(){
     .catch(error => {throw error;});
 }
 
+export function apiLogoutUser(){
+  return fetch(`${config.api.endpoint}/api/logout`,{
+    method: 'GET',
+    credentials: 'include'
+  })
+    .then(handleApiErrors)
+    .then(resp => resp.json())
+    .then(json => {
+      window.location.replace(config.login.endpoint);
+    })
+    .catch(error => {throw error;});
+}
+
 function handleApiErrors(resp){
   if(!resp.ok) throw Error(resp.statusText);
   return resp;
