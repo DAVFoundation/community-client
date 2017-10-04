@@ -1,0 +1,29 @@
+#update-list li {
+  color: #506177;
+}
+
+.update-image{
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: grey;
+  display: inline-block;
+  margin-right: 20px;
+  transform: translateY(5px);
+}
+
+.update-user{
+  display: inline-block;
+}
+
+h5.update-title{
+  font-size: 12px;
+}
+
+p.update-date{
+  font-size: 10px;
+}
+
+p.update-description{
+  margin-bottom: 0;
+}
