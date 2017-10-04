@@ -16,8 +16,8 @@ class ProfileTasks extends Component {
     });
     return(
       <div>
-        <h2 className="section-heading">Earn Bounties and Complete Your Profile</h2>
-        <ProgressBar completion={(completedTasks/taskList.length)*100+25} />
+        <h2 className="section-header">Earn Bounties and Complete Your Profile</h2>
+        <ProgressBar completion={(completedTasks/taskList.length)*100} />
         <ul id="task-list" className="list-unstyled">{taskList}</ul>
       </div>
     );
