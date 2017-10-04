@@ -7,6 +7,10 @@ class DavCard extends Component {
     super(props);
   }
 
+  componentDidMount(){
+    this.props.getUser();
+  }
+
   render(){
     return(
       <div>
@@ -22,7 +26,8 @@ class DavCard extends Component {
 DavCard.propTypes = {
   uid: PropTypes.string,
   balance: PropTypes.number,
-  name: PropTypes.string
+  name: PropTypes.string,
+  getUser: PropTypes.func
 };
 
 export default DavCard;

@@ -1,4 +1,5 @@
 import {connect} from 'react-redux';
+import {getUser} from '../../actions';
 import DavCard from '../presentationals/DavCard.jsx';
 
 const mapStateToProps = (state) => ({
@@ -7,4 +8,8 @@ const mapStateToProps = (state) => ({
   name: state.card.name
 });
 
-export default connect(mapStateToProps)(DavCard);
+const mapDispatchToProps = (dispatch) => ({
+  getUser: () => dispatch(getUser())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(DavCard);

@@ -1,9 +1,19 @@
 import {handleActions} from 'redux-actions';
+import {getUserSuccess} from '../actions';
 
 const initialState = {
-  uid: "0x4287947294793742414243434234",
-  name: "Abhishek Singh",
+  uid: "",
+  name: "",
   balance: 0
 };
 
-export default handleActions({}, initialState);
+export default handleActions({
+  [getUserSuccess]: (state, action) => {
+    console.log(action.payload);
+    let edited = {};
+    edited.uid = action.payload.account.uid;
+    edited.name = action.payload.name;
+    edited.balance = 0;
+    return edited;
+  }
+}, initialState);
