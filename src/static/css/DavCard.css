@@ -1,0 +1,45 @@
+#dav-card{
+  background-image: url('../images/davcard-world.png');
+  background-color: #212b83;
+  border-radius: 10px;
+  background-size: cover;
+  min-height: 250px;
+  position: relative;
+}
+
+.card-content {
+  position: absolute;
+  color: white;
+}
+
+img#card-logo {
+  top:10px;
+  left:15px;
+}
+
+h5#card-uid {
+  font-weight: 300;
+  font-size: 14px;
+  top:60px;
+  left: 20px;
+}
+
+h5#card-name{
+  font-weight: 500;
+  font-size:16px;
+  bottom:10px;
+  right:20px;
+}
+
+h5#card-balance{
+  font-weight: 300;
+  font-size: 18px;
+  bottom: 10px;
+  left: 20px;
+}
+
+h5#card-balance .bal{
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+}
