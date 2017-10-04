@@ -2,3 +2,26 @@
   padding-left: 0;
   padding-right: 0;
 }
+
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  background: #f4f8f9;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.section-header{
+  color: #512ca3;
+  font-weight:300;
+  font-size: 24px;
+  padding-bottom: 1.5rem;
+}
+
+.container {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
