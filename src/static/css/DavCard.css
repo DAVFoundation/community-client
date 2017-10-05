@@ -2,7 +2,7 @@
   background-image: url('../images/davcard-world.png');
   background-color: #212b83;
   border-radius: 10px;
-  background-size: cover;
+  background-size: contain;
   min-height: 250px;
   position: relative;
 }
