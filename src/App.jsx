@@ -7,13 +7,10 @@ import {Footer} from './components/presentationals/Footer.jsx';
 import BountiesContainer from './components/containers/BountiesContainer.jsx';
 import BadgesContainer from './components/containers/BadgesContainer.jsx';
 import UpdatesContainer from './components/containers/UpdatesContainer.jsx';
-import initApp from './lib/init.js';
+import FormContainer from './components/containers/FormContainer.jsx';
 import './static/css/overrides.css';
 
 class App extends Component {
-  componentDidMount() {
-    //initApp();
-  }
 
   render(){
     return (
@@ -49,6 +46,9 @@ class App extends Component {
                 </div>
               </div>
             </div>
+          </div>
+          <div className="row">
+            <FormContainer />
           </div>
         </div>
         <div className="container-fluid">
