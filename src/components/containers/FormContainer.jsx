@@ -14,5 +14,5 @@ const mapDispatchToProps = (dispatch) => ({
 const Comp = connect(mapStateToProps, mapDispatchToProps)(Form);
 
 export default reduxForm({
-  form: 'station-form' //unique form name
+  form: 'station-form'//unique form name
 })(Comp);
