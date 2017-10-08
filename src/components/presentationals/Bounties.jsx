@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import '../../static/css/Bounties.css';
+import {Button} from './Common.jsx';
 
 class Bounties extends Component {
   constructor(props){
@@ -8,7 +9,6 @@ class Bounties extends Component {
   }
 
   render(){
-    console.log(this.props);
     var bountyList = this.props.bountyList.map((bounty, index) => {
       return <BountyItem key={index} title={bounty.title} icon={bounty.icon}/>;
     });
@@ -35,31 +35,8 @@ class BountyItem extends Component {
   render(){
     return(
       <li className="list-inline-item text-center">
-        <Button onRootClick={this.doSomething} value={this.props.title} icon={this.props.icon}/>
+        <Button onRootClick={this.doSomething} title={this.props.title} value={this.props.title} icon={this.props.icon}/>
       </li>
-    );
-  }
-}
-
-class Button extends Component{
-  constructor(props){
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick(){
-    this.props.onRootClick(this.props.value);
-  }
-
-  render(){
-    var imgSrc = `../../static/images/${this.props.icon}`;
-    return (
-      <div>
-        <a href="#" onClick={this.handleClick}>
-          <img src={imgSrc} />
-        </a>
-        <p className="bounty-title">{this.props.value}</p>
-      </div>
     );
   }
 }
@@ -74,11 +51,8 @@ BountyItem.propTypes = {
   action: PropTypes.string
 };
 
-Button.propTypes = {
-  onRootClick: PropTypes.func,
-  value: PropTypes.string,
-  icon: PropTypes.string
-};
+
+
 
 export default Bounties;
 
