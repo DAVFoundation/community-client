@@ -12,7 +12,7 @@ class Modal extends Component {
   }
 
   openModal(){
-    this.props.openModal({isOpen:true, modalType:"BOUNTY",modalProps:{}});
+    this.props.openModal({isOpen:true, modalType:"BOUNTY",modalProps:{tab:"1"}});
   }
 
   closeModal(){
@@ -24,6 +24,7 @@ class Modal extends Component {
       return (<BountyModal
         isOpen={this.props.isOpen}
         closeModal={this.closeModal}
+        openTab={this.props.modalProps.tab}
       />
       );
     } else {
@@ -36,7 +37,8 @@ Modal.propTypes = {
   openModal: PropTypes.func,
   closeModal: PropTypes.func,
   isOpen: PropTypes.bool,
-  modalType: PropTypes.string
+  modalType: PropTypes.string,
+  modalProps: PropTypes.object
 };
 
 export default Modal;
