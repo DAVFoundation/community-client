@@ -31,3 +31,5 @@ export const getUserUpdatesError = createAction('GET_USER_UPDATES_ERROR');
 export const openModal = createAction('OPEN_MODAL');
 
 export const closeModal = createAction('CLOSE_MODAL');
+
+export const selectTab = createAction('SELECT_TAB');
