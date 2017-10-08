@@ -11,8 +11,6 @@ class BountyModal extends Component {
   }
 
   setTab(val) {
-    console.log(val);
-    //console.log(this.props);
     this.props.setTab(val);
   }
 
@@ -21,11 +19,11 @@ class BountyModal extends Component {
     let para = null;
 
     switch(this.props.openTab){
-    case "1":
-      para=<FormContainer />;
+    case "station":
+      para=<FormContainer/>;
       break;
-    case "2":
-      para=<p>Tab 2</p>;
+    case "mailbox":
+      para=<FormContainer/>;
       break;
     case "3":
       break;
@@ -64,8 +62,8 @@ class BountyModalHeader extends Component {
     return(
       <div>
         <ul className="list-inline text-center">
-          <li className="list-inline-item"><Button onRootClick={this.setSelectedTab} title="" value="1" icon="mailbox.png"/></li>
-          <li className="list-inline-item"><Button onRootClick={this.setSelectedTab} title="" value="2" icon="station.png"/></li>
+          <li className="list-inline-item"><Button onRootClick={this.setSelectedTab} title="" value="station" icon="station.png"/></li>
+          <li className="list-inline-item"><Button onRootClick={this.setSelectedTab} title="" value="mailbox" icon="mailbox.png"/></li>
         </ul>
       </div>
     );

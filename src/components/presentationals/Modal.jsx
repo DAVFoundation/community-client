@@ -13,7 +13,7 @@ class Modal extends Component {
   }
 
   openModal(){
-    this.props.openModal({isOpen:true, modalType:"BOUNTY",modalProps:{tab:"1"}});
+    this.props.openModal({isOpen:true, modalType:"BOUNTY",modalProps:{tab:"station"}});
   }
 
   closeModal(){
