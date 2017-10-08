@@ -6,6 +6,7 @@ import tasks from './tasks';
 import card from './card';
 import notification from './notification';
 import bounties from './bounties';
+import modals from './modals';
 import {reducer as formReducer} from 'redux-form';
 
 export default combineReducers({
@@ -16,5 +17,6 @@ export default combineReducers({
   card,
   notification,
   bounties,
+  modals,
   form: formReducer
 });

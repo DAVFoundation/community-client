@@ -27,3 +27,7 @@ export const getUserUpdates = createAction('GET_USER_UPDATES');
 export const getUserUpdatesSuccess = createAction('GET_USER_UPDATES_SUCCESS');
 
 export const getUserUpdatesError = createAction('GET_USER_UPDATES_ERROR');
+
+export const openModal = createAction('OPEN_MODAL');
+
+export const closeModal = createAction('CLOSE_MODAL');
