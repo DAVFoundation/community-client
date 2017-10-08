@@ -9,6 +9,7 @@ class Modal extends Component {
     super(props);
     this.openModal = this.openModal.bind(this);
     this.closeModal = this.closeModal.bind(this);
+    this.setTab = this.setTab.bind(this);
   }
 
   openModal(){
@@ -19,12 +20,17 @@ class Modal extends Component {
     this.props.closeModal();
   }
 
+  setTab(tabIndex){
+    this.props.selectTab(tabIndex);
+  }
+
   render(){
     if(this.props.modalType=="BOUNTY"){
       return (<BountyModal
         isOpen={this.props.isOpen}
         closeModal={this.closeModal}
         openTab={this.props.modalProps.tab}
+        setTab={this.setTab}
       />
       );
     } else {
@@ -36,6 +42,7 @@ class Modal extends Component {
 Modal.propTypes = {
   openModal: PropTypes.func,
   closeModal: PropTypes.func,
+  selectTab: PropTypes.func,
   isOpen: PropTypes.bool,
   modalType: PropTypes.string,
   modalProps: PropTypes.object

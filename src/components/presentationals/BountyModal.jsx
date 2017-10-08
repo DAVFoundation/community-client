@@ -2,26 +2,39 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 import {Button} from './Common.jsx';
+import FormContainer from '../containers/FormContainer.jsx';
 
 class BountyModal extends Component {
   constructor(props){
     super(props);
-    this.state = {tab: this.props.openTab};
     this.setTab = this.setTab.bind(this);
   }
 
   setTab(val) {
-    this.setState({tab:val});
+    console.log(val);
+    //console.log(this.props);
+    this.props.setTab(val);
   }
 
   render(){
 
     let para = null;
-    if(this.state.tab == "1"){
-      para = <p>Tab 1</p>;
-    } else if(this.state.tab == "2"){
-      para = <p>Tab 2</p>;
+
+    switch(this.props.openTab){
+    case "1":
+      para=<FormContainer />;
+      break;
+    case "2":
+      para=<p>Tab 2</p>;
+      break;
+    case "3":
+      break;
+    case "4":
+      break;
+    default:
+      para=<p>Tab 1</p>;
     }
+
     return(
       <div>
         <ReactModal
@@ -40,8 +53,6 @@ class BountyModal extends Component {
 class BountyModalHeader extends Component {
   constructor(props){
     super(props);
-    console.log(props);
-    console.log(this.props.setTab);
     this.setSelectedTab = this.setSelectedTab.bind(this);
   }
 
@@ -64,7 +75,8 @@ class BountyModalHeader extends Component {
 BountyModal.propTypes = {
   isOpen: PropTypes.bool,
   closeModal: PropTypes.func,
-  openTab: PropTypes.string
+  openTab: PropTypes.string,
+  setTab: PropTypes.func
 };
 
 BountyModalHeader.propTypes = {
