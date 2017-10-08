@@ -49,9 +49,6 @@ class App extends Component {
             </div>
           </div>
           <div className="row">
-            <FormContainer />
-          </div>
-          <div className="row">
             <ModalContainer />
           </div>
         </div>
