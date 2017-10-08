@@ -19,27 +19,33 @@ class Modal extends Component {
   }
 
   render(){
-    return(
-      <div>
-        <button onClick={this.openModal}>OPen modal</button>
-        <ReactModal
-          isOpen={this.props.isOpen}
-          onRequestClose={this.closeModal}
-          className="custom-modal"
-          overlayClassName="custom-modal-overlay">
-          <h2>I am a modal</h2>
-          <p> fill in stuff hereee </p>
-        </ReactModal>
+    if(this.props.modalType=="BOUNTY"){
+      return(
+        <div>
 
-      </div>
-    );
+
+          <ReactModal
+            isOpen={this.props.isOpen}
+            onRequestClose={this.closeModal}
+            className="custom-modal"
+            overlayClassName="custom-modal-overlay">
+            <h2>I am a modal</h2>
+            <p> fill in stuff hereee </p>
+          </ReactModal>
+
+        </div>
+      );
+    } else {
+      return (<button onClick={this.openModal}>OPen modal</button>);
+    }
   }
 }
 
 Modal.propTypes = {
   openModal: PropTypes.func,
   closeModal: PropTypes.func,
-  isOpen: PropTypes.bool
+  isOpen: PropTypes.bool,
+  modalType: PropTypes.string
 };
 
 export default Modal;

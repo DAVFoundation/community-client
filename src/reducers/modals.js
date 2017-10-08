@@ -15,12 +15,11 @@ export const MODALTYPES = {
 export default handleActions({
   [openModal]: (state, action) => {
     let edited = Object.assign({}, state, action.payload);
-    console.log(edited);
     return edited;
   },
 
   [closeModal]: (state, action) => {
-    return state;
+    return initialState;
   }
 }, initialState);
 
