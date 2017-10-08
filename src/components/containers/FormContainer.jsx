@@ -4,7 +4,8 @@ import Form from '../presentationals/Form.jsx';
 import {addBadge} from '../../actions';
 
 const mapStateToProps = (state) => ({
-
+  formType: state.modals.modalProps.tab,
+  initialValues: state.modals.modalProps.tab
 });
 
 const mapDispatchToProps = (dispatch) => ({
