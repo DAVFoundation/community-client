@@ -1,10 +1,11 @@
 import {connect} from 'react-redux';
-import {openModal, closeModal} from '../../actions';
+import {openModal, closeModal, selectTab} from '../../actions';
 import Modal from '../presentationals/Modal.jsx';
 
 const mapDispatchToProps = (dispatch) => ({
   closeModal: () => dispatch(closeModal()),
-  openModal: (obj) => dispatch(openModal(obj))
+  openModal: (obj) => dispatch(openModal(obj)),
+  selectTab: (tab) => dispatch(selectTab(tab))
 });
 
 const mapStateToProps = (state) => ({

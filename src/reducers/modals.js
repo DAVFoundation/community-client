@@ -1,5 +1,5 @@
 import {handleActions} from 'redux-actions';
-import {openModal, closeModal} from '../actions';
+import {openModal, closeModal, selectTab} from '../actions';
 
 const initialState = {
   isOpen: false,
@@ -20,6 +20,13 @@ export default handleActions({
 
   [closeModal]: (state, action) => {
     return initialState;
+  },
+
+  [selectTab]: (state, action) => {
+    let edited = Object.assign({}, state, {
+      modalProps:{tab:action.payload}
+    });
+    return edited;
   }
 }, initialState);
 
