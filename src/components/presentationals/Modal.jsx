@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
+import BountyModal from './BountyModal.jsx';
 
 class Modal extends Component {
 
@@ -20,20 +21,10 @@ class Modal extends Component {
 
   render(){
     if(this.props.modalType=="BOUNTY"){
-      return(
-        <div>
-
-
-          <ReactModal
-            isOpen={this.props.isOpen}
-            onRequestClose={this.closeModal}
-            className="custom-modal"
-            overlayClassName="custom-modal-overlay">
-            <h2>I am a modal</h2>
-            <p> fill in stuff hereee </p>
-          </ReactModal>
-
-        </div>
+      return (<BountyModal
+        isOpen={this.props.isOpen}
+        closeModal={this.closeModal}
+      />
       );
     } else {
       return (<button onClick={this.openModal}>OPen modal</button>);
