@@ -8,6 +8,7 @@ import BountiesContainer from './components/containers/BountiesContainer.jsx';
 import BadgesContainer from './components/containers/BadgesContainer.jsx';
 import UpdatesContainer from './components/containers/UpdatesContainer.jsx';
 import FormContainer from './components/containers/FormContainer.jsx';
+import ModalContainer from './components/containers/ModalContainer.jsx';
 import './static/css/overrides.css';
 
 class App extends Component {
@@ -49,6 +50,9 @@ class App extends Component {
           </div>
           <div className="row">
             <FormContainer />
+          </div>
+          <div className="row">
+            <ModalContainer />
           </div>
         </div>
         <div className="container-fluid">
