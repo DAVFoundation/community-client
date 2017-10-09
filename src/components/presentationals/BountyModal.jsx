@@ -22,8 +22,18 @@ class BountyModal extends Component {
           onRequestClose={this.props.closeModal}
           className="custom-modal"
           overlayClassName="custom-modal-overlay">
-          <BountyModalHeader setTab={this.setTab}/>
-          <FormContainer />
+          <div className="row">
+            <div className="col-12">
+              <BountyModalHeader setTab={this.setTab}/>
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-md-4"></div>
+            <div className="col-md-4">
+              <FormContainer/>
+            </div>
+            <div className="col-md-4"></div>
+          </div>
         </ReactModal>
       </div>
     );
