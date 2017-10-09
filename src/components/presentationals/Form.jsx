@@ -20,7 +20,18 @@ class Form extends Component {
     let extraFields = null;
     switch(this.props.formType){
     case "mailbox":
-      extraFields = <Field name="pedestrianAccess" component="input" type="checkbox" />;
+      extraFields = (
+        <div>
+          <label htmlFor="ped">Public Pedestrian Access?</label>
+          <Field name="pedestrianAccess" id="ped" component="input" type="checkbox" />
+        </div>);
+      break;
+    case "driveway":
+      extraFields = (
+        <div>
+          <label htmlFor="drive">Public Driveway Access?</label>
+          <Field name="drivewayAccess" id="drive" component="input" type="checkbox" />
+        </div>);
       break;
     }
 

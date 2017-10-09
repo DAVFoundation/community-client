@@ -15,24 +15,6 @@ class BountyModal extends Component {
   }
 
   render(){
-
-    let para = null;
-
-    switch(this.props.openTab){
-    case "station":
-      para=<FormContainer/>;
-      break;
-    case "mailbox":
-      para=<FormContainer/>;
-      break;
-    case "3":
-      break;
-    case "4":
-      break;
-    default:
-      para=<p>Tab 1</p>;
-    }
-
     return(
       <div>
         <ReactModal
@@ -41,7 +23,7 @@ class BountyModal extends Component {
           className="custom-modal"
           overlayClassName="custom-modal-overlay">
           <BountyModalHeader setTab={this.setTab}/>
-          {para}
+          <FormContainer />
         </ReactModal>
       </div>
     );
@@ -62,8 +44,10 @@ class BountyModalHeader extends Component {
     return(
       <div>
         <ul className="list-inline text-center">
-          <li className="list-inline-item"><Button onRootClick={this.setSelectedTab} title="" value="station" icon="station.png"/></li>
-          <li className="list-inline-item"><Button onRootClick={this.setSelectedTab} title="" value="mailbox" icon="mailbox.png"/></li>
+          <li className="list-inline-item"><Button onRootClick={this.setSelectedTab} title="Backyard" value="backyard" icon="station.png"/></li>
+          <li className="list-inline-item"><Button onRootClick={this.setSelectedTab} title="Roof" value="roof" icon="verify.png"/></li>
+          <li className="list-inline-item"><Button onRootClick={this.setSelectedTab} title="Driveway" value="driveway" icon="parking.png"/></li>
+          <li className="list-inline-item"><Button onRootClick={this.setSelectedTab} title="Mailbox" value="mailbox" icon="mailbox.png"/></li>
         </ul>
       </div>
     );
