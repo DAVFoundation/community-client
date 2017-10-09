@@ -34,7 +34,7 @@ class Modal extends Component {
       />
       );
     } else {
-      return (<button onClick={this.openModal}>OPen modal</button>);
+      return (<button onClick={this.openModal}>Open modal</button>);
     }
   }
 }
