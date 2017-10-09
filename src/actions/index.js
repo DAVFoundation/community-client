@@ -33,3 +33,9 @@ export const openModal = createAction('OPEN_MODAL');
 export const closeModal = createAction('CLOSE_MODAL');
 
 export const selectTab = createAction('SELECT_TAB');
+
+export const submitStationForm = createAction('SUBMIT_STATION_FORM');
+
+export const submitStationFormSuccess = createAction('SUBMIT_STATION_FORM_SUCCESS');
+
+export const submitStationFormError = createAction('SUBMIT_STATION_FORM_ERROR');
