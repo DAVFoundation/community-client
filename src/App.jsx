@@ -9,9 +9,14 @@ import BadgesContainer from './components/containers/BadgesContainer.jsx';
 import UpdatesContainer from './components/containers/UpdatesContainer.jsx';
 import FormContainer from './components/containers/FormContainer.jsx';
 import ModalContainer from './components/containers/ModalContainer.jsx';
+import initApp from './lib/init';
 import './static/css/overrides.css';
 
 class App extends Component {
+
+  componentWillMount() {
+    console.log("APP component is mounting");
+  }
 
   render(){
     return (

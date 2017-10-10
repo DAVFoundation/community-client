@@ -16,7 +16,9 @@ export function apiGetUser(){
     method: 'GET',
     credentials: 'include'
   })
-    .then(handleApiErrors)
+    .then(resp => {
+      if(!resp.ok) window.location.replace(config.login.endpoint);
+    })
     .then(resp => resp.json())
     .then(json => json)
     .catch(error => {throw error;});
@@ -43,6 +45,17 @@ function handleApiErrors(resp){
 export function apiGetUserUpdates(){
   return fetch(`${config.api.endpoint}/api/user/updates`, {
     method: 'GET',
+    credentials: 'include'
+  })
+    .then(handleApiErrors)
+    .then(resp => resp.json())
+    .then(json => json)
+    .catch(error => {throw error;});
+}
+
+export function apiCreateStation(){
+  return fetch(`${config.api.endpoint}/api/station`,{
+    method: 'POST',
     credentials: 'include'
   })
     .then(handleApiErrors)
