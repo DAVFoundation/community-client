@@ -7,6 +7,7 @@ import card from './card';
 import notification from './notification';
 import bounties from './bounties';
 import modals from './modals';
+import forms from './forms';
 import {reducer as formReducer} from 'redux-form';
 
 export default combineReducers({
@@ -18,5 +19,6 @@ export default combineReducers({
   notification,
   bounties,
   modals,
-  form: formReducer
+  forms,
+  form: formReducer // ensures form updates and ui changes
 });
