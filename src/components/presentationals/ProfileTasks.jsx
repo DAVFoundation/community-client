@@ -33,7 +33,6 @@ class ProgressBar extends Component {
     var width = {
       width: `${this.props.completion}%`
     };
-    console.log(width.width);
     return(
       <div className="progress">
         <div className="progress-bar" role="progressbar" style={width} aria-valuenow={this.props.completion} aria-valuemin="0" aria-valuemax="100"></div>
