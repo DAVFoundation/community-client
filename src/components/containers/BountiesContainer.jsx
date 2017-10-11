@@ -1,8 +1,13 @@
 import {connect} from 'react-redux';
 import Bounties from '../presentationals/Bounties.jsx';
+import {openModal} from '../../actions';
 
-const mapStateToProps = (state) => ({
-  bountyList: state.bounties.bountyList
+const mapDispatchToProps = (dispatch) => ({
+  openModal: (obj) => dispatch(openModal(obj)),
 });
 
-export default connect(mapStateToProps)(Bounties);
+const mapStateToProps = (state) => ({
+  bountyList: state.bounties.bountyList,
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Bounties);

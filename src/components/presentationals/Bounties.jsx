@@ -6,11 +6,17 @@ import {Button} from './Common.jsx';
 class Bounties extends Component {
   constructor(props){
     super(props);
+    this.openModal = this.openModal.bind(this);
+  }
+
+  openModal(tab){
+    console.log(tab);
+    this.props.openModal({isOpen:true, modalType:"BOUNTY",modalProps:{tab:tab}});
   }
 
   render(){
     var bountyList = this.props.bountyList.map((bounty, index) => {
-      return <BountyItem key={index} title={bounty.title} icon={bounty.icon}/>;
+      return <BountyItem key={index} title={bounty.title} icon={bounty.icon} tag={bounty.tag} action={this.openModal}/>;
     });
 
     return(
@@ -25,30 +31,32 @@ class Bounties extends Component {
 class BountyItem extends Component {
   constructor(props){
     super(props);
-    this.doSomething = this.doSomething.bind(this);
+    this.click = this.click.bind(this);
   }
 
-  doSomething(action){
-    console.log(action);
+  click(){
+    this.props.action(this.props.tag);
   }
 
   render(){
     return(
       <li className="list-inline-item text-center">
-        <Button onRootClick={this.doSomething} title={this.props.title} value={this.props.title} icon={this.props.icon}/>
+        <Button onRootClick={this.click} title={this.props.title} value={this.props.tag} icon={this.props.icon}/>
       </li>
     );
   }
 }
 
 Bounties.propTypes = {
-  bountyList: PropTypes.array
+  bountyList: PropTypes.array,
+  openModal: PropTypes.func,
 };
 
 BountyItem.propTypes = {
   title: PropTypes.string.isRequired,
   icon: PropTypes.string,
-  action: PropTypes.string
+  action: PropTypes.func,
+  tag: PropTypes.string
 };
 
 
