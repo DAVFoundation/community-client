@@ -5,22 +5,26 @@ const initialState = {
     {
       title: "Earn with DAV Charging",
       action: "setupCharging",
-      icon: "station.png"
+      icon: "station.png",
+      tag: "backyard"
     },
     {
       title: "Earn with DAV Parking",
       action: "setupParking",
-      icon: "parking.png"
+      icon: "verify.png",
+      tag: "roof"
     },
     {
       title: "Earn with DAV Mailbox",
       action: "setupMailbox",
-      icon: "mailbox.png"
+      icon: "parking.png",
+      tag: "driveway"
     },
     {
       title: "Verify Other Member Info",
       action: "setupVerifyMember",
-      icon: "verify.png"
+      icon: "mailbox.png",
+      tag: "mailbox"
     }
   ]
 };
