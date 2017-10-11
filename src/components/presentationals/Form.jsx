@@ -7,6 +7,31 @@ class Form extends Component {
   constructor(props){
     super(props);
     this.submit = this.submit.bind(this);
+    this.setAddressInputRef = this.setAddressInputRef.bind(this);
+    this.addressField = this.addressField.bind(this);
+    this.fillAddressField = this.fillAddressField.bind(this);
+
+    this.google = window.google;
+  }
+
+  componentDidMount(){
+    this.initMap();
+  }
+
+  initMap(){
+    const maps = this.google.maps;
+
+
+    this.autocomplete = new maps.places.Autocomplete(this.addressInput);
+    this.autocomplete.addListener('place_changed', this.fillAddressField);
+    //autocomplete.bindTo('bounds', this.map);
+  }
+
+  fillAddressField(){
+    let place = this.autocomplete.getPlace();
+    console.log(place);
+    console.log(this.props.form);
+    this.props.form["station-form"].values.address = place.formatted_address;
   }
 
   submit(values){
@@ -21,6 +46,10 @@ class Form extends Component {
     }).catch(error => {
       throw new SubmissionError(error);
     });
+  }
+
+  setAddressInputRef(inputRef){
+    this.addressInput = inputRef;
   }
 
   customField({input,label, meta: {touched, error}, ...custom}){
@@ -39,6 +68,14 @@ class Form extends Component {
     return(
       <div>
         <input type="hidden" {...input}/>
+      </div>
+    );
+  }
+
+  addressField({input, label, meta:{touched, error}, ...custom}){
+    return(
+      <div>
+        <input className="form-control" ref={this.setAddressInputRef} type="text" {...input} {...custom} placeholder={label}/>
       </div>
     );
   }
@@ -67,14 +104,16 @@ class Form extends Component {
     return(
       <div>
         <form onSubmit={this.props.handleSubmit(this.submit)}>
-          <Field name="address" component="input" placeholder="Your Address" className="form-control"/>
+          <Field name="address" component={this.addressField} label="Enter Address"/>
           <AddressMap />
           <Field name="custom" component={this.customField} />
           <Field name="residenceType" className="form-control" component="select">
+            <option/>
             <option value="Private">Private Residence</option>
             <option value="Business">Business Residence</option>
           </Field>
           <Field name="electricalOutlet" className="form-control" component="select">
+            <option/>
             <option value="<10m">&lt;10m</option>
             <option value="10-20">10m-20m</option>
             <option value=">20m">&gt;20m</option>
@@ -101,7 +140,8 @@ Form.propTypes = {
   handleSubmit : PropTypes.func,
   formType: PropTypes.string,
   submitStationForm: PropTypes.func,
-  reset: PropTypes.func
+  reset: PropTypes.func,
+  form: PropTypes.object
 };
 
 
