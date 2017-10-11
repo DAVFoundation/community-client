@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
+import '../../static/css/AddressMap.css';
 
 class AddressMap extends Component{
 
@@ -35,7 +36,7 @@ class AddressMap extends Component{
 
   render(){
     return(
-      <div className="map" ref={this.setMapElementRef}></div>
+      <div className="address-map" ref={this.setMapElementRef}></div>
     );
   }
 }
