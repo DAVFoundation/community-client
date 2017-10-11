@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
 import BountyModal from './BountyModal.jsx';
+import {MODALTYPES} from '../../reducers/modals';
 
 class Modal extends Component {
 
@@ -25,7 +26,7 @@ class Modal extends Component {
   }
 
   render(){
-    if(this.props.modalType=="BOUNTY"){
+    if(this.props.modalType==MODALTYPES.BOUNTY){
       return (<BountyModal
         isOpen={this.props.isOpen}
         closeModal={this.closeModal}
