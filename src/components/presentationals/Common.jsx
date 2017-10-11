@@ -7,7 +7,8 @@ class Button extends Component{
     this.handleClick = this.handleClick.bind(this);
   }
 
-  handleClick(){
+  handleClick(e){
+    e.preventDefault();
     this.props.onRootClick(this.props.value);
   }
 
