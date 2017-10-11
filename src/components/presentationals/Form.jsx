@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Field, reduxForm, SubmissionError} from 'redux-form';
+import AddressMap from './AddressMap.jsx';
 
 class Form extends Component {
   constructor(props){
@@ -34,6 +35,14 @@ class Form extends Component {
     );
   }
 
+  hiddenField({input, ...custom}){
+    return(
+      <div>
+        <input type="hidden" {...input}/>
+      </div>
+    );
+  }
+
   render(){
 
     let extraFields = null;
@@ -56,22 +65,25 @@ class Form extends Component {
 
 
     return(
-      <form onSubmit={this.props.handleSubmit(this.submit)}>
-        <Field name="address" component="input" placeholder="Your Address" className="form-control"/>
-        <Field name="custom" component={this.customField} />
-        <Field name="residenceType" className="form-control" component="select">
-          <option value="Private">Private Residence</option>
-          <option value="Business">Business Residence</option>
-        </Field>
-        <Field name="electricalOutlet" className="form-control" component="select">
-          <option value="<10m">&lt;10m</option>
-          <option value="10-20">10m-20m</option>
-          <option value=">20m">&gt;20m</option>
-          <option value="none">None</option>
-        </Field>
-        {extraFields}
-        <button type="submit">Submit</button>
-      </form>
+      <div>
+        <form onSubmit={this.props.handleSubmit(this.submit)}>
+          <Field name="address" component="input" placeholder="Your Address" className="form-control"/>
+          <AddressMap />
+          <Field name="custom" component={this.customField} />
+          <Field name="residenceType" className="form-control" component="select">
+            <option value="Private">Private Residence</option>
+            <option value="Business">Business Residence</option>
+          </Field>
+          <Field name="electricalOutlet" className="form-control" component="select">
+            <option value="<10m">&lt;10m</option>
+            <option value="10-20">10m-20m</option>
+            <option value=">20m">&gt;20m</option>
+            <option value="none">None</option>
+          </Field>
+          {extraFields}
+          <button type="submit">Submit</button>
+        </form>
+      </div>
     );
   }
 }
@@ -91,5 +103,6 @@ Form.propTypes = {
   submitStationForm: PropTypes.func,
   reset: PropTypes.func
 };
+
 
 export default Form;
