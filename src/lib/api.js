@@ -18,6 +18,7 @@ export function apiGetUser(){
   })
     .then(resp => {
       if(!resp.ok) window.location.replace(config.login.endpoint);
+      return resp;
     })
     .then(resp => resp.json())
     .then(json => json)
