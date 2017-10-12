@@ -21,6 +21,17 @@ class Form extends Component {
 
   componentDidMount(){
     this.props.change("type", this.props.formType);
+    if(navigator && navigator.geolocation){
+      navigator.geolocation.getCurrentPosition((pos)=>{
+        const coords = pos.coords;
+        this.setState({
+          currentLocation: {
+            lat: coords.latitude,
+            lng: coords.longitude
+          }
+        });
+      });
+    }
     this.initMap();
   }
 
@@ -140,12 +151,12 @@ class Form extends Component {
           <AddressMap center={this.state.currentLocation} />
           <Field name="custom" component={this.customField} />
           <Field name="residenceType" className="form-control" component="select">
-            <option/>
+            <option value="">Please select one</option>
             <option value="Private">Private Residence</option>
             <option value="Business">Business Residence</option>
           </Field>
           <Field name="electricalOutlet" className="form-control" component="select">
-            <option/>
+            <option value="">Please select one</option>
             <option value="<10m">&lt;10m</option>
             <option value="10-20">10m-20m</option>
             <option value=">20m">&gt;20m</option>
