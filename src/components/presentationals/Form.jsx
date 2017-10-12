@@ -9,9 +9,14 @@ class Form extends Component {
     this.submit = this.submit.bind(this);
     this.setAddressInputRef = this.setAddressInputRef.bind(this);
     this.addressField = this.addressField.bind(this);
-    this.fillAddressField = this.fillAddressField.bind(this);
+    this.setLocation = this.setLocation.bind(this);
+    this.geocodeAddress = this.geocodeAddress.bind(this);
 
     this.google = window.google;
+
+    this.state = {
+      currentLocation: this.props.initialCenter
+    };
   }
 
   componentDidMount(){
@@ -22,16 +27,39 @@ class Form extends Component {
     const maps = this.google.maps;
 
 
-    this.autocomplete = new maps.places.Autocomplete(this.addressInput);
-    this.autocomplete.addListener('place_changed', this.fillAddressField);
-    //autocomplete.bindTo('bounds', this.map);
+    this.autocomplete = new maps.places.Autocomplete(this.addressInput, {types: ['geocode']});
+    this.autocomplete.addListener('place_changed', this.setLocation);
+
+    this.geocoder = new maps.Geocoder();
   }
 
-  fillAddressField(){
+  setLocation(){
     let place = this.autocomplete.getPlace();
     console.log(place);
     console.log(this.props.form);
-    this.props.form["station-form"].values.address = place.formatted_address;
+    //this.props.form["station-form"].values.address = place.formatted_address;
+    this.props.change('address', place.formatted_address);
+    console.log(this.addressField.value);
+
+    this.geocodeAddress(place.formatted_address);
+  }
+
+  geocodeAddress(address){
+    this.geocoder.geocode({'address':address}, (results, status) => {
+      if(status == 'OK'){
+        console.log("SUCCESS");
+        console.log(results[0].geometry.location.lat());
+        this.setState({
+          currentLocation:{
+            lat:results[0].geometry.location.lat(),
+            lng:results[0].geometry.location.lng()
+          }
+        });
+        // this.setState({
+        //   currentLocation: results[0]
+        // });
+      }
+    });
   }
 
   submit(values){
@@ -39,13 +67,13 @@ class Form extends Component {
       type: this.props.formType
     });
     console.log(edited);
-
-    return new Promise((resolve, reject) => {
-      //dispatch action
-      this.props.submitStationForm({edited, resolve, reject});
-    }).catch(error => {
-      throw new SubmissionError(error);
-    });
+    console.log(this.addressField.value);
+    // return new Promise((resolve, reject) => {
+    //   //dispatch action
+    //   this.props.submitStationForm({edited, resolve, reject});
+    // }).catch(error => {
+    //   throw new SubmissionError(error);
+    // });
   }
 
   setAddressInputRef(inputRef){
@@ -105,7 +133,7 @@ class Form extends Component {
       <div>
         <form onSubmit={this.props.handleSubmit(this.submit)}>
           <Field name="address" component={this.addressField} label="Enter Address"/>
-          <AddressMap />
+          <AddressMap center={this.state.currentLocation} />
           <Field name="custom" component={this.customField} />
           <Field name="residenceType" className="form-control" component="select">
             <option/>
@@ -138,10 +166,19 @@ export const validate = (values) => {
 
 Form.propTypes = {
   handleSubmit : PropTypes.func,
+  change: PropTypes.func,
   formType: PropTypes.string,
   submitStationForm: PropTypes.func,
   reset: PropTypes.func,
-  form: PropTypes.object
+  form: PropTypes.object,
+  initialCenter:PropTypes.object
+};
+
+Form.defaultProps = {
+  initialCenter: {
+    lat:40.730610,
+    lng:-73.935242
+  }
 };
 
 
