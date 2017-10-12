@@ -25,6 +25,7 @@ export function apiGetUser(){
     .catch(error => {throw error;});
 }
 
+
 export function apiLogoutUser(){
   return fetch(`${config.api.endpoint}/api/logout`,{
     method: 'GET',
@@ -54,13 +55,26 @@ export function apiGetUserUpdates(){
     .catch(error => {throw error;});
 }
 
-export function apiCreateStation(){
+export function apiCreateStation(formData){
+
   return fetch(`${config.api.endpoint}/api/station`,{
     method: 'POST',
-    credentials: 'include'
+    credentials: 'include',
+    headers: {
+      'Accept':  '*/*',
+      'Content-Type': 'application/json',
+      'Cache': 'no-cache',
+    },
+    body: JSON.stringify(formData)
   })
     .then(handleApiErrors)
-    .then(resp => resp.json())
-    .then(json => json)
+    .then(resp => {
+      console.log(resp);
+      return resp.json();
+    })
+    .then(json => {
+      console.log("SUCCESSS");
+      console.log(json);
+    })
     .catch(error => {throw error;});
 }
