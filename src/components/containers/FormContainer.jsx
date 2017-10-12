@@ -7,6 +7,8 @@ import {submitStationForm} from '../../actions';
 const mapStateToProps = (state) => ({
   formType: state.modals.modalProps.tab,
   initialValues: state.modals.modalProps.tab,
+  success: state.forms.success,
+  error: state.forms.error,
   form: state.form //populated by redux form
 });
 
