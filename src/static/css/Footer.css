@@ -16,3 +16,7 @@
 .copyright a:hover {
   color: #ddd;
 }
+
+#social-list img {
+  width: 30px;
+}

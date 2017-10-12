@@ -26,6 +26,22 @@ class SocialMediaBar extends Component {
       {
         name: "twitter",
         link: "http://twitter.com"
+      },
+      {
+        name: "facebook",
+        link: "http://facebook.com"
+      },
+      {
+        name: "telegram",
+        link: "http://telegram.com"
+      },
+      {
+        name: "slack",
+        link: "http://slack.com"
+      },
+      {
+        name: "youtube",
+        link: "http://youtube.com"
       }
     ];
   }
@@ -38,7 +54,7 @@ class SocialMediaBar extends Component {
 
     return (
       <div>
-        <ul className="list-inline">{linkList}</ul>
+        <ul id="social-list" className="list-inline">{linkList}</ul>
       </div>
     );
   }
