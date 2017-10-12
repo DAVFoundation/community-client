@@ -7,6 +7,10 @@
   margin-right: 1rem;
 }
 
+.badge-list li img {
+  width: 80px;
+}
+
 h6.badge-header {
   font-size: 18px;
   padding: 0;
