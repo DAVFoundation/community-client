@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
-import {Field, reduxForm, SubmissionError} from 'redux-form';
+import {Field, SubmissionError} from 'redux-form';
 import AddressMap from './AddressMap.jsx';
 
 class Form extends Component {
@@ -78,14 +78,12 @@ class Form extends Component {
   }
 
   submit(values){
-
-    console.log(values);
-    // return new Promise((resolve, reject) => {
-    //   //dispatch action
-    //   this.props.submitStationForm({edited, resolve, reject});
-    // }).catch(error => {
-    //   throw new SubmissionError(error);
-    // });
+    return new Promise((resolve, reject) => {
+      //dispatch action
+      this.props.submitStationForm({values, resolve, reject});
+    }).catch(error => {
+      throw new SubmissionError(error);
+    });
   }
 
   setAddressInputRef(inputRef){

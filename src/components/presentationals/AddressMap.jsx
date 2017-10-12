@@ -12,19 +12,6 @@ class AddressMap extends Component{
   }
 
   componentDidMount(){
-    // if(this.props.centerAroundCurrentLocation){
-    //   if(navigator && navigator.geolocation){
-    //     navigator.geolocation.getCurrentPosition((pos)=>{
-    //       const coords = pos.coords;
-    //       this.setState({
-    //         currentLocation: {
-    //           lat: coords.latitude,
-    //           lng: coords.longitude
-    //         }
-    //       });
-    //     });
-    //   }
-    // }
     this.loadMap();
   }
 
@@ -37,7 +24,6 @@ class AddressMap extends Component{
   recenterMap(){
     const maps = this.google.maps;
     const curr = this.props.center;
-    console.log("recentering");
 
     if(this.map){
       let center = new maps.LatLng(curr.lat, curr.lng);
