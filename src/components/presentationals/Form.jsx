@@ -20,6 +20,7 @@ class Form extends Component {
   }
 
   componentDidMount(){
+    this.props.change("type", this.props.formType);
     this.initMap();
   }
 
@@ -36,7 +37,6 @@ class Form extends Component {
   setLocation(){
     let place = this.autocomplete.getPlace();
     console.log(place);
-    console.log(this.props.form);
     //this.props.form["station-form"].values.address = place.formatted_address;
     this.props.change('address', place.formatted_address);
     console.log(this.addressField.value);
@@ -47,12 +47,16 @@ class Form extends Component {
   geocodeAddress(address){
     this.geocoder.geocode({'address':address}, (results, status) => {
       if(status == 'OK'){
+        let lat = results[0].geometry.location.lat();
+        let lng = results[0].geometry.location.lng();
         this.setState({
           currentLocation:{
-            lat:results[0].geometry.location.lat(),
-            lng:results[0].geometry.location.lng()
+            lat:lat,
+            lng:lng
           }
         });
+        this.props.change('lat', lat);
+        this.props.change('lng', lng);
       } else {
         console.log("Error finding address");
         this.setState({
@@ -63,11 +67,8 @@ class Form extends Component {
   }
 
   submit(values){
-    let edited = Object.assign({},values, {
-      type: this.props.formType
-    });
-    console.log(edited);
-    console.log(this.addressField.value);
+
+    console.log(values);
     // return new Promise((resolve, reject) => {
     //   //dispatch action
     //   this.props.submitStationForm({edited, resolve, reject});
@@ -92,10 +93,10 @@ class Form extends Component {
     );
   }
 
-  hiddenField({input, ...custom}){
+  hiddenField({input, meta: {touched, error},...custom}){
     return(
       <div>
-        <input type="hidden" {...input}/>
+        <input type="hidden" {...input} {...custom}/>
       </div>
     );
   }
@@ -133,6 +134,9 @@ class Form extends Component {
       <div>
         <form onSubmit={this.props.handleSubmit(this.submit)}>
           <Field name="address" component={this.addressField} label="Enter Address"/>
+          <Field name="lat" component={this.hiddenField} />
+          <Field name="lng" component={this.hiddenField} />
+          <Field name="type" component={this.hiddenField} />
           <AddressMap center={this.state.currentLocation} />
           <Field name="custom" component={this.customField} />
           <Field name="residenceType" className="form-control" component="select">
