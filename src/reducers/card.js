@@ -9,7 +9,6 @@ const initialState = {
 
 export default handleActions({
   [getUserSuccess]: (state, action) => {
-    console.log(action.payload);
     let edited = {};
     edited.uid = action.payload.account.uid;
     edited.name = action.payload.name;

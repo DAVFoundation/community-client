@@ -8,15 +8,15 @@ export function* watchStationFormSubmit(){
 }
 
 export function* workerStationFormSubmit(action){
-  console.log("called submit station");
+  console.log("called submit station saga");
   console.log(action);
-  // try {
-  //   const formData = action.payload.values;
-  //   const resp = yield call(apiCreateStation, formData);
-  //   yield put(submitStationFormSuccess());
-  //   yield call(action.payload.resolve);
-  // } catch(error){
-  //   yield put(submitStationFormError(error));
-  //   yield call(action.payload.reject, {address:"not valid address"});
-  // }
+  try {
+    const formData = action.payload.values;
+    const resp = yield call(apiCreateStation, formData);
+    yield put(submitStationFormSuccess(resp));
+    yield call(action.payload.resolve);
+  } catch(error){
+    yield put(submitStationFormError(error));
+    yield call(action.payload.reject, {address:"not valid address"});
+  }
 }
