@@ -27,6 +27,7 @@ class Modal extends Component {
         closeModal={this.closeModal}
         openTab={this.props.modalProps.tab}
         setTab={this.setTab}
+        info={this.props.bountyList}
       />
       );
     } else {
@@ -41,7 +42,8 @@ Modal.propTypes = {
   selectTab: PropTypes.func,
   isOpen: PropTypes.bool,
   modalType: PropTypes.string,
-  modalProps: PropTypes.object
+  modalProps: PropTypes.object,
+  bountyList:PropTypes.array
 };
 
 export default Modal;

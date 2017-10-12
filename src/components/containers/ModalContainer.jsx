@@ -11,7 +11,8 @@ const mapDispatchToProps = (dispatch) => ({
 const mapStateToProps = (state) => ({
   isOpen: state.modals.isOpen,
   modalType: state.modals.modalType,
-  modalProps: state.modals.modalProps
+  modalProps: state.modals.modalProps,
+  bountyList: state.bounties.bountyList
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);
