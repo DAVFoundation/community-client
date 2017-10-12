@@ -3,25 +3,25 @@ import {handleActions} from 'redux-actions';
 const initialState = {
   bountyList:[
     {
-      title: "Earn with DAV Charging",
+      title: "My home has a backyard",
       action: "setupCharging",
-      icon: "station.png",
+      icon: "backyard.png",
       tag: "backyard"
     },
     {
-      title: "Earn with DAV Parking",
+      title: "My home has a roof I can use",
       action: "setupParking",
-      icon: "verify.png",
+      icon: "roof.png",
       tag: "roof"
     },
     {
-      title: "Earn with DAV Mailbox",
+      title: "I have a driveway",
       action: "setupMailbox",
-      icon: "parking.png",
+      icon: "driveway.png",
       tag: "driveway"
     },
     {
-      title: "Verify Other Member Info",
+      title: "I can place a mailbox outside my home",
       action: "setupVerifyMember",
       icon: "mailbox.png",
       tag: "mailbox"
