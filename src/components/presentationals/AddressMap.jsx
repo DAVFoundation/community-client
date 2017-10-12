@@ -8,10 +8,52 @@ class AddressMap extends Component{
     super(props);
     this.google = window.google;
     this.setMapElementRef = this.setMapElementRef.bind(this);
+    this.setMarker = this.setMarker.bind(this);
   }
 
   componentDidMount(){
+    // if(this.props.centerAroundCurrentLocation){
+    //   if(navigator && navigator.geolocation){
+    //     navigator.geolocation.getCurrentPosition((pos)=>{
+    //       const coords = pos.coords;
+    //       this.setState({
+    //         currentLocation: {
+    //           lat: coords.latitude,
+    //           lng: coords.longitude
+    //         }
+    //       });
+    //     });
+    //   }
+    // }
     this.loadMap();
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    if(prevProps.center !== this.props.center){
+      this.recenterMap();
+    }
+  }
+
+  recenterMap(){
+    const maps = this.google.maps;
+    const curr = this.props.center;
+    console.log("recentering");
+
+    if(this.map){
+      let center = new maps.LatLng(curr.lat, curr.lng);
+      this.map.panTo(center);
+    }
+
+    this.setMarker();
+  }
+
+  setMarker(){
+    const maps = this.google.maps;
+
+    this.marker = new maps.Marker({
+      map: this.map,
+      position: this.props.center
+    });
   }
 
   setMapElementRef(mapElementRef){
@@ -22,16 +64,11 @@ class AddressMap extends Component{
     const maps = this.google.maps;
 
     this.map = new maps.Map(this.mapElement, {
-      center: this.props.initialCenter,
+      center: this.props.center,
       zoom: this.props.zoom
     });
 
-    this.marker = new maps.Marker({
-      map: this.map,
-      position: this.props.initialCenter
-    });
-
-    this.geocoder = new maps.Geocoder();
+    this.setMarker();
   }
 
   render(){
@@ -43,7 +80,8 @@ class AddressMap extends Component{
 
 AddressMap.propTypes = {
   zoom: PropTypes.number,
-  initialCenter: PropTypes.object
+  center: PropTypes.object,
+  centerAroundCurrentLocation: PropTypes.bool
 };
 
 AddressMap.defaultProps = {
@@ -51,7 +89,8 @@ AddressMap.defaultProps = {
   initialCenter: {
     lat:40.730610,
     lng:-73.935242
-  }
+  },
+  centerAroundCurrentLocation: false
 };
 
 export default AddressMap;
