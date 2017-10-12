@@ -52,11 +52,9 @@ class BadgeIcon extends Component {
   render(){
     var imgSrc = `../../static/images/${this.props.details.title.toLowerCase()}-badge.png`;
     return (
-      <div>
-        <li className="list-inline-item badge-item">
-          <img src={imgSrc} />
-        </li>
-      </div>
+      <li className="list-inline-item badge-item">
+        <img src={imgSrc} />
+      </li>
     );
   }
 }

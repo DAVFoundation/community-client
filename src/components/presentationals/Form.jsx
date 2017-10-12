@@ -47,10 +47,9 @@ class Form extends Component {
 
   setLocation(){
     let place = this.autocomplete.getPlace();
-    console.log(place);
     //this.props.form["station-form"].values.address = place.formatted_address;
     this.props.change('address', place.formatted_address);
-    console.log(this.addressField.value);
+
 
     this.geocodeAddress(place.formatted_address);
   }
@@ -81,6 +80,9 @@ class Form extends Component {
     return new Promise((resolve, reject) => {
       //dispatch action
       this.props.submitStationForm({values, resolve, reject});
+    }).then((res) => {
+      console.log("RESOLVED SUBMIT");
+      this.props.reset(); //clear the form
     }).catch(error => {
       throw new SubmissionError(error);
     });
@@ -92,9 +94,9 @@ class Form extends Component {
 
   customField({input,label, meta: {touched, error}, ...custom}){
     const hasError = touched && error !== undefined;
-    console.log(touched);
-    console.log(error);
-    console.log(hasError);
+    // console.log(touched);
+    // console.log(error);
+    // console.log(hasError);
     return(
       <div>
         {hasError && "ERROR"}
@@ -162,6 +164,7 @@ class Form extends Component {
           </Field>
           {extraFields}
           <button type="submit">Submit</button>
+          {this.props.success && <div>SUCCESS</div>}
         </form>
       </div>
     );
@@ -173,7 +176,6 @@ export const validate = (values) => {
   if(!values.address || values.address.trim() == ''){
     errors.custom = 'Address Required'; // name should be same as form field name
   }
-  console.log(errors);
   return errors;
 };
 
@@ -184,7 +186,8 @@ Form.propTypes = {
   submitStationForm: PropTypes.func,
   reset: PropTypes.func,
   initialCenter:PropTypes.object,
-  errorCenter: PropTypes.object
+  errorCenter: PropTypes.object,
+  success: PropTypes.bool
 };
 
 Form.defaultProps = {

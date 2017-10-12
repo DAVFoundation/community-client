@@ -15,7 +15,7 @@ class AddressMap extends Component{
     this.loadMap();
   }
 
-  componentDidUpdate(prevProps, prevState){
+  componentDidUpdate(prevProps){
     if(prevProps.center !== this.props.center){
       this.recenterMap();
     }
