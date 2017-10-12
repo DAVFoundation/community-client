@@ -75,6 +75,7 @@ export function apiCreateStation(formData){
     .then(json => {
       console.log("SUCCESSS");
       console.log(json);
+      return json;
     })
     .catch(error => {throw error;});
 }
