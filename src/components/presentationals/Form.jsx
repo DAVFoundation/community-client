@@ -47,17 +47,17 @@ class Form extends Component {
   geocodeAddress(address){
     this.geocoder.geocode({'address':address}, (results, status) => {
       if(status == 'OK'){
-        console.log("SUCCESS");
-        console.log(results[0].geometry.location.lat());
         this.setState({
           currentLocation:{
             lat:results[0].geometry.location.lat(),
             lng:results[0].geometry.location.lng()
           }
         });
-        // this.setState({
-        //   currentLocation: results[0]
-        // });
+      } else {
+        console.log("Error finding address");
+        this.setState({
+          currentLocation: this.props.errorCenter
+        });
       }
     });
   }
@@ -170,14 +170,18 @@ Form.propTypes = {
   formType: PropTypes.string,
   submitStationForm: PropTypes.func,
   reset: PropTypes.func,
-  form: PropTypes.object,
-  initialCenter:PropTypes.object
+  initialCenter:PropTypes.object,
+  errorCenter: PropTypes.object
 };
 
 Form.defaultProps = {
   initialCenter: {
     lat:40.730610,
     lng:-73.935242
+  },
+  errorCenter: {
+    lat:29.532804,
+    lng:-55.491477
   }
 };
 
