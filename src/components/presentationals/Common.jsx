@@ -19,8 +19,27 @@ class Button extends Component{
         <a href="#" onClick={this.handleClick}>
           <img src={imgSrc} />
         </a>
-        <p className="bounty-title">{this.props.title}</p>
+        <p>{this.props.title}</p>
       </div>
+    );
+  }
+}
+
+class ListItem extends Component {
+  constructor(props){
+    super(props);
+    this.click = this.click.bind(this);
+  }
+
+  click(){
+    this.props.action(this.props.tag);
+  }
+
+  render(){
+    return(
+      <li className="list-inline-item text-center">
+        <Button onRootClick={this.click} title={this.props.title} value={this.props.tag} icon={this.props.icon}/>
+      </li>
     );
   }
 }
@@ -32,6 +51,15 @@ Button.propTypes = {
   title: PropTypes.string
 };
 
+ListItem.propTypes = {
+  title: PropTypes.string.isRequired,
+  icon: PropTypes.string,
+  action: PropTypes.func,
+  tag: PropTypes.string
+};
+
+
 export {
-  Button
+  Button,
+  ListItem
 };

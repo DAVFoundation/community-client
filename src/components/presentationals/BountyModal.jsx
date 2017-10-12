@@ -1,8 +1,9 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
-import {Button} from './Common.jsx';
+import {Button, ListItem} from './Common.jsx';
 import FormContainer from '../containers/FormContainer.jsx';
+import '../../static/css/BountyModal.css';
 
 class BountyModal extends Component {
   constructor(props){
@@ -24,7 +25,7 @@ class BountyModal extends Component {
           overlayClassName="custom-modal-overlay">
           <div className="row">
             <div className="col-12">
-              <BountyModalHeader setTab={this.setTab}/>
+              <BountyModalHeader setTab={this.setTab} info={this.props.info}/>
             </div>
           </div>
           <div className="row">
@@ -46,33 +47,36 @@ class BountyModalHeader extends Component {
     this.setSelectedTab = this.setSelectedTab.bind(this);
   }
 
-  setSelectedTab(val){
-    this.props.setTab(val);
+  setSelectedTab(tag){
+    this.props.setTab(tag);
   }
 
   render(){
+
+    var bountyList = this.props.info.map((bounty, index) => {
+      return (<ListItem key={index} title={bounty.title} icon={bounty.icon} tag={bounty.tag} action={this.setSelectedTab} />);
+    });
+
     return(
       <div>
-        <ul className="list-inline text-center">
-          <li className="list-inline-item"><Button onRootClick={this.setSelectedTab} title="Backyard" value="backyard" icon="station.png"/></li>
-          <li className="list-inline-item"><Button onRootClick={this.setSelectedTab} title="Roof" value="roof" icon="verify.png"/></li>
-          <li className="list-inline-item"><Button onRootClick={this.setSelectedTab} title="Driveway" value="driveway" icon="parking.png"/></li>
-          <li className="list-inline-item"><Button onRootClick={this.setSelectedTab} title="Mailbox" value="mailbox" icon="mailbox.png"/></li>
-        </ul>
+        <ul id="bounty-modal-header" className="list-inline text-center">{bountyList}</ul>
       </div>
     );
   }
 }
 
+
 BountyModal.propTypes = {
   isOpen: PropTypes.bool,
   closeModal: PropTypes.func,
   openTab: PropTypes.string,
-  setTab: PropTypes.func
+  setTab: PropTypes.func,
+  info: PropTypes.array
 };
 
 BountyModalHeader.propTypes = {
-  setTab: PropTypes.func
+  setTab: PropTypes.func,
+  info: PropTypes.array
 };
 
 export default BountyModal;

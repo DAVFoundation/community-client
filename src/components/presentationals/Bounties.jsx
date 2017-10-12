@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import '../../static/css/Bounties.css';
-import {Button} from './Common.jsx';
+import {Button, ListItem} from './Common.jsx';
 
 class Bounties extends Component {
   constructor(props){
@@ -16,7 +16,7 @@ class Bounties extends Component {
 
   render(){
     var bountyList = this.props.bountyList.map((bounty, index) => {
-      return <BountyItem key={index} title={bounty.title} icon={bounty.icon} tag={bounty.tag} action={this.openModal}/>;
+      return <ListItem key={index} title={bounty.title} icon={bounty.icon} tag={bounty.tag} action={this.openModal}/>;
     });
 
     return(
@@ -28,39 +28,10 @@ class Bounties extends Component {
   }
 }
 
-class BountyItem extends Component {
-  constructor(props){
-    super(props);
-    this.click = this.click.bind(this);
-  }
-
-  click(){
-    this.props.action(this.props.tag);
-  }
-
-  render(){
-    return(
-      <li className="list-inline-item text-center">
-        <Button onRootClick={this.click} title={this.props.title} value={this.props.tag} icon={this.props.icon}/>
-      </li>
-    );
-  }
-}
-
 Bounties.propTypes = {
   bountyList: PropTypes.array,
   openModal: PropTypes.func,
 };
-
-BountyItem.propTypes = {
-  title: PropTypes.string.isRequired,
-  icon: PropTypes.string,
-  action: PropTypes.func,
-  tag: PropTypes.string
-};
-
-
-
 
 export default Bounties;
 
