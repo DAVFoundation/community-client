@@ -1,9 +1,9 @@
-#bounty-list li {
+#bounty-modal-header li {
   padding: 0 1rem;
   vertical-align: text-top;
 }
 
-#bounty-list li p{
+#bounty-modal-header li p{
   color: #512ca3;
   font-size: 12px;
   font-weight: 500;
@@ -13,6 +13,6 @@
   margin-right: auto;
 }
 
-#bounty-list li img {
+#bounty-modal-header li img {
   height: 100px;
 }
