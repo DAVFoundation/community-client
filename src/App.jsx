@@ -8,15 +8,24 @@ import BountiesContainer from './components/containers/BountiesContainer.jsx';
 import BadgesContainer from './components/containers/BadgesContainer.jsx';
 import UpdatesContainer from './components/containers/UpdatesContainer.jsx';
 import ModalContainer from './components/containers/ModalContainer.jsx';
+import initApp from './lib/init';
 import './static/css/overrides.css';
+import PropTypes from 'prop-types';
 
 class App extends Component {
 
-  componentWillMount() {
-    console.log("APP component is mounting");
+  constructor(props){
+    super(props);
+  }
+
+  componentWillMount(){
+    initApp();
   }
 
   render(){
+    if(!this.props.authenticated){
+      return null;
+    }
     return (
       <div>
         <div className='container-fluid'>
@@ -64,5 +73,9 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  authenticated: PropTypes.bool
+};
 
 export default App;
