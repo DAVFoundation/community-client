@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Navbar from './components/presentationals/Navbar.jsx';
+import Header from './components/presentationals/Header.jsx';
 import NotificationBarContainer from './components/containers/NotificationBarContainer.jsx';
 import DavCardContainer from './components/containers/DavCardContainer.jsx';
 import ProfileTasksContainer from './components/containers/ProfileTasksContainer.jsx';
@@ -32,6 +33,9 @@ class App extends Component {
           <Navbar />
           <div className="row">
             <NotificationBarContainer />
+          </div>
+          <div className="row">
+            <Header />
           </div>
         </div>
         <div className="container">
