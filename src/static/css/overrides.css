@@ -37,7 +37,8 @@ a:hover {
   left: 40px;
   right: 40px;
   bottom: 40px;
-  background-color: white;
+  background-color: #f4f8f9;
+  border-radius: 5px;
 }
 
 .custom-modal-overlay {

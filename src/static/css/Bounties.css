@@ -1,5 +1,7 @@
 #bounty-list {
   border-bottom: 1px solid #d9e6e9;
+  display: table;
+  width: 100%;
 }
 
 #bounty-list li {
@@ -7,12 +9,16 @@
   border-bottom: 2px solid transparent;
 }
 
+#bounty-list li.list-inline-item{
+  display: table-cell;
+}
+
 #bounty-list li:hover{
   border-bottom: 2px solid #27a716;
 }
 
 #bounty-list li:not(:last-child){
-  margin-right: 1rem;
+  padding-right: 1.5rem;
 }
 
 #bounty-list li p{

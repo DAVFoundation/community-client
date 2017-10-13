@@ -1,4 +1,14 @@
 
 .form-control {
   border: 1px solid #d9e6e9;
+  margin-bottom: 1rem;
+}
+
+.btn-custom {
+  background: #27a716;
+  color: white;
+  margin: 1rem auto;
+  display: block;
+  padding-left:2rem;
+  padding-right:2rem;
 }
