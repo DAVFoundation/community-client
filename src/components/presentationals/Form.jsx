@@ -144,41 +144,51 @@ class Form extends Component {
 
     return(
       <div>
-        <p>If your home has a {this.props.formType}, and you would like to find out how you can earn money by placing a charging station in the future, sign up below and we will get back to you with more details.</p>
-        <form onSubmit={this.props.handleSubmit(this.submit)}>
-          <div>
-            <label>Address</label>
-            <Field name="address" component={this.addressField} label="Enter Address"/>
+        <div className="row">
+          <div className="col-md-6 ml-auto">
+            <p className="text-center">If your home has a {this.props.formType}, and you would like to find out how you can earn money by placing a charging station in the future, sign up below and we will get back to you with more details.</p>
           </div>
-          <Field name="lat" component={this.hiddenField} />
-          <Field name="lng" component={this.hiddenField} />
-          <Field name="type" component={this.hiddenField} />
-          <AddressMap center={this.state.currentLocation} />
-          <Field name="custom" component={this.customField} />
-          <div>
-            <label>Is this a business or private residence?</label>
-            <Field name="residenceType" className="form-control" component="select">
-              <option value="">Please select one</option>
-              <option value="Private">Private Residence</option>
-              <option value="Business">Business Residence</option>
-            </Field>
+          <div className="col-md-3"></div>
+        </div>
+        <div className="row">
+          <div id="form-wrapper" className="col-md-4 ml-auto">
+            <form onSubmit={this.props.handleSubmit(this.submit)}>
+              <div>
+                <label>Address</label>
+                <Field name="address" component={this.addressField} label="Enter Address"/>
+              </div>
+              <Field name="lat" component={this.hiddenField} />
+              <Field name="lng" component={this.hiddenField} />
+              <Field name="type" component={this.hiddenField} />
+              <AddressMap center={this.state.currentLocation} />
+              <Field name="custom" component={this.customField} />
+              <div>
+                <label>Is this a business or private residence?</label>
+                <Field name="residenceType" className="form-control" component="select">
+                  <option value="">Please select one</option>
+                  <option value="Private">Private Residence</option>
+                  <option value="Business">Business Residence</option>
+                </Field>
+              </div>
+              <div>
+                <label>Nearest electrical outlet</label>
+                <Field name="electricalOutlet" className="form-control" component="select">
+                  <option value="">Please select one</option>
+                  <option value="<10m">&lt;10m</option>
+                  <option value="10-20">10m-20m</option>
+                  <option value=">20m">&gt;20m</option>
+                  <option value="none">None</option>
+                </Field>
+              </div>
+              {extraFields}
+              <div className="text-center>">
+                <button type="submit" className="btn btn-custom">Sign Up</button>
+              </div>
+              {this.props.success && <div>SUCCESS</div>}
+            </form>
           </div>
-          <div>
-            <label>Nearest electrical outlet</label>
-            <Field name="electricalOutlet" className="form-control" component="select">
-              <option value="">Please select one</option>
-              <option value="<10m">&lt;10m</option>
-              <option value="10-20">10m-20m</option>
-              <option value=">20m">&gt;20m</option>
-              <option value="none">None</option>
-            </Field>
-          </div>
-          {extraFields}
-          <div className="text-center>">
-            <button type="submit" className="btn btn-custom">Sign Up</button>
-          </div>
-          {this.props.success && <div>SUCCESS</div>}
-        </form>
+          <div className="col-md-4"></div>
+        </div>
       </div>
     );
   }

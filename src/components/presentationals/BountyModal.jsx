@@ -31,13 +31,7 @@ class BountyModal extends Component {
             </div>
             <div className="col-md-2"></div>
           </div>
-          <div className="row">
-            <div className="col-md-4"></div>
-            <div className="col-md-4">
-              <FormContainer/>
-            </div>
-            <div className="col-md-4"></div>
-          </div>
+          <FormContainer />
         </ReactModal>
       </div>
     );

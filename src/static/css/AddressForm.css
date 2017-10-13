@@ -1,3 +1,10 @@
+#form-wrapper {
+  background: white;
+  border-top: 2px solid #8a72ea;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  padding-top: 1rem;
+}
 
 .form-control {
   border: 1px solid #d9e6e9;
