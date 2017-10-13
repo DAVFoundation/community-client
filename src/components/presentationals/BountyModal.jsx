@@ -26,6 +26,11 @@ class BountyModal extends Component {
           className="custom-modal"
           overlayClassName="custom-modal-overlay">
           <div className="row">
+            <div className="col-12 modal-close-bar">
+              <span className="close" onClick={this.props.closeModal}>&times;</span>
+            </div>
+          </div>
+          <div className="row">
             <div className="col-md-8 ml-auto">
               <BountyHeader trigger={this.trigger} info={this.props.info} />
             </div>

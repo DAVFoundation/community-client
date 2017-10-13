@@ -17,10 +17,6 @@
   border-bottom: 2px solid #27a716;
 }
 
-#bounty-list li:not(:last-child){
-  padding-right: 1.5rem;
-}
-
 #bounty-list li p{
   color: #512ca3;
   font-size: 12px;

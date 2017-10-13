@@ -33,12 +33,14 @@ a:hover {
 
 .custom-modal {
   position: absolute;
-  top: 40px;
-  left: 40px;
-  right: 40px;
-  bottom: 40px;
+  top: 5%;
+  left: 5%;
+  right: 5%;
   background-color: #f4f8f9;
   border-radius: 5px;
+  max-height: calc(100vh - 50px);
+  padding-bottom: 2rem;
+  overflow-y: auto;
 }
 
 .custom-modal-overlay {
@@ -48,6 +50,10 @@ a:hover {
   right: 0;
   bottom: 0;
   background-color: rgba(0,0,0,0.5);
+}
+
+.modal-close-bar {
+  padding:1rem 2rem;
 }
 
 label {
