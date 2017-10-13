@@ -26,6 +26,11 @@ a:hover {
   padding-bottom: 3rem;
 }
 
+.row {
+  margin-left: 0;
+  margin-right: 0;
+}
+
 .custom-modal {
   position: absolute;
   top: 40px;

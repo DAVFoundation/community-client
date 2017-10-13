@@ -1,7 +1,14 @@
 #notification-bar {
-  padding: 1rem 4rem;
-  background: #e6ddf3;
-  color: #512ca3;
+  padding: .5rem 3rem;
+  background: #603a9d;
+  color: white;
+  position: absolute;
+  z-index: 10;
+  text-align: center;
+}
+
+#notification-bar p {
+  margin-bottom: 0;
 }
 
 .notification-button {

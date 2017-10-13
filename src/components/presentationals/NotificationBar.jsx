@@ -9,10 +9,8 @@ class NotificationBar extends Component {
 
   render(){
     return(
-      <div id="notification-bar" className="col-md-12">
-        <h4>{this.props.title}</h4>
+      <div id="notification-bar" className="col-12">
         <p>{this.props.description}</p>
-        <button className="notification-button">{this.props.action}</button>
       </div>
     );
   }
