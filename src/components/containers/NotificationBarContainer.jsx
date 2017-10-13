@@ -1,10 +1,16 @@
 import {connect} from 'react-redux';
 import NotificationBar from '../presentationals/NotificationBar.jsx';
+import {hideNotification} from '../../actions';
 
 const mapStateToProps = (state) => ({
   title : state.notification.title,
   description: state.notification.description,
-  action: state.notification.action
+  action: state.notification.action,
+  visible: state.notification.visible
 });
 
-export default connect(mapStateToProps)(NotificationBar);
+const mapDispatchToProps = (dispatch) => ({
+  hideNotification: () => dispatch(hideNotification())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(NotificationBar);

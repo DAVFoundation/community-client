@@ -39,3 +39,5 @@ export const submitStationForm = createAction('SUBMIT_STATION_FORM');
 export const submitStationFormSuccess = createAction('SUBMIT_STATION_FORM_SUCCESS');
 
 export const submitStationFormError = createAction('SUBMIT_STATION_FORM_ERROR');
+
+export const hideNotification = createAction('HIDE_NOTIFICATION');
