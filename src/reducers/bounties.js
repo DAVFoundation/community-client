@@ -15,7 +15,7 @@ const initialState = {
       tag: "roof"
     },
     {
-      title: "I have a driveway",
+      title: "I have a driveway I can share",
       action: "setupMailbox",
       icon: "driveway.png",
       tag: "driveway"
