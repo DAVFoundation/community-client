@@ -36,34 +36,42 @@
             <a href="#" class="change-form-link" id="login-link">Login instead?</a>
           </div>
         </form>
+        <form id="loginForm">
+          <h2 class="text-center">Welcome Back</h2>
+          <div class="form-group">
+            <input type='text' name='email' id='loginEmail' class="form-control" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input type='text' name='password' id='loginPass' class="form-control" placeholder="Password">
+          </div>
+          <input type="submit" class="btn btn-custom" value="Login">
+          <div class="text-center">
+            <a href="#" class="change-form-link" id="signup-link">Signup instead?</a>
+          </div>
+        </form>
       </div>
       <div class="col-md-4"></div>
     </div>
   </div>
-
-
-<!-- <br><br><br>
-    <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-12 col-md-4">
-        <form id="loginForm">
-          <h2 class="text-muted text-center">Login</h2>
-          <div class="form-group">
-            <input type='text' name='email' id='loginEmail' class="form-control" placeholder="enter email">
-          </div>
-          <div class="form-group">
-            <input type='text' name='password' id='loginPass' class="form-control" placeholder="enter password">
-          </div>
-          <input type="submit" class="btn btn-block btn-primary" value="Login">
-        </form>
-      </div>
-      <div class="col-md-4"></div>
-    </div> -->
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
 <script>
 
+
+var loginForm = document.getElementById("loginForm");
+var signupForm = document.getElementById("signupForm");
+var signupLink = document.getElementById("signup-link");
+var loginLink = document.getElementById("login-link");
+
+signupLink.addEventListener('click', function(e){
+  e.preventDefault();
+  loginForm.style.display = 'none';
+  signupForm.style.display = 'block';
+})
+
+loginLink.addEventListener('click', function(e){
+  e.preventDefault();
+  loginForm.style.display = 'block';
+  signupForm.style.display = 'none';
+})
 
 var fetchInitt = {
   method: 'GET',
