@@ -1,18 +1,20 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import ReactModal from 'react-modal';
-import {Button, ListItem} from './Common.jsx';
 import FormContainer from '../containers/FormContainer.jsx';
+import BountyHeader from './BountyHeader.jsx';
 import '../../static/css/BountyModal.css';
+import '../../static/css/Bounties.css';
 
 class BountyModal extends Component {
   constructor(props){
     super(props);
-    this.setTab = this.setTab.bind(this);
+    this.trigger = this.trigger.bind(this);
   }
 
-  setTab(val) {
-    this.props.setTab(val);
+  trigger(tag) {
+    // SELECT TAB
+    this.props.setTab(tag);
   }
 
   render(){
@@ -24,9 +26,10 @@ class BountyModal extends Component {
           className="custom-modal"
           overlayClassName="custom-modal-overlay">
           <div className="row">
-            <div className="col-12">
-              <BountyModalHeader setTab={this.setTab} info={this.props.info}/>
+            <div className="col-md-8 ml-auto">
+              <BountyHeader trigger={this.trigger} info={this.props.info} />
             </div>
+            <div className="col-md-2"></div>
           </div>
           <div className="row">
             <div className="col-md-4"></div>
@@ -41,40 +44,9 @@ class BountyModal extends Component {
   }
 }
 
-class BountyModalHeader extends Component {
-  constructor(props){
-    super(props);
-    this.setSelectedTab = this.setSelectedTab.bind(this);
-  }
-
-  setSelectedTab(tag){
-    this.props.setTab(tag);
-  }
-
-  render(){
-
-    var bountyList = this.props.info.map((bounty, index) => {
-      return (<ListItem key={index} title={bounty.title} icon={bounty.icon} tag={bounty.tag} action={this.setSelectedTab} />);
-    });
-
-    return(
-      <div>
-        <ul id="bounty-modal-header" className="list-inline text-center">{bountyList}</ul>
-      </div>
-    );
-  }
-}
-
-
 BountyModal.propTypes = {
   isOpen: PropTypes.bool,
   closeModal: PropTypes.func,
-  openTab: PropTypes.string,
-  setTab: PropTypes.func,
-  info: PropTypes.array
-};
-
-BountyModalHeader.propTypes = {
   setTab: PropTypes.func,
   info: PropTypes.array
 };

@@ -174,7 +174,9 @@ class Form extends Component {
             </Field>
           </div>
           {extraFields}
-          <button type="submit">Submit</button>
+          <div className="text-center>">
+            <button type="submit" className="btn btn-custom">Sign Up</button>
+          </div>
           {this.props.success && <div>SUCCESS</div>}
         </form>
       </div>
