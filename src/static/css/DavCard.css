@@ -4,6 +4,8 @@
   border-radius: 10px;
   background-size: contain;
   min-height: 250px;
+  background-repeat: no-repeat;
+  background-position: center;
   position: relative;
 }
 
