@@ -9,6 +9,7 @@
 
 #notification-bar p {
   margin-bottom: 0;
+  display: inline-block;
 }
 
 .notification-button {
@@ -19,5 +20,10 @@
   color: white;
   font-size: 12px;
   padding: .4rem 2rem;
+}
+
+.close {
+  text-shadow: none;
+  cursor: pointer;
 }
 
