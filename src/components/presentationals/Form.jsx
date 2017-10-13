@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Field, SubmissionError} from 'redux-form';
 import AddressMap from './AddressMap.jsx';
+import '../../static/css/AddressForm.css';
 
 class Form extends Component {
   constructor(props){
@@ -143,25 +144,35 @@ class Form extends Component {
 
     return(
       <div>
+        <p>If your home has a {this.props.formType}, and you would like to find out how you can earn money by placing a charging station in the future, sign up below and we will get back to you with more details.</p>
         <form onSubmit={this.props.handleSubmit(this.submit)}>
-          <Field name="address" component={this.addressField} label="Enter Address"/>
+          <div>
+            <label>Address</label>
+            <Field name="address" component={this.addressField} label="Enter Address"/>
+          </div>
           <Field name="lat" component={this.hiddenField} />
           <Field name="lng" component={this.hiddenField} />
           <Field name="type" component={this.hiddenField} />
           <AddressMap center={this.state.currentLocation} />
           <Field name="custom" component={this.customField} />
-          <Field name="residenceType" className="form-control" component="select">
-            <option value="">Please select one</option>
-            <option value="Private">Private Residence</option>
-            <option value="Business">Business Residence</option>
-          </Field>
-          <Field name="electricalOutlet" className="form-control" component="select">
-            <option value="">Please select one</option>
-            <option value="<10m">&lt;10m</option>
-            <option value="10-20">10m-20m</option>
-            <option value=">20m">&gt;20m</option>
-            <option value="none">None</option>
-          </Field>
+          <div>
+            <label>Is this a business or private residence?</label>
+            <Field name="residenceType" className="form-control" component="select">
+              <option value="">Please select one</option>
+              <option value="Private">Private Residence</option>
+              <option value="Business">Business Residence</option>
+            </Field>
+          </div>
+          <div>
+            <label>Nearest electrical outlet</label>
+            <Field name="electricalOutlet" className="form-control" component="select">
+              <option value="">Please select one</option>
+              <option value="<10m">&lt;10m</option>
+              <option value="10-20">10m-20m</option>
+              <option value=">20m">&gt;20m</option>
+              <option value="none">None</option>
+            </Field>
+          </div>
           {extraFields}
           <button type="submit">Submit</button>
           {this.props.success && <div>SUCCESS</div>}
