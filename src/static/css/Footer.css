@@ -17,6 +17,10 @@
   color: #ddd;
 }
 
+#social-list li:not(:last-child){
+  margin-right: .7rem;
+}
+
 #social-list img {
   width: 30px;
 }

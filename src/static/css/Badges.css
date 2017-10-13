@@ -3,8 +3,9 @@
   margin-bottom: 1.5rem;
 }
 
-.badge-list li {
+.badge-list li.list-inline-item {
   margin-right: 1rem;
+  margin-bottom: 1rem;
 }
 
 .badge-list li img {

@@ -1,6 +1,9 @@
 #bounty-list li {
-  padding: 0 1rem;
   vertical-align: text-top;
+}
+
+#bounty-list li:not(:last-child){
+  margin-right: 1rem;
 }
 
 #bounty-list li p{
