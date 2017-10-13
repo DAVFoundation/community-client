@@ -25,9 +25,9 @@ class Modal extends Component {
       return (<BountyModal
         isOpen={this.props.isOpen}
         closeModal={this.closeModal}
-        openTab={this.props.modalProps.tab}
         setTab={this.setTab}
         info={this.props.bountyList}
+        selectedTab={this.props.selectedTab}
       />
       );
     } else {
@@ -43,6 +43,7 @@ Modal.propTypes = {
   isOpen: PropTypes.bool,
   modalType: PropTypes.string,
   modalProps: PropTypes.object,
+  selectedTab: PropTypes.string,
   bountyList:PropTypes.array
 };
 

@@ -6,16 +6,21 @@ class BountyHeader extends Component {
   constructor(props){
     super(props);
     this.performParentAction = this.performParentAction.bind(this);
+    this.state = {activeItem:this.props.selectedTab};
   }
 
   performParentAction(tag){
     this.props.trigger(tag);
+    this.setState({activeItem:tag});
   }
 
   render(){
 
     var bountyList = this.props.info.map((bounty, index) => {
-      return (<ListItem key={index} title={bounty.title} icon={bounty.icon} tag={bounty.tag} action={this.performParentAction} />);
+      if(this.state.activeItem == bounty.tag){
+        return (<ListItem key={index} active={true} index={index} title={bounty.title} icon={bounty.icon} tag={bounty.tag} action={this.performParentAction} />);
+      }
+      return (<ListItem key={index} active={false} index={index} title={bounty.title} icon={bounty.icon} tag={bounty.tag} action={this.performParentAction} />);
     });
 
     return(
@@ -28,7 +33,8 @@ class BountyHeader extends Component {
 
 BountyHeader.propTypes = {
   trigger: PropTypes.func,
-  info: PropTypes.array
+  info: PropTypes.array,
+  selectedTab: PropTypes.string
 };
 
 export default BountyHeader;

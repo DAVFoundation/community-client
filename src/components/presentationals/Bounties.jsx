@@ -21,7 +21,7 @@ class Bounties extends Component {
     return(
       <div>
         <h2 className="section-header">Earn DAV Tokens Through Open Bounties</h2>
-        <BountyHeader trigger={this.trigger} info={this.props.bountyList} />
+        <BountyHeader trigger={this.trigger} info={this.props.bountyList} selectedTab="backyard" />
       </div>
     );
   }

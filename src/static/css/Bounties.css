@@ -17,6 +17,10 @@
   border-bottom: 2px solid #27a716;
 }
 
+#bounty-list li.active{
+  border-bottom: 2px solid #27a716;
+}
+
 #bounty-list li p{
   color: #512ca3;
   font-size: 12px;

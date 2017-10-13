@@ -37,7 +37,7 @@ class ListItem extends Component {
 
   render(){
     return(
-      <li className="list-inline-item text-center">
+      <li className={"list-inline-item text-center " + (this.props.active ? "active":"")}>
         <Button onRootClick={this.click} title={this.props.title} value={this.props.tag} icon={this.props.icon}/>
       </li>
     );
@@ -55,7 +55,9 @@ ListItem.propTypes = {
   title: PropTypes.string.isRequired,
   icon: PropTypes.string,
   action: PropTypes.func,
-  tag: PropTypes.string
+  tag: PropTypes.string,
+  index: PropTypes.number,
+  active: PropTypes.bool
 };
 
 
