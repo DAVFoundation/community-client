@@ -38,7 +38,7 @@ class Badges extends Component {
         <h6 className="section-header badge-header">Earn more</h6>
         <ul className="badge-list list-inline">
           <li className="list-inline-item badge-item upcoming">
-            <img src='../../static/images/contributor-badge.png' />
+            <img src='../../static/images/badges/contributor-badge.png' />
           </li>
         </ul>
       </div>
