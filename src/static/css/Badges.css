@@ -3,6 +3,10 @@
   margin-bottom: 1.5rem;
 }
 
+.badge-list:first-child{
+  border-bottom: 1px solid #d9e6e9;
+}
+
 .badge-list li.list-inline-item {
   margin-right: 1rem;
   margin-bottom: 1rem;

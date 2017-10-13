@@ -1,5 +1,14 @@
+#bounty-list {
+  border-bottom: 1px solid #d9e6e9;
+}
+
 #bounty-list li {
   vertical-align: text-top;
+  border-bottom: 2px solid transparent;
+}
+
+#bounty-list li:hover{
+  border-bottom: 2px solid #27a716;
 }
 
 #bounty-list li:not(:last-child){

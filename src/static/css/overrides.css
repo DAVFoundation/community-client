@@ -26,7 +26,7 @@ a:hover {
   padding-bottom: 3rem;
 }
 
-.row {
+.container-fluid .row {
   margin-left: 0;
   margin-right: 0;
 }
@@ -48,3 +48,13 @@ a:hover {
   bottom: 0;
   background-color: rgba(0,0,0,0.5);
 }
+
+label {
+  margin-bottom: 0;
+}
+
+/*.notification-row {
+  position: absolute;
+  top:0;
+  width: 100%;
+}*/
