@@ -1,0 +1,58 @@
+html {
+  height: 100%;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f8f9;
+}
+
+h2 {
+  color: #512ca3;
+  font-weight: 300;
+  font-size: 28px;
+  margin: 1.5rem 0;
+}
+
+.container {
+  position: relative;
+  top: 50%;
+  transform: perspective(1px) translateY(-50%);
+  background-image: url('./login-bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.btn-custom {
+  background: #27a716;
+  color: white;
+  margin: 1rem auto;
+  display: block;
+  padding-left:3rem;
+  padding-right:3rem;
+  text-transform: uppercase;
+}
+
+#logo {
+  margin-bottom: 5rem;
+}
+
+input {
+  font-weight: 300;
+}
+
+.form-check-label {
+  color: #7a8798;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.change-form-link {
+  margin-top: 2rem;
+  font-size: 12px;
+  font-weight: 300;
+}
