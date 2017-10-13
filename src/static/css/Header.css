@@ -1,0 +1,21 @@
+#header-bar {
+  background: #7447f7;
+  background-image: url('../images/drone-header.png');
+  background-repeat: no-repeat;
+  background-size: 30%;
+  background-position: right bottom;
+  padding-top: 3.5rem;
+  padding-bottom: 3.5rem;
+}
+
+#header-bar h1 {
+  color: white;
+  font-weight: 500;
+  font-size: 24px;
+}
+
+#header-bar p {
+  width: 40%;
+  color: white;
+  font-size: 12px;
+}
