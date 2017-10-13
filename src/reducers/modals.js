@@ -4,7 +4,8 @@ import {openModal, closeModal, selectTab} from '../actions';
 const initialState = {
   isOpen: false,
   modalType: "",
-  modalProps: {}
+  modalProps: {},
+  selectedTab: "backyard"
 };
 
 export const MODALTYPES = {
@@ -15,6 +16,7 @@ export const MODALTYPES = {
 export default handleActions({
   [openModal]: (state, action) => {
     let edited = Object.assign({}, state, action.payload);
+    edited.selectedTab = action.payload.modalProps.tab;
     return edited;
   },
 

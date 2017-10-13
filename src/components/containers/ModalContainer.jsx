@@ -12,6 +12,7 @@ const mapStateToProps = (state) => ({
   isOpen: state.modals.isOpen,
   modalType: state.modals.modalType,
   modalProps: state.modals.modalProps,
+  selectedTab: state.modals.selectedTab,
   bountyList: state.bounties.bountyList
 });
 
