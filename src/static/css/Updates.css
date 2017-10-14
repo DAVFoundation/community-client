@@ -2,10 +2,37 @@
   color: #506177;
 }
 
+#update-list li.list-group-item {
+  border: none;
+}
+
+#update-list li.list-group-item:not(:last-child):after {
+  content: '';
+  position: absolute;
+  margin: auto;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 90%;
+  height: 2px;
+  background-color: #d9e6e9;
+}
+
+.list-group-item:first-child{
+  border-top-left-radius: .5rem;
+  border-top-right-radius: .5rem;
+}
+
+.list-group-item:last-child{
+  border-bottom-left-radius: .5rem;
+  border-bottom-right-radius: .5rem;
+}
+
 .update-image{
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  border:2px solid #d9e6e9;
   background: grey;
   display: inline-block;
   margin-right: 20px;
