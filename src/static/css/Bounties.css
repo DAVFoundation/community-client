@@ -34,3 +34,27 @@
 #bounty-list li img {
   height: 100px;
 }
+
+@media (max-width: 768px){
+
+  #bounty-list{
+    text-align: center;
+  }
+
+  #bounty-list li.list-inline-item{
+    display: inline-block;
+    width: 40%;
+    padding-top: .25rem;
+    padding-bottom: .25rem;
+  }
+
+  #bounty-list li:hover{
+    background-color: white;
+    border-bottom: none;
+  }
+
+  #bounty-list li.active{
+    background-color: white;
+    border-bottom: none;
+  }
+}

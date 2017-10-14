@@ -79,3 +79,10 @@ label {
 #footer-wrapper{
   background-color: #3f1c78;
 }
+
+@media (max-width: 768px){
+  .container .row {
+    padding-left: .5rem;
+    padding-right: .5rem;
+  }
+}

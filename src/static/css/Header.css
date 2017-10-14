@@ -14,8 +14,24 @@
 }
 
 #header-bar p {
-  width: 40%;
+  width: 50%;
   color: white;
   font-size: 14px;
+}
+
+@media (max-width: 768px){
+
+  #header-bar {
+    background-size: 60%;
+  }
+
+  #header-bar h1 {
+    text-align: center;
+  }
+
+  #header-bar p {
+    width: 100%;
+    text-align: center;
+  }
 }
 
