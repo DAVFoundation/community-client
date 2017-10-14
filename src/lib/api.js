@@ -1,4 +1,6 @@
 import config from 'config';
+import store from '../store';
+import {getUserBadges, getUserUpdates} from '../actions';
 
 export function apiGetUserBadges(){
   return fetch(`${config.api.endpoint}/api/user/badges`, {
@@ -75,6 +77,8 @@ export function apiCreateStation(formData){
     .then(json => {
       console.log("SUCCESSS");
       console.log(json);
+      store.dispatch(getUserBadges());
+      store.dispatch(getUserUpdates());
       return json;
     })
     .catch(error => {throw error;});
