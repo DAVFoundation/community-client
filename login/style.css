@@ -63,3 +63,9 @@ input {
 #loginForm{
   display: none;
 }
+
+#signup-errors{
+  color: red;
+  font-weight: 500;
+  font-size: 14px;
+}
