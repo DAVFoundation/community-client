@@ -21,27 +21,35 @@ class SocialMediaBar extends Component {
     this.socialLinks = [
       {
         name: "reddit",
-        link: "http://reddit.com"
+        link: "https://goo.gl/YHKG6S"
       },
       {
         name: "twitter",
-        link: "http://twitter.com"
+        link: "https://goo.gl/qxwzxk"
       },
       {
         name: "facebook",
-        link: "http://facebook.com"
+        link: "https://goo.gl/v1XmV5"
       },
       {
         name: "telegram",
-        link: "http://telegram.com"
+        link: "https://goo.gl/cdWnCi"
       },
       {
         name: "slack",
-        link: "http://slack.com"
+        link: "https://goo.gl/XHFCG4"
+      },
+      {
+        name: "github",
+        link: "https://goo.gl/vLiZYy"
+      },
+      {
+        name: "gitter",
+        link: "https://goo.gl/xvar7D"
       },
       {
         name: "youtube",
-        link: "http://youtube.com"
+        link: "https://www.youtube.com/channel/UCPuAOygDwCiLOdLosiQJJ1w"
       }
     ];
   }
