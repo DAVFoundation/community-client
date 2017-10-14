@@ -21,11 +21,6 @@ a:hover {
   padding-bottom: 1.5rem;
 }
 
-.container {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-
 .container-fluid .row {
   margin-left: 0;
   margin-right: 0;
@@ -65,8 +60,22 @@ label {
   font-weight: 300;
 }
 
-/*.notification-row {
-  position: absolute;
-  top:0;
-  width: 100%;
-}*/
+#nav-wrapper{
+  background-color: #3f1c78;
+}
+
+#notification-wrapper{
+  background-color: #603a9d;
+}
+
+#header-wrapper{
+  background-color: #7447f7;
+}
+
+#content-wrapper {
+  padding:3rem 0;
+}
+
+#footer-wrapper{
+  background-color: #3f1c78;
+}

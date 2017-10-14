@@ -17,7 +17,7 @@ class Navbar extends Component {
 
   render(){
     return(
-      <div>
+      <div className="nav-subwrapper">
         <nav className="navbar navbar-custom">
           <a className="navbar-brand">
             <img src="../../static/images/logo.png" className="logo"/>

@@ -31,46 +31,62 @@ class App extends Component {
       <div>
 
         <ModalContainer />
-        <div className='container-fluid'>
-          <Navbar />
-          <div className="row">
-            <NotificationBarContainer />
-          </div>
-          <div className="row">
-            <Header />
+        <div id="nav-wrapper">
+          <div className='container'>
+            <div className="row">
+              <Navbar />
+            </div>
           </div>
         </div>
-        <div className="container">
-          <div className="row">
-            <div className="col-md-4">
-              <div className="row">
+        <div id="notification-wrapper">
+          <div className='container'>
+            <div className="row">
+              <NotificationBarContainer />
+            </div>
+          </div>
+        </div>
+        <div id="header-wrapper">
+          <div className='container'>
+            <div className="row">
+              <Header />
+            </div>
+          </div>
+        </div>
+        <div id="content-wrapper">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-4">
+                <div className="row">
 
-                <DavCardContainer />
+                  <DavCardContainer />
 
-                <div className="col-sm-12">
-                  <BadgesContainer />
+                  <div className="col-sm-12">
+                    <BadgesContainer />
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-8">
+                <div className="row">
+                  <div className="col-md-12">
+                    <ProfileTasksContainer />
+                  </div>
+                  <div className="col-md-12">
+                    <BountiesContainer />
+                  </div>
+                  <div className="col-md-12">
+                    <UpdatesContainer />
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="col-md-8">
-              <div className="row">
-                <div className="col-md-12">
-                  <ProfileTasksContainer />
-                </div>
-                <div className="col-md-12">
-                  <BountiesContainer />
-                </div>
-                <div className="col-md-12">
-                  <UpdatesContainer />
-                </div>
-              </div>
-            </div>
-          </div>
 
+          </div>
         </div>
-        <div className="container-fluid">
-          <div className="row">
-            <Footer />
+        <div id="footer-wrapper">
+          <div className="container">
+            <div className="row">
+              <Footer />
+            </div>
           </div>
         </div>
       </div>

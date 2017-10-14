@@ -27,6 +27,7 @@
 
 #task-list li.complete .task-title{
   color: #512ca3;
+  text-decoration: line-through;
 }
 
 #task-list li.complete .task-checkbox{
