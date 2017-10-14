@@ -45,6 +45,7 @@
           <div class="form-group">
             <input type='password' name='password' id='loginPass' class="form-control" placeholder="Password">
           </div>
+          <p class="text-center" id="login-errors"></p>
           <input type="submit" class="btn btn-custom" value="Login">
           <div class="text-center">
             <a href="#" class="change-form-link" id="signup-link">Signup instead?</a>
@@ -99,12 +100,16 @@ document.querySelector("#loginForm").addEventListener("submit", function(e){
     .then(resp=>{
       if(resp.ok){
         window.location.replace('http://localhost:8080');
+      } else{
         return resp.json();
-      };
+      }
     })
     .then(json=>{
       console.log(json);
-      console.log(window.document.cookie);
+      document.getElementById('login-errors').innerHTML = json.message;
+    })
+    .catch(error=>{
+      console.log(error);
     })
 }, false)
 
@@ -131,7 +136,6 @@ document.querySelector("#signupForm").addEventListener("submit", function(e){
     .then(resp=>{
       if(resp.ok){
         window.location.replace('http://localhost:8080');
-        return resp.json();
       } else {
         return resp.json();
       }
