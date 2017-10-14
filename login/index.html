@@ -27,7 +27,7 @@
           </div>
           <div class="form-check">
             <label class="form-check-label">
-              <input type="checkbox" class="form-check-input">
+              <input type="checkbox" id="subscribeCheckbox" checked="checked" class="form-check-input">
               Receive occasional updates from DAV
             </label>
           </div>
@@ -54,7 +54,6 @@
     </div>
   </div>
 <script>
-
 
 var loginForm = document.getElementById("loginForm");
 var signupForm = document.getElementById("signupForm");
@@ -122,7 +121,8 @@ document.querySelector("#signupForm").addEventListener("submit", function(e){
     body: JSON.stringify({
       name: document.getElementById('signupName').value,
       email: document.getElementById('signupEmail').value,
-      password: document.getElementById('signupPass').value
+      password: document.getElementById('signupPass').value,
+      subscribe: document.getElementById('subscribeCheckbox').checked
     })
   }
 
