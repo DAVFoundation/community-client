@@ -140,14 +140,14 @@ class Form extends Component {
     case "mailbox":
       extraFields = (
         <div>
-          <label htmlFor="ped">Public Pedestrian Access?&nbsp;&nbsp;</label>
+          <label htmlFor="ped">Public pedestrian access can be provided?&nbsp;&nbsp;</label>
           <Field name="pedestrianAccess" id="ped" component="input" type="checkbox" />
         </div>);
       break;
     case "driveway":
       extraFields = (
         <div>
-          <label htmlFor="drive">Public Driveway Access?&nbsp;&nbsp;</label>
+          <label htmlFor="drive">Land access from public road can be provided?&nbsp;&nbsp;</label>
           <Field name="drivewayAccess" id="drive" component="input" type="checkbox" />
         </div>);
       break;
