@@ -4,7 +4,8 @@ import {getUserSuccess} from '../actions';
 const initialState = {
   uid: "",
   name: "",
-  balance: 0
+  balance: 0,
+  avatar:""
 };
 
 export default handleActions({
@@ -13,6 +14,7 @@ export default handleActions({
     edited.uid = action.payload.account.uid;
     edited.name = action.payload.name;
     edited.balance = 0;
+    edited.avatar = action.payload.avatar;
     return edited;
   }
 }, initialState);

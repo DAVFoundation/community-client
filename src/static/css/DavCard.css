@@ -26,11 +26,22 @@ h5#card-uid {
   left: 20px;
 }
 
+#card-owner {
+  bottom:15px;
+  right:20px;
+}
+
 h5#card-name{
   font-weight: 500;
   font-size:16px;
-  bottom:10px;
-  right:20px;
+  display: inline-block;
+}
+
+#card-avatar {
+  border-radius: 50%;
+  width: 40px;
+  display: inline-block;
+  margin-right: 10px;
 }
 
 h5#card-balance{
@@ -39,6 +50,8 @@ h5#card-balance{
   bottom: 10px;
   left: 20px;
 }
+
+
 
 h5#card-balance .bal{
   text-transform: uppercase;

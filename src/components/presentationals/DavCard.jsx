@@ -18,7 +18,10 @@ class DavCard extends Component {
         <img id="card-logo" className="card-content" src="../../static/images/davcard-logo.png" />
         <h5 id="card-uid" className="card-content">{this.props.uid}</h5>
         <h5 id="card-balance" className="card-content"><span className="bal">Balance</span><br/>{this.props.balance} dav</h5>
-        <h5 id="card-name" className="card-content">{this.props.name}</h5>
+        <div id="card-owner" className="card-content">
+          <img id="card-avatar" src={this.props.avatar} />
+          <h5 id="card-name">{this.props.name}</h5>
+        </div>
       </div>
     );
   }
@@ -28,6 +31,7 @@ DavCard.propTypes = {
   uid: PropTypes.string,
   balance: PropTypes.number,
   name: PropTypes.string,
+  avatar: PropTypes.string,
   getUser: PropTypes.func
 };
 
