@@ -16,7 +16,8 @@ class Form extends Component {
     this.google = window.google;
 
     this.state = {
-      currentLocation: this.props.initialCenter
+      currentLocation: this.props.initialCenter,
+      formSuccess: false
     };
   }
 
@@ -84,6 +85,14 @@ class Form extends Component {
     }).then((res) => {
       console.log("RESOLVED SUBMIT");
       this.props.reset(); //clear the form
+      this.setState({
+        formSuccess: true
+      });
+      setTimeout(()=>{
+        this.setState({
+          formSuccess: false
+        });
+      }, 1500);
     }).catch(error => {
       throw new SubmissionError(error);
     });
@@ -93,14 +102,12 @@ class Form extends Component {
     this.addressInput = inputRef;
   }
 
-  customField({input,label, meta: {touched, error}, ...custom}){
+  errorField({input,label, meta: {touched, error}, ...custom}){
     const hasError = touched && error !== undefined;
-    // console.log(touched);
-    // console.log(error);
-    // console.log(hasError);
+    console.log(error);
     return(
-      <div>
-        {hasError && "ERROR"}
+      <div className="form-error">
+        {hasError && "Please fill in all the fields"}
       </div>
     );
   }
@@ -128,14 +135,14 @@ class Form extends Component {
     case "mailbox":
       extraFields = (
         <div>
-          <label htmlFor="ped">Public Pedestrian Access?</label>
+          <label htmlFor="ped">Public Pedestrian Access?&nbsp;&nbsp;</label>
           <Field name="pedestrianAccess" id="ped" component="input" type="checkbox" />
         </div>);
       break;
     case "driveway":
       extraFields = (
         <div>
-          <label htmlFor="drive">Public Driveway Access?</label>
+          <label htmlFor="drive">Public Driveway Access?&nbsp;&nbsp;</label>
           <Field name="drivewayAccess" id="drive" component="input" type="checkbox" />
         </div>);
       break;
@@ -161,7 +168,6 @@ class Form extends Component {
               <Field name="lng" component={this.hiddenField} />
               <Field name="type" component={this.hiddenField} />
               <AddressMap center={this.state.currentLocation} />
-              <Field name="custom" component={this.customField} />
               <div>
                 <label>Is this a business or private residence?</label>
                 <Field name="residenceType" className="form-control" component="select">
@@ -181,10 +187,10 @@ class Form extends Component {
                 </Field>
               </div>
               {extraFields}
+              <Field name="error" component={this.errorField} />
               <div className="text-center>">
-                <button type="submit" className="btn btn-custom">Sign Up</button>
+                <button type="submit" className="btn btn-custom">{(this.state.formSuccess ? "Thanks!" : "Sign Up")}</button>
               </div>
-              {this.props.success && <div>SUCCESS</div>}
             </form>
           </div>
           <div className="col-md-4"></div>
@@ -196,9 +202,19 @@ class Form extends Component {
 
 export const validate = (values) => {
   const errors = {};
+  errors.error = '';
   if(!values.address || values.address.trim() == ''){
-    errors.custom = 'Address Required'; // name should be same as form field name
+    errors.error += 'Address Required '; // name should be same as form field name
   }
+
+  if(!values.residenceType || values.residenceType.trim() == ''){
+    errors.error += 'Residence type needed ';
+  }
+
+  if(!values.electricalOutlet || values.electricalOutlet.trim() == ''){
+    errors.error += 'Electrical outlet needed ';
+  }
+
   return errors;
 };
 
