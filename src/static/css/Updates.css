@@ -9,7 +9,12 @@
   background: grey;
   display: inline-block;
   margin-right: 20px;
-  transform: translateY(5px);
+  transform: translateY(-10px);
+}
+
+.update-image img{
+  width: 100%;
+  border-radius: 50%;
 }
 
 .update-user{

@@ -37,7 +37,7 @@ class UpdateItem extends Component {
     return (
       <li className='list-group-item'>
         <div className="update-image">
-
+          <img src={this.props.details.avatar} />
         </div>
         <div className="update-user">
           <h5 className="update-title">{this.props.details.name}</h5>
