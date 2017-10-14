@@ -17,7 +17,8 @@ class Form extends Component {
 
     this.state = {
       currentLocation: this.props.initialCenter,
-      formSuccess: false
+      formSuccess: false,
+      formError: false
     };
   }
 
@@ -86,7 +87,8 @@ class Form extends Component {
       console.log("RESOLVED SUBMIT");
       this.props.reset(); //clear the form
       this.setState({
-        formSuccess: true
+        formSuccess: true,
+        formError: false
       });
       setTimeout(()=>{
         this.setState({
@@ -94,7 +96,10 @@ class Form extends Component {
         });
       }, 1500);
     }).catch(error => {
-      throw new SubmissionError(error);
+      //throw new SubmissionError(error);
+      this.setState({
+        formError: true
+      });
     });
   }
 
@@ -188,6 +193,7 @@ class Form extends Component {
               </div>
               {extraFields}
               <Field name="error" component={this.errorField} />
+              <div className="form-error">{(this.state.formError ? "Error submitting. Please try again." : null)}</div>
               <div className="text-center>">
                 <button type="submit" className="btn btn-custom">{(this.state.formSuccess ? "Thanks!" : "Sign Up")}</button>
               </div>
