@@ -19,3 +19,9 @@
   padding-left:2rem;
   padding-right:2rem;
 }
+
+.form-error {
+  text-align: center;
+  color: red;
+  font-weight: 500;
+}

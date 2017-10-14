@@ -38,6 +38,7 @@ a:hover {
   right: 5%;
   background-color: #f4f8f9;
   border-radius: 5px;
+  max-width: 90%;
   max-height: calc(100vh - 50px);
   padding-bottom: 2rem;
   overflow-y: auto;
@@ -58,6 +59,10 @@ a:hover {
 
 label {
   margin-bottom: 0;
+}
+
+.form-control{
+  font-weight: 300;
 }
 
 /*.notification-row {
