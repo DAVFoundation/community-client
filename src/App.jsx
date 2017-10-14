@@ -29,6 +29,8 @@ class App extends Component {
     }
     return (
       <div>
+
+        <ModalContainer />
         <div className='container-fluid'>
           <Navbar />
           <div className="row">
@@ -64,9 +66,7 @@ class App extends Component {
               </div>
             </div>
           </div>
-          <div className="row">
-            <ModalContainer />
-          </div>
+
         </div>
         <div className="container-fluid">
           <div className="row">
