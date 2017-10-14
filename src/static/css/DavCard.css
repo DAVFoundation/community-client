@@ -51,10 +51,19 @@ h5#card-balance{
   left: 20px;
 }
 
-
-
 h5#card-balance .bal{
   text-transform: uppercase;
   font-weight: 500;
   font-size: 12px;
+}
+
+@media (max-width: 768px){
+  #dav-card{
+    height: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  h5#card-uid {
+    font-size: 10px;
+  }
 }

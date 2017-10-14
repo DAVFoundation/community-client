@@ -14,7 +14,7 @@ class DavCard extends Component {
 
   render(){
     return(
-      <div className="col-sm-12" id="dav-card">
+      <div className="col-7 col-md-12" id="dav-card">
         <img id="card-logo" className="card-content" src="../../static/images/davcard-logo.png" />
         <h5 id="card-uid" className="card-content">{this.props.uid}</h5>
         <h5 id="card-balance" className="card-content"><span className="bal">Balance</span><br/>{this.props.balance} dav</h5>

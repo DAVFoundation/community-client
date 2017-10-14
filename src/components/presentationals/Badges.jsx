@@ -33,7 +33,7 @@ class Badges extends Component {
     );
 
     return(
-      <div>
+      <div className="col-5 col-md-12">
         <ul className="badge-list list-inline">{badgeList}</ul>
         <h6 className="section-header badge-header">Earn more</h6>
         <ul className="badge-list list-inline">

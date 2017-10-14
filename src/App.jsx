@@ -55,14 +55,14 @@ class App extends Component {
         <div id="content-wrapper">
           <div className="container">
             <div className="row">
-              <div className="col-md-4">
+              <div className="col-12 col-sm-12 col-md-4">
                 <div className="row">
 
                   <DavCardContainer />
 
-                  <div className="col-sm-12">
-                    <BadgesContainer />
-                  </div>
+
+                  <BadgesContainer />
+
                 </div>
               </div>
               <div className="col-md-8">
