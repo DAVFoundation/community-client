@@ -4,11 +4,45 @@ $(document).ready(function(){
   var maxZoom = 18;
   var map = L.map('mapid', {
     minZoom: minZoom,
-    maxZoom: maxZoom
+    maxZoom: maxZoom,
+    maxBoundsViscosity:1.0
   }).setView([20, 20], minZoom);
 
-  // var map = L.map('mapid').setView([51.505, -0.09], 13);
-  var markers = L.markerClusterGroup();
+  map.setMaxBounds(map.getBounds());
+
+  var markers = L.markerClusterGroup({
+    maxClusterRadius: 120
+  });
+
+  function populate() {
+    for (var i = 0; i < 100; i++) {
+      var m = L.marker(getRandomLatLng(map), { title: i });
+      m.number = i;
+      markers.addLayer(m);
+    }
+    return false;
+  }
+  function populateRandomVector() {
+    for (var i = 0, latlngs = [], len = 20; i < len; i++) {
+      latlngs.push(getRandomLatLng(map));
+    }
+    var path = L.polyline(latlngs);
+    map.addLayer(path);
+  }
+  function getRandomLatLng(map) {
+    var bounds = map.getBounds(),
+      southWest = bounds.getSouthWest(),
+      northEast = bounds.getNorthEast(),
+      lngSpan = northEast.lng - southWest.lng,
+      latSpan = northEast.lat - southWest.lat;
+
+    return L.latLng(
+        southWest.lat + latSpan * Math.random(),
+        southWest.lng + lngSpan * Math.random());
+  }
+
+  populate();
+  map.addLayer(markers);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
