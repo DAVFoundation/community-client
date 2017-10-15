@@ -185,10 +185,10 @@ class Form extends Component {
                 <label>Nearest electrical outlet</label>
                 <Field name="electricalOutlet" className="form-control" component="select">
                   <option value="">Please select one</option>
-                  <option value="<10m">&lt;10m</option>
-                  <option value="10-20">10m-20m</option>
-                  <option value=">20m">&gt;20m</option>
-                  <option value="none">None</option>
+                  <option value="<10m">Less than 10m</option>
+                  <option value="10-20">10m to 20m</option>
+                  <option value=">20m">More than 20m</option>
+                  <option value="none">No available outlet nearby</option>
                 </Field>
               </div>
               {extraFields}
