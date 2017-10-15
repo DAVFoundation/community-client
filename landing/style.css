@@ -1,0 +1,157 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background: #3b1376;
+}
+
+.container {
+  color: white;
+}
+
+#brand{
+  padding: .5rem 0;
+  border-bottom:1px solid #7044ba;
+}
+
+#brand img{
+  height: 40px;
+}
+
+#header {
+  padding: 1.5rem 0;
+}
+
+#header h1{
+  font-weight: 300;
+  font-size: 28px;
+  color: #e3d3ff;
+}
+
+#header .bold{
+  font-weight: 700;
+  color: white;
+}
+
+#map-wrapper {
+  padding-right: 0;
+  padding-left: 0;
+}
+
+#mapid {
+  height: 600px;
+}
+
+#station-info {
+  padding-top:1rem;
+  padding-bottom: 1rem;
+  width: 100%;
+  background: #4e38bd;
+}
+
+#station-info h2{
+  font-size: 26px;
+  font-weight: 500;
+}
+
+#station-info p{
+  font-size: 18px;
+  font-weight: 300;
+  margin-bottom: 0;
+}
+
+#signup {
+  padding: 2rem 0;
+}
+
+#signup .btn-custom{
+  text-transform: uppercase;
+  color: white;
+  padding: 1rem 2rem;
+  font-size: 14px;
+  font-weight: 700;
+  background: #06b575;
+  box-shadow: 0 5px 10px 5px #2b0c66;
+}
+
+#signup .btn-custom:hover{
+  box-shadow: none;
+}
+
+#footer {
+  padding-top: 3rem;
+  padding-bottom: .5rem;
+}
+
+#footer p{
+  font-size: 10px;
+  font-weight: 300;
+}
+
+/* MODAL WINDOW*/
+.modal-content {
+  background-color: #f4f8f9;
+  background-image: url('./images/login-bg.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.modal-header {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.btn-modal {
+  background: #27a716;
+  color: white;
+  margin: 1rem auto;
+  display: block;
+  padding: .75rem 3rem;
+  text-transform: uppercase;
+}
+
+#logo {
+  margin-bottom: 3rem;
+}
+
+input {
+  font-weight: 300;
+}
+
+form h2{
+  color: #512ca3;
+  font-weight: 300;
+  font-size: 28px;
+  margin: 1.5rem 0;
+}
+
+.form-control{
+  padding: 1rem .75rem;
+}
+
+.form-check-label {
+  color: #7a8798;
+  font-size: 14px;
+  font-weight: 300;
+}
+
+.change-form-link {
+  margin-top: 2rem;
+  font-size: 12px;
+  font-weight: 300;
+}
+
+#loginForm{
+  display: none;
+}
+
+#signup-errors, #login-errors{
+  color: red;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+@media (min-width: 960px){
+  .modal-dialog {
+    max-width: 900px;
+  }
+}

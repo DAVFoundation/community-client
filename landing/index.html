@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Join the DAV Community</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,700" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css" integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ==" crossorigin=""/>
+    <link rel="stylesheet" href="./css/lib/MarkerCluster.css" />
+    <link rel="stylesheet" href="./css/lib/MarkerCluster.Default.css" />
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div id="brand" class="col-12 text-center">
+          <img src='./images/logo.png' alt="DAV Community" />
+        </div>
+      </div>
+      <div class="row text-center">
+        <div id="header" class="col-12 text-center">
+          <h1>We are rolling out the <span class="bold">first worldwide network</span><br>of autonomous vehicle service stations</h1>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div id="map-wrapper" class="col-12">
+          <div id="mapid"></div>
+        </div>
+        <div id="station-info" class="col-12 text-center">
+          <h2>12494</h2>
+          <p>DAV Stations Worldwide</p>
+        </div>
+      </div>
+      <div class="row">
+        <div id="signup" class="col-12 text-center">
+          <a href="#" class="btn btn-custom" data-toggle="modal" data-target="#signupModal">Join us &amp; start earning tokens</a>
+        </div>
+      </div>
+
+      <div class="row text-center">
+        <div id="footer" class="col-12">
+          <p>&copy; Copyright 2017 DAV - All Rights Reserved</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal fade" id="signupModal" tabindex="-1" role="dialog" aria-labelledby="signupModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-sm-2 col-md-4"></div>
+              <div class="col-12 col-sm-8 col-md-4">
+                <form id="signupForm">
+                  <h2 class="text-center">Join the DAV Community</h2>
+                  <div class="form-group">
+                    <input type='text' name='name' id='signupName' class="form-control" placeholder="Full Name">
+                  </div>
+                  <div class="form-group">
+                    <input type='text' name='email' id='signupEmail' class="form-control" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <input type='password' name='password' id='signupPass' class="form-control" placeholder="Password">
+                  </div>
+                  <div class="form-check">
+                    <label class="form-check-label">
+                      <input type="checkbox" id="subscribeCheckbox" checked="checked" class="form-check-input">
+                      Receive occasional updates from DAV
+                    </label>
+                  </div>
+                  <p class="text-center" id="signup-errors"></p>
+                  <input type="submit" class="btn btn-modal" value="join">
+                  <div class="text-center">
+                    <a href="#" class="change-form-link" id="login-link">Login instead?</a>
+                  </div>
+                </form>
+                <form id="loginForm">
+                  <h2 class="text-center">Welcome Back</h2>
+                  <div class="form-group">
+                    <input type='text' name='email' id='loginEmail' class="form-control" placeholder="Email">
+                  </div>
+                  <div class="form-group">
+                    <input type='password' name='password' id='loginPass' class="form-control" placeholder="Password">
+                  </div>
+                  <p class="text-center" id="login-errors"></p>
+                  <input type="submit" class="btn btn-modal" value="Login">
+                  <div class="text-center">
+                    <a href="#" class="change-form-link" id="signup-link">Signup instead?</a>
+                  </div>
+                </form>
+              </div>
+              <div class="col-sm-2 col-md-4"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
+   integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
+   crossorigin=""></script>
+  <script src="./js/lib/leaflet.markercluster.js" type="text/javascript"></script>
+  <script src="./index.js" type="text/javascript"></script>
+  </body>
+</html>
