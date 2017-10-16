@@ -2,7 +2,7 @@
   background: #7447f7;
   background-image: url('../images/drone-header.png');
   background-repeat: no-repeat;
-  background-size: 30%;
+  background-size: 45%;
   background-position: right bottom;
   padding: 3rem 0;
 }
@@ -14,24 +14,35 @@
 }
 
 #header-bar p {
-  width: 50%;
   color: white;
   font-size: 14px;
+}
+
+#header-bar p span {
+  display: block;
+}
+
+@media (max-width: 960px) {
+  #header-bar {
+    background-size: 60%;
+  }
 }
 
 @media (max-width: 768px){
 
   #header-bar {
-    background-size: 60%;
+    background-size: 100%;
   }
 
   #header-bar h1 {
     text-align: center;
+    text-shadow: 1px 1px 2px #000;
   }
 
   #header-bar p {
     width: 100%;
     text-align: center;
+    text-shadow: 1px 1px 2px #000;
   }
 }
 

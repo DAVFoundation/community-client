@@ -2,8 +2,9 @@
   background-image: url('../images/davcard-world.png');
   background-color: #212b83;
   border-radius: 10px;
-  background-size: contain;
-  min-height: 250px;
+  background-size: 90%;
+  width: 100%;
+  padding-bottom: 65%;
   background-repeat: no-repeat;
   background-position: center;
   position: relative;
@@ -15,15 +16,19 @@
 }
 
 img#card-logo {
-  top:10px;
-  left:15px;
+  top:15px;
+  left:20px;
+  height: 30px;
 }
 
-h5#card-uid {
-  font-weight: 300;
-  font-size: 14px;
+#card-uid{
   top:60px;
   left: 20px;
+  text-overflow: ellipsis;
+}
+#card-uid{
+  font-weight: 300;
+  font-size: 14px;
 }
 
 #card-owner {
@@ -44,26 +49,64 @@ h5#card-name{
   margin-right: 10px;
 }
 
-h5#card-balance{
-  font-weight: 300;
-  font-size: 18px;
+#card-balance{
   bottom: 10px;
   left: 20px;
 }
 
-h5#card-balance .bal{
+#card-balance h5{
+  font-weight: 300;
+  font-size: 18px;
+  display: inline-block;
+}
+
+#card-balance img {
+  display: inline-block;
+  margin-left: 5px;
+  height: 10px;
+}
+
+#card-balance .bal{
   text-transform: uppercase;
   font-weight: 500;
   font-size: 12px;
 }
 
-@media (max-width: 768px){
-  #dav-card{
-    height: 100px;
-    margin-bottom: 1.5rem;
+@media (max-width: 1200px){
+  #card-uid{
+    white-space: nowrap;
+    overflow: hidden;
+    width: 300px;
+    text-overflow: ellipsis;
+    font-size: 12px;
   }
 
-  h5#card-uid {
+}
+
+@media (max-width: 991px){
+  #card-uid{
+    white-space: nowrap;
+    overflow: hidden;
+    width: 200px;
+    text-overflow: ellipsis;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px){
+  #dav-card{
+    margin-bottom: 1.5rem;
+    padding-bottom: 40%;
+  }
+
+  #card-uid{
+    white-space: nowrap;
+    overflow: hidden;
+    width: 250px;
+    text-overflow: ellipsis;
+  }
+
+  #card-uid{
     font-size: 10px;
   }
 }

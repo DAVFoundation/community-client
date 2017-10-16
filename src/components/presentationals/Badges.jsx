@@ -35,6 +35,15 @@ class Badges extends Component {
     return(
       <div className="col-5 col-md-12">
         <ul className="badge-list list-inline">{badgeList}</ul>
+      </div>
+    );
+  }
+}
+
+class EarnMore extends Component {
+  render(){
+    return(
+      <div>
         <h6 className="section-header badge-header">Earn more</h6>
         <ul className="badge-list list-inline">
           <li className="list-inline-item badge-item upcoming">
@@ -50,7 +59,7 @@ class Badges extends Component {
 class BadgeIcon extends Component {
 
   render(){
-    var imgSrc = `../../static/images/badges/${this.props.details.title.toLowerCase()}-badge.png`;
+    var imgSrc = `../../static/images/badges/${this.props.details.slug.toLowerCase()}-badge.png`;
     return (
       <li className="list-inline-item badge-item">
         <img src={imgSrc} />

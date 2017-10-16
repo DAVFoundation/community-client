@@ -5,7 +5,7 @@ const initialState = {
   isOpen: false,
   modalType: "",
   modalProps: {},
-  selectedTab: "backyard"
+  selectedTab: ""
 };
 
 export const MODALTYPES = {

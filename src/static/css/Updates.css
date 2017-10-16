@@ -3,6 +3,8 @@
 }
 
 #update-list li.list-group-item {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   border: none;
 }
 
@@ -13,7 +15,7 @@
   right: 0;
   bottom: 0;
   left: 0;
-  width: 90%;
+  width: 95%;
   height: 2px;
   background-color: #d9e6e9;
 }
@@ -36,7 +38,7 @@
   background: grey;
   display: inline-block;
   margin-right: 20px;
-  transform: translateY(-10px);
+  transform: translateY(-6px);
 }
 
 .update-image img{
@@ -57,6 +59,11 @@ p.update-date{
   font-size: 10px;
 }
 
-p.update-description{
+div.update-description{
   margin-bottom: 0;
+}
+
+.update-bold {
+  color:#512ca3;
+  font-weight: 500;
 }

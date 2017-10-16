@@ -80,27 +80,31 @@ class Form extends Component {
   }
 
   submit(values){
-    return new Promise((resolve, reject) => {
-      //dispatch action
-      this.props.submitStationForm({values, resolve, reject});
-    }).then((res) => {
-      console.log("RESOLVED SUBMIT");
-      this.props.reset(); //clear the form
-      this.setState({
-        formSuccess: true,
-        formError: false
-      });
-      setTimeout(()=>{
-        this.setState({
-          formSuccess: false
-        });
-      }, 1500);
-    }).catch(error => {
-      //throw new SubmissionError(error);
-      this.setState({
-        formError: true
-      });
-    });
+
+    this.props.change('type', this.props.formType);
+    console.log(values);
+    this.props.reset();
+    // return new Promise((resolve, reject) => {
+    //   //dispatch action
+    //   this.props.submitStationForm({values, resolve, reject});
+    // }).then((res) => {
+    //   console.log("RESOLVED SUBMIT");
+    //   this.props.reset(); //clear the form
+    //   this.setState({
+    //     formSuccess: true,
+    //     formError: false
+    //   });
+    //   setTimeout(()=>{
+    //     this.setState({
+    //       formSuccess: false
+    //     });
+    //   }, 1500);
+    // }).catch(error => {
+    //   //throw new SubmissionError(error);
+    //   this.setState({
+    //     formError: true
+    //   });
+    // });
   }
 
   setAddressInputRef(inputRef){
@@ -133,6 +137,12 @@ class Form extends Component {
     );
   }
 
+  handleKeyDown(e){
+    if(e.key=='Enter' && e.shiftKey === false){
+      e.preventDefault();
+    }
+  }
+
   render(){
 
     let extraFields = null;
@@ -158,13 +168,13 @@ class Form extends Component {
       <div>
         <div className="row">
           <div className="col-md-6 ml-auto">
-            <p className="text-center">If your home has a {this.props.formType}, and you would like to find out how you can earn money by placing a charging station in the future, sign up below and we will get back to you with more details.</p>
+            <FormDescription formType={this.props.formType} />
           </div>
           <div className="col-md-3"></div>
         </div>
         <div className="row">
           <div id="form-wrapper" className="col-md-4 ml-auto">
-            <form onSubmit={this.props.handleSubmit(this.submit)}>
+            <form onSubmit={this.props.handleSubmit(this.submit)} onKeyDown={(e) => { this.handleKeyDown(e);}}>
               <div>
                 <label>Address</label>
                 <Field name="address" component={this.addressField} label="Enter Address"/>
@@ -195,13 +205,65 @@ class Form extends Component {
               <Field name="error" component={this.errorField} />
               <div className="form-error">{(this.state.formError ? "Error submitting. Please try again." : null)}</div>
               <div className="text-center>">
-                <button type="submit" className="btn btn-custom">{(this.state.formSuccess ? "Thanks!" : "Sign Up")}</button>
+                <button type="submit" disabled={this.props.submitting} className="btn btn-custom">{(this.state.formSuccess ? "Thanks!" : "Sign Up")}</button>
               </div>
             </form>
           </div>
           <div className="col-md-4"></div>
         </div>
+        <FormSuccess formType={this.props.formType} />
+
       </div>
+    );
+  }
+}
+
+class FormSuccess extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  render(){
+    let imgSrc = `../../static/images/${this.props.formType}.png`;
+    return(
+      <div className="row">
+        <div className="col-md-6 ml-auto text-center">
+          <img className="form-success-img" src={imgSrc}/>
+          <h2>Thank you!</h2>
+          <p>We have received your message and will be in touch.</p>
+        </div>
+        <div className="col-md-3"></div>
+      </div>
+    );
+  }
+}
+
+class FormDescription extends Component {
+  constructor(props){
+    super(props);
+  }
+
+  render(){
+    let para = "";
+    switch(this.props.formType){
+    case "backyard":
+      para = `If your home has a yard, and you would like to find out how you can earn money by placing a charging station in it, sign up below and we will get back to you with more details.`;
+      break;
+    case "roof":
+      para = `If you have access to your home's roof, and you would like to find out how you can earn money by placing a charging station on it, sign up below and we will get back to you with more details.`;
+      break;
+    case "mailbox":
+      para = `If your home has an open area, that is accessible to the street, and you would like to find out how you can earn money by placing a mailbox on it, sign up below and we will get back to you with more details.`;
+      break;
+    case "driveway":
+      para = 'If your home has a driveway, and you would like to find out how you can earn money by allowing autonomous vehicles to park and charge there, sign up below and we will get back to you with more details.';
+      break;
+    default:
+      para="";
+    }
+
+    return(
+      <p className="text-center">{para}</p>
     );
   }
 }
@@ -226,6 +288,7 @@ export const validate = (values) => {
 
 Form.propTypes = {
   handleSubmit : PropTypes.func,
+  submitting: PropTypes.bool,
   change: PropTypes.func,
   formType: PropTypes.string,
   submitStationForm: PropTypes.func,
@@ -233,6 +296,14 @@ Form.propTypes = {
   initialCenter:PropTypes.object,
   errorCenter: PropTypes.object,
   success: PropTypes.bool
+};
+
+FormSuccess.propTypes = {
+  formType: PropTypes.string
+};
+
+FormDescription.propTypes = {
+  formType: PropTypes.string
 };
 
 Form.defaultProps = {

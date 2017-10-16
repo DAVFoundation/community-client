@@ -38,6 +38,7 @@ class ListItem extends Component {
   render(){
     return(
       <li className={"list-inline-item text-center " + (this.props.active ? "active":"")}>
+        <div className="li-hover"></div>
         <Button onRootClick={this.click} title={this.props.title} value={this.props.tag} icon={this.props.icon}/>
       </li>
     );

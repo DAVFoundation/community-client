@@ -38,13 +38,6 @@ class App extends Component {
             </div>
           </div>
         </div>
-        <div id="notification-wrapper">
-          <div className='container'>
-            <div className="row">
-              <NotificationBarContainer />
-            </div>
-          </div>
-        </div>
         <div id="header-wrapper">
           <div className='container'>
             <div className="row">
@@ -67,9 +60,6 @@ class App extends Component {
               </div>
               <div className="col-md-8">
                 <div className="row">
-                  <div className="col-md-12">
-                    <ProfileTasksContainer />
-                  </div>
                   <div className="col-md-12">
                     <BountiesContainer />
                   </div>

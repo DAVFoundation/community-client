@@ -34,6 +34,7 @@ class UpdateItem extends Component {
 
   render(){
     var d = new Date(this.props.details.createdAt);
+    let dateOptions = {month: 'long', day: 'numeric', year: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false};
     return (
       <li className='list-group-item'>
         <div className="update-image">
@@ -41,9 +42,9 @@ class UpdateItem extends Component {
         </div>
         <div className="update-user">
           <h5 className="update-title">{this.props.details.name}</h5>
-          <p className="update-date">{d.toUTCString()}</p>
+          <p className="update-date">{d.toLocaleString('en-US', dateOptions)}</p>
         </div>
-        <p className="update-description">{this.props.details.description}</p>
+        <div className="update-description" dangerouslySetInnerHTML={{__html:this.props.details.description}} />
       </li>
     );
   }
