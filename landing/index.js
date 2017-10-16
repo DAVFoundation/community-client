@@ -5,44 +5,46 @@ $(document).ready(function(){
   var map = L.map('mapid', {
     minZoom: minZoom,
     maxZoom: maxZoom,
-    maxBoundsViscosity:1.0
-  }).setView([20, 20], minZoom);
+    maxBoundsViscosity:.8
+  })
+
+  map.on('load', function(){
+    getDummyData();
+  });
+
+  //ny lat - 40.785091, ny long - -73.968285
+  map.fitWorld();
 
   map.setMaxBounds(map.getBounds());
 
-  var markers = L.markerClusterGroup({
-    maxClusterRadius: 120
+  var davMarker  = L.icon({
+    iconUrl: './images/pin24.png',
+    iconRetinaUrl: './images/pin48.png',
+    shadowUrl: './images/shadow24.png',
+    shadowRetinaUrl: './images/shadow48.png',
+    iconSize: [20,24],
+    iconAnchor: [10,24],
+    shadowSize: [20,24],
+    shadowAnchor:[0,24],
+    popupAnchor: [0, -2],
   });
 
-  function populate() {
-    for (var i = 0; i < 100; i++) {
-      var m = L.marker(getRandomLatLng(map), { title: i });
+  var markers = L.markerClusterGroup({
+    maxClusterRadius: 30
+  });
+
+  function populateMap(points) {
+    for (var i = 0; i < points.length; i++) {
+      let lat = points[i].coordinates[1].toFixed(1);
+      let lng = points[i].coordinates[0].toFixed(1);
+      var popup = lat + ", " + lng;
+      var m = L.marker([points[i].coordinates[1], points[i].coordinates[0]], { title: i, icon: davMarker}).bindPopup(popup);
       m.number = i;
       markers.addLayer(m);
     }
-    return false;
-  }
-  function populateRandomVector() {
-    for (var i = 0, latlngs = [], len = 20; i < len; i++) {
-      latlngs.push(getRandomLatLng(map));
-    }
-    var path = L.polyline(latlngs);
-    map.addLayer(path);
-  }
-  function getRandomLatLng(map) {
-    var bounds = map.getBounds(),
-      southWest = bounds.getSouthWest(),
-      northEast = bounds.getNorthEast(),
-      lngSpan = northEast.lng - southWest.lng,
-      latSpan = northEast.lat - southWest.lat;
 
-    return L.latLng(
-        southWest.lat + latSpan * Math.random(),
-        southWest.lng + lngSpan * Math.random());
+    map.addLayer(markers);
   }
-
-  populate();
-  map.addLayer(markers);
 
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -51,7 +53,7 @@ $(document).ready(function(){
     accessToken: 'pk.eyJ1Ijoic2hla2l0IiwiYSI6ImNqOHQ3NjBoODBpeDkzNG82ODR6cHpkZTYifQ.UfBMaIDH3yR1leLSnOaK5A'
   }).addTo(map);
 
-  function populateData(){
+  function getDummyData(){
 
     var fetchInit = {
       method: 'GET'
@@ -65,6 +67,10 @@ $(document).ready(function(){
       })
       .then(json => {
         console.log(json.points.length);
+        document.getElementById('station-number').innerHTML = json.points.length;
+        populateMap(json.points);
+
+
         // populate map markers
       })
       .catch(error => {
