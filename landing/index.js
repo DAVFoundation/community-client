@@ -26,7 +26,7 @@ $(document).ready(function(){
     iconAnchor: [10,24],
     shadowSize: [20,24],
     shadowAnchor:[0,24],
-    popupAnchor: [0, -2],
+    popupAnchor: [0, -20],
   });
 
   var markers = L.markerClusterGroup({
