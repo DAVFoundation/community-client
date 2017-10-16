@@ -181,7 +181,7 @@ class Form extends Component {
               </div>
               <Field name="lat" component={this.hiddenField} />
               <Field name="lng" component={this.hiddenField} />
-              <Field name="type" component={this.hiddenField} />
+              <Field name="type" component={this.hiddenField} value={this.props.formType}/>
               <AddressMap center={this.state.currentLocation} />
               <div>
                 <label>Is this a business or private residence?</label>

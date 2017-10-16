@@ -32,7 +32,7 @@ class BountyModal extends Component {
           </div>
           <div className="row">
             <div className="col-md-8 ml-auto">
-              <BountyHeader trigger={this.trigger} info={this.props.info} selectedTab={this.props.selectedTab} />
+              <BountyHeader trigger={this.trigger} info={this.props.info} selectedTab={this.props.selectedTab} setLocalState={true}/>
             </div>
             <div className="col-md-2"></div>
           </div>

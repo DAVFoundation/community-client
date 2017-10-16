@@ -11,9 +11,9 @@ class Bounties extends Component {
     this.trigger = this.trigger.bind(this);
   }
 
-  trigger(tag){
+  trigger(tab){
     //OPEN MODAL
-    this.props.openModal({isOpen:true, modalType:"BOUNTY",modalProps:{tab:tag}});
+    this.props.openModal({isOpen:true, modalType:"BOUNTY",modalProps:{tab:tab}});
   }
 
   render(){
@@ -21,7 +21,7 @@ class Bounties extends Component {
     return(
       <div>
         <h2 className="section-header">Earn DAV Tokens Through Open Bounties</h2>
-        <BountyHeader trigger={this.trigger} info={this.props.bountyList} />
+        <BountyHeader trigger={this.trigger} info={this.props.bountyList} setLocalState={false}/>
       </div>
     );
   }

@@ -6,12 +6,16 @@ class BountyHeader extends Component {
   constructor(props){
     super(props);
     this.performParentAction = this.performParentAction.bind(this);
+    console.log("SET LOCAL STATE", this.props.setLocalState);
     this.state = {activeItem:this.props.selectedTab};
+
   }
 
-  performParentAction(tag){
-    this.props.trigger(tag);
-    this.setState({activeItem:tag});
+  performParentAction(tab){
+    if(this.props.setLocalState){
+      this.setState({activeItem:tab});
+    }
+    this.props.trigger(tab);
   }
 
   render(){
@@ -34,7 +38,8 @@ class BountyHeader extends Component {
 BountyHeader.propTypes = {
   trigger: PropTypes.func,
   info: PropTypes.array,
-  selectedTab: PropTypes.string
+  selectedTab: PropTypes.string,
+  setLocalState: PropTypes.bool
 };
 
 export default BountyHeader;
