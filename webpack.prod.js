@@ -6,13 +6,6 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(common, {
   devtool: 'source-map',
-  devServer: {
-    contentBase: path.resolve(__dirname, 'src'),
-    port: 8080,
-    hot: true,
-    inline: true,
-    //public: 'localhost.com'
-  },
   plugins: [
 
     // generates html file with all webpack bundles included in script tag
@@ -28,9 +21,6 @@ module.exports = merge(common, {
 
     //improve logging in the console
     new webpack.NamedModulesPlugin(),
-
-    // see changes without reloading browser
-    new webpack.HotModuleReplacementPlugin(),
 
     // passes variables from webpack to js files
     new webpack.DefinePlugin({
