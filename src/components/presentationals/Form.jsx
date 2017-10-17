@@ -23,19 +23,21 @@ class Form extends Component {
   }
 
   componentDidMount(){
-    this.props.change("type", this.props.formType);
-    if(navigator && navigator.geolocation){
-      navigator.geolocation.getCurrentPosition((pos)=>{
-        const coords = pos.coords;
-        this.setState({
-          currentLocation: {
-            lat: coords.latitude,
-            lng: coords.longitude
-          }
+    if(!this.props.hasStation[this.props.formType]){
+      this.props.change("type", this.props.formType);
+      if(navigator && navigator.geolocation){
+        navigator.geolocation.getCurrentPosition((pos)=>{
+          const coords = pos.coords;
+          this.setState({
+            currentLocation: {
+              lat: coords.latitude,
+              lng: coords.longitude
+            }
+          });
         });
-      });
+      }
+      this.initMap();
     }
-    this.initMap();
   }
 
   initMap(){
@@ -70,6 +72,7 @@ class Form extends Component {
         });
         this.props.change('lat', lat);
         this.props.change('lng', lng);
+        this.props.change('type', this.props.formType);
       } else {
         console.log("Error finding address");
         this.setState({
@@ -81,30 +84,27 @@ class Form extends Component {
 
   submit(values){
 
-    this.props.change('type', this.props.formType);
-    console.log(values);
-    this.props.reset();
-    // return new Promise((resolve, reject) => {
-    //   //dispatch action
-    //   this.props.submitStationForm({values, resolve, reject});
-    // }).then((res) => {
-    //   console.log("RESOLVED SUBMIT");
-    //   this.props.reset(); //clear the form
-    //   this.setState({
-    //     formSuccess: true,
-    //     formError: false
-    //   });
-    //   setTimeout(()=>{
-    //     this.setState({
-    //       formSuccess: false
-    //     });
-    //   }, 1500);
-    // }).catch(error => {
-    //   //throw new SubmissionError(error);
-    //   this.setState({
-    //     formError: true
-    //   });
-    // });
+    return new Promise((resolve, reject) => {
+      //dispatch action
+      this.props.submitStationForm({values, resolve, reject});
+    }).then((res) => {
+      console.log("RESOLVED SUBMIT");
+      this.props.reset(); //clear the form
+      this.setState({
+        formSuccess: true,
+        formError: false
+      });
+      setTimeout(()=>{
+        this.setState({
+          formSuccess: false
+        });
+      }, 1500);
+    }).catch(error => {
+      //throw new SubmissionError(error);
+      this.setState({
+        formError: true
+      });
+    });
   }
 
   setAddressInputRef(inputRef){
@@ -163,56 +163,72 @@ class Form extends Component {
       break;
     }
 
+    let show = true;
+
+    if(this.props.hasStation[this.props.formType]){
+      show = false;
+    }
+
+    let form = null;
+
+    if(show){
+      form = (
+        <div>
+          <div className="row">
+            <div className="col-md-6 ml-auto">
+              <FormDescription formType={this.props.formType} />
+            </div>
+            <div className="col-md-3"></div>
+          </div>
+          <div className="row">
+            <div id="form-wrapper" className="col-md-4 ml-auto">
+              <form onSubmit={this.props.handleSubmit(this.submit)} onKeyDown={(e) => { this.handleKeyDown(e);}}>
+                <div>
+                  <label>Address</label>
+                  <Field name="address" component={this.addressField} label="Enter Address"/>
+                </div>
+                <Field name="lat" component={this.hiddenField} />
+                <Field name="lng" component={this.hiddenField} />
+                <Field name="type" component={this.hiddenField} value={this.props.formType}/>
+                <AddressMap center={this.state.currentLocation} />
+                <div>
+                  <label>Is this a business or private residence?</label>
+                  <Field name="residenceType" className="form-control" component="select">
+                    <option value="">Please select one</option>
+                    <option value="Private">Private Residence</option>
+                    <option value="Business">Business Residence</option>
+                  </Field>
+                </div>
+                <div>
+                  <label>Nearest electrical outlet</label>
+                  <Field name="electricalOutlet" className="form-control" component="select">
+                    <option value="">Please select one</option>
+                    <option value="<10m">Less than 10m</option>
+                    <option value="10-20">10m to 20m</option>
+                    <option value=">20m">More than 20m</option>
+                    <option value="none">No available outlet nearby</option>
+                  </Field>
+                </div>
+                {extraFields}
+                <Field name="error" component={this.errorField} />
+                <div className="form-error">{(this.state.formError ? "Error submitting. Please try again." : null)}</div>
+                <div className="text-center>">
+                  <button type="submit" disabled={this.props.submitting} className="btn btn-custom">{(this.state.formSuccess ? "Thanks!" : "Sign Up")}</button>
+                </div>
+              </form>
+            </div>
+            <div className="col-md-4"></div>
+          </div>
+        </div>
+      );
+    } else {
+      form = <FormSuccess formType={this.props.formType} />;
+    }
+
 
     return(
       <div>
-        <div className="row">
-          <div className="col-md-6 ml-auto">
-            <FormDescription formType={this.props.formType} />
-          </div>
-          <div className="col-md-3"></div>
-        </div>
-        <div className="row">
-          <div id="form-wrapper" className="col-md-4 ml-auto">
-            <form onSubmit={this.props.handleSubmit(this.submit)} onKeyDown={(e) => { this.handleKeyDown(e);}}>
-              <div>
-                <label>Address</label>
-                <Field name="address" component={this.addressField} label="Enter Address"/>
-              </div>
-              <Field name="lat" component={this.hiddenField} />
-              <Field name="lng" component={this.hiddenField} />
-              <Field name="type" component={this.hiddenField} value={this.props.formType}/>
-              <AddressMap center={this.state.currentLocation} />
-              <div>
-                <label>Is this a business or private residence?</label>
-                <Field name="residenceType" className="form-control" component="select">
-                  <option value="">Please select one</option>
-                  <option value="Private">Private Residence</option>
-                  <option value="Business">Business Residence</option>
-                </Field>
-              </div>
-              <div>
-                <label>Nearest electrical outlet</label>
-                <Field name="electricalOutlet" className="form-control" component="select">
-                  <option value="">Please select one</option>
-                  <option value="<10m">Less than 10m</option>
-                  <option value="10-20">10m to 20m</option>
-                  <option value=">20m">More than 20m</option>
-                  <option value="none">No available outlet nearby</option>
-                </Field>
-              </div>
-              {extraFields}
-              <Field name="error" component={this.errorField} />
-              <div className="form-error">{(this.state.formError ? "Error submitting. Please try again." : null)}</div>
-              <div className="text-center>">
-                <button type="submit" disabled={this.props.submitting} className="btn btn-custom">{(this.state.formSuccess ? "Thanks!" : "Sign Up")}</button>
-              </div>
-            </form>
-          </div>
-          <div className="col-md-4"></div>
-        </div>
-        <FormSuccess formType={this.props.formType} />
-
+        {form}
       </div>
     );
   }
@@ -291,6 +307,7 @@ Form.propTypes = {
   submitting: PropTypes.bool,
   change: PropTypes.func,
   formType: PropTypes.string,
+  hasStation: PropTypes.object,
   submitStationForm: PropTypes.func,
   reset: PropTypes.func,
   initialCenter:PropTypes.object,

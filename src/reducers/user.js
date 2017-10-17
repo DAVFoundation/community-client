@@ -9,6 +9,8 @@ export default handleActions({
   [getUserSuccess]: (state, action) => {
     let edited = Object.assign({}, state, action.payload);
     edited.authenticated = true;
+    console.log("GOTT USERR");
+    console.log(edited);
     return edited;
   },
   [getUserError]: (state, action) => {

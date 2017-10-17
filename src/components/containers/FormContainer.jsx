@@ -9,7 +9,8 @@ const mapStateToProps = (state) => ({
   initialValues: state.modals.modalProps.tab,
   success: state.forms.success,
   error: state.forms.error,
-  form: state.form //populated by redux form
+  form: state.form, //populated by redux form,
+  hasStation: state.user.hasStation
 });
 
 const mapDispatchToProps = (dispatch) => ({

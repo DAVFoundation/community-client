@@ -1,7 +1,14 @@
 import {handleActions} from 'redux-actions';
 import {submitStationFormSuccess, submitStationFormError} from '../actions';
 
-const initialState = {};
+const initialState = {
+  roof: false,
+  backyard: false,
+  driveway: false,
+  mailbox: false,
+  success: false,
+  error:false
+};
 
 export default handleActions({
   [submitStationFormSuccess]: (state, action) => {

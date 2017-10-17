@@ -1,5 +1,5 @@
 import {put, call, takeLatest} from 'redux-saga/effects';
-import {submitStationForm, submitStationFormSuccess, submitStationFormError} from '../actions';
+import {submitStationForm, submitStationFormSuccess, submitStationFormError, getUserSuccess} from '../actions';
 import {apiCreateStation} from '../lib/api';
 
 
@@ -13,7 +13,7 @@ export function* workerStationFormSubmit(action){
   try {
     const formData = action.payload.values;
     const resp = yield call(apiCreateStation, formData);
-    yield put(submitStationFormSuccess(resp));
+    yield put(getUserSuccess(resp));
     yield call(action.payload.resolve);
   } catch(error){
     yield put(submitStationFormError(error));
