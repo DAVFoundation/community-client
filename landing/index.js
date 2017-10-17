@@ -30,7 +30,41 @@ $(document).ready(function(){
   });
 
   var markers = L.markerClusterGroup({
-    maxClusterRadius: 30
+    maxClusterRadius: 30,
+    iconCreateFunction: function(cluster) {
+      // var markers = cluster.getAllChildMarkers();
+      var n = cluster.getChildCount();
+      let point = 0;
+
+      switch(true){
+        case n<75:
+          point = 15;
+          break;
+        case n<150:
+          point = 20;
+          break;
+        case n<225:
+          point = 25;
+          break;
+        case n<300:
+          point = 30;
+          break;
+        case n<375:
+          point = 35;
+          break;
+        case n<450:
+          point = 40;
+          break;
+        case n<525:
+          point = 45;
+          break;
+        default:
+          point = 50;
+          break;
+      }
+      return L.divIcon({html: '', className: 'mycluster', iconSize: L.point(point,point)})
+    },
+    showCoverageOnHover: false
   });
 
   function populateMap(points) {
@@ -49,7 +83,7 @@ $(document).ready(function(){
   L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
     attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
     maxZoom: 18,
-    id: 'mapbox.streets',
+    id: 'mapbox.light',
     accessToken: 'pk.eyJ1Ijoic2hla2l0IiwiYSI6ImNqOHQ3NjBoODBpeDkzNG82ODR6cHpkZTYifQ.UfBMaIDH3yR1leLSnOaK5A'
   }).addTo(map);
 
