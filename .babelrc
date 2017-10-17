@@ -1,9 +1,8 @@
 {
   "presets":[
     "env",
-    "react",
-    "react-hmre"
-    ],
+    "react"
+  ],
   "plugins":[
     "transform-object-rest-spread",
     "transform-class-properties"
