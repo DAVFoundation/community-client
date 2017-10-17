@@ -3,6 +3,7 @@ const webpack = require('webpack');
 const common = require('./webpack.common.js');
 const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(common, {
@@ -31,7 +32,13 @@ module.exports = merge(common, {
       'process.env':{
         'NODE_ENV':JSON.stringify('development')
       }
-    })
+    }),
+
+    // Copy static files to dist directory
+    new CopyWebpackPlugin([
+      { from: 'src/static', to: 'static' },
+    ]),
+
 
   ],
   externals: {
