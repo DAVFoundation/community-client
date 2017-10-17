@@ -39,7 +39,6 @@ module.exports = merge(common, {
       { from: 'src/static', to: 'static' },
     ]),
 
-
   ],
   externals: {
     config: JSON.stringify(require("./src/config/config.dev.js"))

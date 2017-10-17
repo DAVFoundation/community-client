@@ -1,7 +1,7 @@
 {
   "env": {
     "browser": true,
-    "node": false,
+    "node": true,
     "es6": true
   },
   "extends": [
@@ -38,7 +38,7 @@
       "error",
       "always"
     ],
-    "require-yield":1,    
+    "require-yield":1,
     "no-unused-vars": 1
   },
   "globals": {
