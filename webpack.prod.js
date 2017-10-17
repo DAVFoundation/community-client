@@ -2,11 +2,15 @@ const path = require('path');
 const webpack = require('webpack');
 const common = require('./webpack.common.js');
 const merge = require('webpack-merge');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = merge(common, {
   devtool: 'source-map',
   plugins: [
+
+    // Clear dist directory before building for production
+    new CleanWebpackPlugin(['dist']),
 
     // generates html file with all webpack bundles included in script tag
     new HtmlWebpackPlugin({
@@ -33,4 +37,4 @@ module.exports = merge(common, {
   externals: {
     config: JSON.stringify(require("./src/config/config.dev.js"))
   }
-})
+});
