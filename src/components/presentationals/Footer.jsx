@@ -92,6 +92,15 @@ class CopyrightInfo extends Component {
     return (
       <div>
         <h6 className="copyright">&copy; Copyright 2017 DAV - All Rights Reserved -- DAV is a registered nonprofit in Zug, Switzerland</h6>
+      </div>
+    );
+  }
+}
+
+class PrivacyLinks extends Component {
+  render(){
+    return(
+      <div>
         <ul className="list-inline copyright">
           <li className='list-inline-item'>
             <a href="#">Privacy Policy</a>
