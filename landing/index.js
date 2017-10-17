@@ -100,7 +100,7 @@ $(document).ready(function(){
         }
       })
       .then(json => {
-        console.log(json.points.length);
+
         document.getElementById('station-number').innerHTML = json.points.length;
         populateMap(json.points);
 
@@ -108,6 +108,7 @@ $(document).ready(function(){
         // populate map markers
       })
       .catch(error => {
+        document.getElementById('station-number').innerHTML = "Error Accessing";
         console.log(error);
       })
   }
