@@ -1,6 +1,10 @@
 $(document).ready(function(){
 
   var minZoom = 2;
+  if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    minZoom = 1
+  }
+
   var maxZoom = 18;
   var map = L.map('mapid', {
     minZoom: minZoom,
