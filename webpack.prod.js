@@ -30,7 +30,7 @@ module.exports = merge(common, {
     // passes variables from webpack to js files
     new webpack.DefinePlugin({
       'process.env':{
-        'NODE_ENV':JSON.stringify('development')
+        'NODE_ENV':JSON.stringify('production')
       }
     }),
 
