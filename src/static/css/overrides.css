@@ -27,16 +27,14 @@ a:hover {
 }
 
 .custom-modal {
-  position: absolute;
-  top: 5%;
-  left: 5%;
-  right: 5%;
+  position: relative;
+  margin: 20px auto;
   background-color: #f4f8f9;
   border-radius: 5px;
-  max-width: 90%;
   max-height: calc(100vh - 50px);
   padding-bottom: 2rem;
   overflow-y: auto;
+  max-width: 70%;
 }
 
 .custom-modal-overlay {
@@ -80,9 +78,33 @@ label {
   background-color: #3f1c78;
 }
 
+@media (min-width: 768px){
+  .custom-modal {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 960px){
+  .custom-modal {
+    max-width: 90%;
+  }
+}
+
+@media (min-width: 1200px){
+  .custom-modal {
+    max-width: 60%;
+  }
+}
+
+
+
 @media (max-width: 768px){
   .container .row {
     padding-left: .5rem;
     padding-right: .5rem;
+  }
+
+  .custom-modal {
+    max-width: 95%;
   }
 }
