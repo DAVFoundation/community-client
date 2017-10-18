@@ -37,7 +37,7 @@ module.exports = merge(common, {
     new webpack.optimize.UglifyJsPlugin({
       minimize: true,
       sourceMap: true,
-      warnings: true,
+      warnings: false,
       mangle: true,
       compress: {
           drop_console: true
