@@ -78,6 +78,8 @@ label {
   background-color: #3f1c78;
 }
 
+
+
 @media (min-width: 768px){
   .custom-modal {
     max-width: 90%;
@@ -100,8 +102,13 @@ label {
 
 @media (max-width: 768px){
   .container .row {
-    padding-left: .5rem;
-    padding-right: .5rem;
+    padding-left: .3rem;
+    padding-right: .3rem;
+  }
+
+  #main-content {
+    padding-right: 5px;
+    padding-left: 5px;
   }
 
   .custom-modal {
