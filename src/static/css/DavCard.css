@@ -96,6 +96,8 @@ h5#card-name{
   #dav-card{
     margin-bottom: 1.5rem;
     padding-bottom: 40%;
+    margin-top: -50px;
+    box-shadow: 0px 0px 0px 2px #f4f8f9;
   }
 
   #card-uid{

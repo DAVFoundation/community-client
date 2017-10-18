@@ -107,4 +107,8 @@ label {
   .custom-modal {
     max-width: 95%;
   }
+
+  #content-wrapper {
+    padding: 0 0 3rem;
+  }
 }
