@@ -8,24 +8,17 @@
 }
 
 #header-bar h1 {
-  color: white;
   font-weight: 500;
   font-size: 20px;
 }
 
 #header-bar p {
-  color: white;
   font-size: 14px;
 }
 
-#header-bar p span {
-  display: block;
-}
-
-@media (max-width: 960px) {
-  #header-bar {
-    background-size: 60%;
-  }
+#header-bar h1, #header-bar p {
+  color: white;
+  max-width: 55%;
 }
 
 @media (max-width: 768px){
