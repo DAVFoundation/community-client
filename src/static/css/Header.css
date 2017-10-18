@@ -30,19 +30,33 @@
 
 @media (max-width: 768px){
 
+  #header-wrapper .container {
+    max-width: 100%;
+  }
+  #header-wrapper .container .row {
+    padding: 0 0;
+  }
+
   #header-bar {
-    background-size: 100%;
+    background-size: cover;
+    background-image: url('../images/drone-header-mob.png');
+    background-position: center;
+    height: 400px;
   }
 
   #header-bar h1 {
-    text-align: center;
-    text-shadow: 1px 1px 2px #000;
+    display: none;
   }
 
   #header-bar p {
-    width: 100%;
-    text-align: center;
-    text-shadow: 1px 1px 2px #000;
+    display: none;
   }
+
 }
 
+
+@media (max-width: 580px) {
+  #header-bar {
+    height: 290px;
+  }
+}
