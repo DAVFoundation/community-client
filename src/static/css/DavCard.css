@@ -102,9 +102,6 @@ h5#card-name{
     overflow: hidden;
     width: 250px;
     text-overflow: ellipsis;
-  }
-
-  #card-uid{
     font-size: 10px;
   }
 }
