@@ -34,6 +34,16 @@ module.exports = merge(common, {
       }
     }),
 
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true,
+      sourceMap: true,
+      warnings: true,
+      mangle: true,
+      compress: {
+          drop_console: true
+      }
+    }),
+
     // Copy static files to dist directory
     new CopyWebpackPlugin([
       { from: 'src/static', to: 'static' },
