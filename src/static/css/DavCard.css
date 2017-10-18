@@ -25,10 +25,9 @@ img#card-logo {
   top:60px;
   left: 20px;
   text-overflow: ellipsis;
-}
-#card-uid{
   font-weight: 300;
   font-size: 14px;
+  width: 90%;
 }
 
 #card-owner {
@@ -76,9 +75,9 @@ h5#card-name{
   #card-uid{
     white-space: nowrap;
     overflow: hidden;
-    width: 300px;
     text-overflow: ellipsis;
     font-size: 12px;
+    top: 53px;
   }
 
 }
@@ -87,9 +86,9 @@ h5#card-name{
   #card-uid{
     white-space: nowrap;
     overflow: hidden;
-    width: 200px;
+    width: 85%;
     text-overflow: ellipsis;
-    font-size: 12px;
+    font-size: 9px;
   }
 }
 
@@ -97,16 +96,21 @@ h5#card-name{
   #dav-card{
     margin-bottom: 1.5rem;
     padding-bottom: 40%;
+    margin-top: -50px;
+    box-shadow: 0px 0px 0px 2px #f4f8f9;
   }
 
   #card-uid{
     white-space: nowrap;
     overflow: hidden;
-    width: 250px;
     text-overflow: ellipsis;
+    font-size: 11px;
   }
+}
 
+@media (max-width: 768px) {
   #card-uid{
     font-size: 10px;
   }
+
 }

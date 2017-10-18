@@ -27,3 +27,10 @@
   text-transform: uppercase;
   font-size: 12px;
 }
+
+@media (max-width: 768px){
+  #nav-wrapper .container .row {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}

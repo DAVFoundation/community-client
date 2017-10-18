@@ -3,10 +3,6 @@
   margin-bottom: 1.5rem;
 }
 
-.badge-list:first-child{
-  border-bottom: 1px solid #d9e6e9;
-}
-
 .badge-list li.list-inline-item {
   margin-right: 1rem;
   margin-bottom: 1rem;
@@ -34,6 +30,6 @@ h6.badge-header {
   }
 
   .badge-list li img {
-    height: 40px;
+    height: 50px;
   }
 }
