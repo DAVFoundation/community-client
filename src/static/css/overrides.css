@@ -32,7 +32,7 @@ a:hover {
   background-color: #f4f8f9;
   border-radius: 5px;
   max-height: calc(100vh - 50px);
-  padding-bottom: 2rem;
+  padding: 0 10px 2rem;
   overflow-y: auto;
   max-width: 70%;
 }
