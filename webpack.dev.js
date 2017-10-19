@@ -1,6 +1,3 @@
-// run using ./node_modules/.bin/webpack-dev-server --config webpack.dev.js
-// To generate files: ./node_modules/.bin/webpack --config webpack.dev.js
-
 const path = require('path');
 const webpack = require('webpack');
 const common = require('./webpack.common.js');
@@ -13,8 +10,7 @@ module.exports = merge(common, {
     contentBase: path.resolve(__dirname, 'src'),
     port: 8080,
     hot: true,
-    inline: true,
-    //public: 'localhost.com'
+    inline: true
   },
   plugins: [
 
@@ -46,4 +42,4 @@ module.exports = merge(common, {
   externals: {
     config: JSON.stringify(require("./src/config/config.dev.js"))
   }
-})
+});
