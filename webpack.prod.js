@@ -29,8 +29,8 @@ module.exports = merge(common, {
 
     // passes variables from webpack to js files
     new webpack.DefinePlugin({
-      'process.env':{
-        'NODE_ENV':JSON.stringify('production')
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
       }
     }),
 
@@ -40,7 +40,7 @@ module.exports = merge(common, {
       warnings: false,
       mangle: true,
       compress: {
-          drop_console: true
+        drop_console: true
       }
     }),
 
@@ -51,6 +51,6 @@ module.exports = merge(common, {
 
   ],
   externals: {
-    config: JSON.stringify(require("./src/config/config.dev.js"))
+    config: JSON.stringify(require("./src/config/config.js"))
   }
 });
