@@ -1,8 +1,8 @@
 module.exports = {
   api:{
-    endpoint: ""
+    endpoint: "https://communityapi.missions.io"
   },
   login:{
-    endpoint: ""
+    endpoint: "http://localhost:9090"
   }
-}
+};
