@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+  var apiUrl = 'https://communityapi.missions.io';
+  var redirectUrl = 'https://my.dav.network/';
+
   var minZoom = 2;
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
     minZoom = 1
@@ -97,7 +100,7 @@ $(document).ready(function(){
       method: 'GET'
     }
 
-    fetch('https://communityapi.missions.io/api/dummy-data', fetchInit)
+    fetch(apiUrl+'/api/dummy-data', fetchInit)
       .then(resp=>{
         if(resp.ok){
           return resp.json();
@@ -153,10 +156,10 @@ $(document).ready(function(){
       })
     }
 
-    fetch('https://communityapi.missions.io/api/login', fetchInit)
+    fetch(apiUrl+'/api/login', fetchInit)
       .then(resp=>{
         if(resp.ok){
-          window.location.replace('https://my.dav.network/');
+          window.location.replace(redirectUrl);
         } else{
           return resp.json();
         }
@@ -189,10 +192,10 @@ $(document).ready(function(){
       })
     }
 
-    fetch('https://communityapi.missions.io/api/signup', fetchInit)
+    fetch(apiUrl+'/api/signup', fetchInit)
       .then(resp=>{
         if(resp.ok){
-          window.location.replace('https://my.dav.network/');
+          window.location.replace(redirectUrl);
         } else {
           return resp.json();
         }
