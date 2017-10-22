@@ -3,6 +3,6 @@ module.exports = {
     endpoint: "https://communityapi.missions.io"
   },
   login:{
-    endpoint: "http://localhost:9090"
+    endpoint: "https://my.dav.network/login"
   }
 };

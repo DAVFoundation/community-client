@@ -47,6 +47,7 @@ module.exports = merge(common, {
     // Copy static files to dist directory
     new CopyWebpackPlugin([
       { from: 'src/static', to: 'static' },
+      { from: 'landing', to: 'login' },
     ]),
 
   ],

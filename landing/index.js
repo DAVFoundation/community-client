@@ -97,7 +97,7 @@ $(document).ready(function(){
       method: 'GET'
     }
 
-    fetch('http://localhost:3000/api/dummy-data', fetchInit)
+    fetch('https://communityapi.missions.io/api/dummy-data', fetchInit)
       .then(resp=>{
         if(resp.ok){
           return resp.json();
@@ -144,8 +144,8 @@ $(document).ready(function(){
       credentials :'include',
       headers: {
         'Accept':  'application/json',
-         'Content-Type': 'application/json',
-         'Cache': 'no-cache'
+        'Content-Type': 'application/json',
+        'Cache': 'no-cache'
       },
       body: JSON.stringify({
         email: document.getElementById('loginEmail').value,
@@ -153,10 +153,10 @@ $(document).ready(function(){
       })
     }
 
-    fetch('http://localhost:3000/api/login', fetchInit)
+    fetch('https://communityapi.missions.io/api/login', fetchInit)
       .then(resp=>{
         if(resp.ok){
-          window.location.replace('http://localhost:8080');
+          window.location.replace('https://my.dav.network/');
         } else{
           return resp.json();
         }
@@ -189,10 +189,10 @@ $(document).ready(function(){
       })
     }
 
-    fetch('http://localhost:3000/api/signup', fetchInit)
+    fetch('https://communityapi.missions.io/api/signup', fetchInit)
       .then(resp=>{
         if(resp.ok){
-          window.location.replace('http://localhost:8080');
+          window.location.replace('https://my.dav.network/');
         } else {
           return resp.json();
         }
