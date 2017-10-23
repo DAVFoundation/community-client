@@ -59,6 +59,9 @@
   </div>
 <script>
 
+var apiUrl = 'https://communityapi.missions.io';
+var redirectUrl = 'https://my.dav.network/';
+
 var loginForm = document.getElementById("loginForm");
 var signupForm = document.getElementById("signupForm");
 var signupLink = document.getElementById("signup-link");
@@ -98,10 +101,10 @@ document.querySelector("#loginForm").addEventListener("submit", function(e){
     })
   }
 
-  fetch('http://localhost:3000/api/login', fetchInit)
+  fetch(apiUrl+'/api/login', fetchInit)
     .then(resp=>{
       if(resp.ok){
-        window.location.replace('http://localhost:8080');
+        window.location.replace(redirectUrl);
       } else{
         return resp.json();
       }
@@ -134,10 +137,10 @@ document.querySelector("#signupForm").addEventListener("submit", function(e){
     })
   }
 
-  fetch('http://localhost:3000/api/signup', fetchInit)
+  fetch(apiUrl+'/api/signup', fetchInit)
     .then(resp=>{
       if(resp.ok){
-        window.location.replace('http://localhost:8080');
+        window.location.replace(redirectUrl);
       } else {
         return resp.json();
       }
