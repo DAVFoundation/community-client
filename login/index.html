@@ -71,18 +71,18 @@ signupLink.addEventListener('click', function(e){
   e.preventDefault();
   loginForm.style.display = 'none';
   signupForm.style.display = 'block';
-})
+});
 
 loginLink.addEventListener('click', function(e){
   e.preventDefault();
   loginForm.style.display = 'block';
   signupForm.style.display = 'none';
-})
+});
 
 var fetchInitt = {
   method: 'GET',
   credentials :'include'
-}
+};
 
 document.querySelector("#loginForm").addEventListener("submit", function(e){
   e.preventDefault();
@@ -99,7 +99,7 @@ document.querySelector("#loginForm").addEventListener("submit", function(e){
       email: document.getElementById('loginEmail').value,
       password: document.getElementById('loginPass').value
     })
-  }
+  };
 
   fetch(apiUrl+'/api/login', fetchInit)
     .then(resp=>{
@@ -116,7 +116,7 @@ document.querySelector("#loginForm").addEventListener("submit", function(e){
     .catch(error=>{
       console.log(error);
     })
-}, false)
+}, false);
 
 document.querySelector("#signupForm").addEventListener("submit", function(e){
   e.preventDefault();
@@ -135,7 +135,7 @@ document.querySelector("#signupForm").addEventListener("submit", function(e){
       password: document.getElementById('signupPass').value,
       subscribe: document.getElementById('subscribeCheckbox').checked
     })
-  }
+  };
 
   fetch(apiUrl+'/api/signup', fetchInit)
     .then(resp=>{
