@@ -29,18 +29,24 @@ class ListItem extends Component {
   constructor(props){
     super(props);
     this.click = this.click.bind(this);
+    this.doNothing = this.doNothing.bind(this);
   }
 
   click(){
     this.props.action(this.props.tag);
   }
 
+  doNothing(){
+    return;
+  }
+
+
   render(){
     let checkmark = null;
     let button = <Button onRootClick={this.click} title={this.props.title} value={this.props.tag} icon={this.props.icon}/>;
     if(this.props.completed){
       checkmark = <div className='li-completed'></div>;
-      button = <Button title={this.props.title} value={this.props.tag} icon={this.props.icon}/>;
+      button = <Button onRootClick={this.doNothing} title={this.props.title} value={this.props.tag} icon={this.props.icon}/>;
     }
     return(
       <li className={"list-inline-item text-center " + (this.props.active ? "active":"") + (this.props.completed ? " completed":"")}>
