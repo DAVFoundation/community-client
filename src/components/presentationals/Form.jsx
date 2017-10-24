@@ -83,7 +83,6 @@ class Form extends Component {
   }
 
   submit(values){
-
     return new Promise((resolve, reject) => {
       //dispatch action
       this.props.submitStationForm({values, resolve, reject});
@@ -99,6 +98,17 @@ class Form extends Component {
           formSuccess: false
         });
       }, 1500);
+
+      if(window.ga){
+        console.log("SEND GA SUBMIT FORM", this.props.formType);
+        window.ga('send', {
+          hitType: 'event',
+          eventCategory: 'Bounty',
+          eventAction: 'add-station',
+          eventValue: this.props.formType
+        });
+      }
+
     }).catch(error => {
       //throw new SubmissionError(error);
       this.setState({

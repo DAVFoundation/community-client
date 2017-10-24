@@ -16,6 +16,17 @@ class BountyHeader extends Component {
       this.setState({activeItem:tab});
     }
     this.props.trigger(tab);
+
+    if(window.ga){
+      console.log("SEND GA EVENT", tab);
+      window.ga('send', {
+        hitType: 'event',
+        eventCategory: 'Bounty',
+        eventAction: 'open-station-form',
+        eventValue: tab
+      });
+    }
+
   }
 
   render(){
