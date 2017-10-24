@@ -36,10 +36,17 @@ class ListItem extends Component {
   }
 
   render(){
+    let checkmark = null;
+    let button = <Button onRootClick={this.click} title={this.props.title} value={this.props.tag} icon={this.props.icon}/>;
+    if(this.props.completed){
+      checkmark = <div className='li-completed'></div>;
+      button = <Button title={this.props.title} value={this.props.tag} icon={this.props.icon}/>;
+    }
     return(
-      <li className={"list-inline-item text-center " + (this.props.active ? "active":"")}>
+      <li className={"list-inline-item text-center " + (this.props.active ? "active":"") + (this.props.completed ? " completed":"")}>
         <div className="li-hover"></div>
-        <Button onRootClick={this.click} title={this.props.title} value={this.props.tag} icon={this.props.icon}/>
+        {checkmark}
+        {button}
       </li>
     );
   }
@@ -58,7 +65,8 @@ ListItem.propTypes = {
   action: PropTypes.func,
   tag: PropTypes.string,
   index: PropTypes.number,
-  active: PropTypes.bool
+  active: PropTypes.bool,
+  completed: PropTypes.bool
 };
 
 

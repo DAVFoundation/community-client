@@ -13,7 +13,8 @@ const mapStateToProps = (state) => ({
   modalType: state.modals.modalType,
   modalProps: state.modals.modalProps,
   selectedTab: state.modals.selectedTab,
-  bountyList: state.bounties.bountyList
+  bountyList: state.bounties.bountyList,
+  hasStation: state.user.hasStation
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Modal);

@@ -21,7 +21,7 @@ class Bounties extends Component {
     return(
       <div>
         <h2 className="section-header">Earn DAV Tokens Through Open Bounties</h2>
-        <BountyHeader trigger={this.trigger} info={this.props.bountyList} setLocalState={false}/>
+        <BountyHeader trigger={this.trigger} hasStation={this.props.hasStation} info={this.props.bountyList} setLocalState={false}/>
       </div>
     );
   }
@@ -30,6 +30,7 @@ class Bounties extends Component {
 Bounties.propTypes = {
   bountyList: PropTypes.array,
   openModal: PropTypes.func,
+  hasStation: PropTypes.object
 };
 
 export default Bounties;

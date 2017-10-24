@@ -28,6 +28,7 @@ class Modal extends Component {
         setTab={this.setTab}
         info={this.props.bountyList}
         selectedTab={this.props.selectedTab}
+        hasStation={this.props.hasStation}
       />
       );
     } else {
@@ -44,7 +45,8 @@ Modal.propTypes = {
   modalType: PropTypes.string,
   modalProps: PropTypes.object,
   selectedTab: PropTypes.string,
-  bountyList:PropTypes.array
+  bountyList:PropTypes.array,
+  hasStation: PropTypes.object
 };
 
 export default Modal;

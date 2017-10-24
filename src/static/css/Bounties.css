@@ -19,13 +19,13 @@
 }
 
 #bounty-list li:hover .li-hover{
-  background: #d9e6e9;
+  background-color: #d9e6e9;
 }
 
 .li-hover{
   height: 100px;
   width: 100px;
-  background: transparent;
+  /*background: transparent;*/
   left: 0;
   right: 0;
   margin: 0 auto;
@@ -34,19 +34,32 @@
   border-radius: 50%;
 }
 
+.li-completed{
+  height: 100px;
+  width: 100px;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  position: absolute;
+  background-image: url('../images/completed.png');
+  background-position: bottom right;
+  background-repeat: no-repeat;
+  background-size: 20%;
+}
+
 #bounty-list li.active{
   border-bottom: 2px solid #27a716;
 }
 
 #bounty-list li.active .li-hover{
-  background: #d9e6e9;
+  background-color: #d9e6e9;
 }
 
 #bounty-list li p{
   color: #512ca3;
   font-size: 12px;
   font-weight: 500;
-  padding-top: .3rem;
+  padding-top: 1.3rem;
   width: 120px;
   margin-left: auto;
   margin-right: auto;
@@ -54,6 +67,28 @@
 
 #bounty-list li img {
   height: 80px;
+}
+
+#bounty-list li.completed:hover {
+  border-bottom: none;
+}
+
+#bounty-list li.completed .li-hover {
+  background-color: #d9e6e9;
+}
+
+#bounty-list li.completed a{
+  cursor: default;
+}
+
+#bounty-list li.completed img {
+  filter: grayscale(100%);
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+#bounty-list li.completed p {
+  color: #bac3cb;
 }
 
 @media (max-width: 768px){

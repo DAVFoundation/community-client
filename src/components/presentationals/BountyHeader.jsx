@@ -21,10 +21,7 @@ class BountyHeader extends Component {
   render(){
 
     var bountyList = this.props.info.map((bounty, index) => {
-      if(this.state.activeItem == bounty.tag){
-        return (<ListItem key={index} active={true} index={index} title={bounty.title} icon={bounty.icon} tag={bounty.tag} action={this.performParentAction} />);
-      }
-      return (<ListItem key={index} active={false} index={index} title={bounty.title} icon={bounty.icon} tag={bounty.tag} action={this.performParentAction} />);
+      return (<ListItem key={index} active={this.state.activeItem == bounty.tag} completed={this.props.hasStation[bounty.tag]} index={index} title={bounty.title} icon={bounty.icon} tag={bounty.tag} action={this.performParentAction} />);
     });
 
     return(
@@ -39,7 +36,8 @@ BountyHeader.propTypes = {
   trigger: PropTypes.func,
   info: PropTypes.array,
   selectedTab: PropTypes.string,
-  setLocalState: PropTypes.bool
+  setLocalState: PropTypes.bool,
+  hasStation: PropTypes.object
 };
 
 export default BountyHeader;

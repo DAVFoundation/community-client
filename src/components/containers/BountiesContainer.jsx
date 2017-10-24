@@ -8,6 +8,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 const mapStateToProps = (state) => ({
   bountyList: state.bounties.bountyList,
+  hasStation: state.user.hasStation
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Bounties);
