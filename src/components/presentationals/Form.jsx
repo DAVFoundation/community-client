@@ -55,11 +55,15 @@ class Form extends Component {
     //this.props.form["station-form"].values.address = place.formatted_address;
     this.props.change('address', place.formatted_address);
 
+    if(!place.formatted_address){
+      return;
+    }
 
     this.geocodeAddress(place.formatted_address);
   }
 
   geocodeAddress(address){
+    console.log(address);
     this.geocoder.geocode({'address':address}, (results, status) => {
       if(status == 'OK'){
         let lat = results[0].geometry.location.lat();
