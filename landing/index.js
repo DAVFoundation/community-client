@@ -5,7 +5,7 @@ $(document).ready(function(){
 
   var minZoom = 2;
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
-    minZoom = 1
+    minZoom = 1;
   }
 
   var maxZoom = 18;
@@ -13,7 +13,7 @@ $(document).ready(function(){
     minZoom: minZoom,
     maxZoom: maxZoom,
     maxBoundsViscosity:.8
-  })
+  });
 
   map.on('load', function(){
     getDummyData();
@@ -44,32 +44,32 @@ $(document).ready(function(){
       let point = 0;
 
       switch(true){
-        case n<75:
-          point = 15;
-          break;
-        case n<150:
-          point = 20;
-          break;
-        case n<225:
-          point = 25;
-          break;
-        case n<300:
-          point = 30;
-          break;
-        case n<375:
-          point = 35;
-          break;
-        case n<450:
-          point = 40;
-          break;
-        case n<525:
-          point = 45;
-          break;
-        default:
-          point = 50;
-          break;
+      case n<75:
+        point = 15;
+        break;
+      case n<150:
+        point = 20;
+        break;
+      case n<225:
+        point = 25;
+        break;
+      case n<300:
+        point = 30;
+        break;
+      case n<375:
+        point = 35;
+        break;
+      case n<450:
+        point = 40;
+        break;
+      case n<525:
+        point = 45;
+        break;
+      default:
+        point = 50;
+        break;
       }
-      return L.divIcon({html: '', className: 'mycluster', iconSize: L.point(point,point)})
+      return L.divIcon({html: '', className: 'mycluster', iconSize: L.point(point,point)});
     },
     showCoverageOnHover: false
   });
@@ -98,7 +98,7 @@ $(document).ready(function(){
 
     var fetchInit = {
       method: 'GET'
-    }
+    };
 
     fetch(apiUrl+'/api/dummy-data', fetchInit)
       .then(resp=>{
@@ -117,7 +117,7 @@ $(document).ready(function(){
       .catch(error => {
         document.getElementById('station-number').innerHTML = "Error Accessing";
         console.log(error);
-      })
+      });
   }
 
   // LOGIN/ SIGNUP
@@ -131,13 +131,13 @@ $(document).ready(function(){
     e.preventDefault();
     loginForm.style.display = 'none';
     signupForm.style.display = 'block';
-  })
+  });
 
   loginLink.addEventListener('click', function(e){
     e.preventDefault();
     loginForm.style.display = 'block';
     signupForm.style.display = 'none';
-  })
+  });
 
   document.querySelector("#loginForm").addEventListener("submit", function(e){
     e.preventDefault();
@@ -154,7 +154,7 @@ $(document).ready(function(){
         email: document.getElementById('loginEmail').value,
         password: document.getElementById('loginPass').value
       })
-    }
+    };
 
     fetch(apiUrl+'/api/login', fetchInit)
       .then(resp=>{
@@ -170,8 +170,8 @@ $(document).ready(function(){
       })
       .catch(error=>{
         console.log(error);
-      })
-    }, false)
+      });
+  }, false);
 
   document.querySelector("#signupForm").addEventListener("submit", function(e){
     e.preventDefault();
@@ -190,7 +190,7 @@ $(document).ready(function(){
         password: document.getElementById('signupPass').value,
         subscribe: document.getElementById('subscribeCheckbox').checked
       })
-    }
+    };
 
     fetch(apiUrl+'/api/signup', fetchInit)
       .then(resp=>{
@@ -207,8 +207,8 @@ $(document).ready(function(){
       })
       .catch(error=>{
         console.log(error);
-      })
-  }, false)
+      });
+  }, false);
 
 
-})
+});

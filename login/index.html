@@ -59,6 +59,9 @@
   </div>
 <script>
 
+var apiUrl = 'https://communityapi.missions.io';
+var redirectUrl = 'https://my.dav.network/';
+
 var loginForm = document.getElementById("loginForm");
 var signupForm = document.getElementById("signupForm");
 var signupLink = document.getElementById("signup-link");
@@ -68,18 +71,18 @@ signupLink.addEventListener('click', function(e){
   e.preventDefault();
   loginForm.style.display = 'none';
   signupForm.style.display = 'block';
-})
+});
 
 loginLink.addEventListener('click', function(e){
   e.preventDefault();
   loginForm.style.display = 'block';
   signupForm.style.display = 'none';
-})
+});
 
 var fetchInitt = {
   method: 'GET',
   credentials :'include'
-}
+};
 
 document.querySelector("#loginForm").addEventListener("submit", function(e){
   e.preventDefault();
@@ -96,12 +99,12 @@ document.querySelector("#loginForm").addEventListener("submit", function(e){
       email: document.getElementById('loginEmail').value,
       password: document.getElementById('loginPass').value
     })
-  }
+  };
 
-  fetch('http://localhost:3000/api/login', fetchInit)
+  fetch(apiUrl+'/api/login', fetchInit)
     .then(resp=>{
       if(resp.ok){
-        window.location.replace('http://localhost:8080');
+        window.location.replace(redirectUrl);
       } else{
         return resp.json();
       }
@@ -113,7 +116,7 @@ document.querySelector("#loginForm").addEventListener("submit", function(e){
     .catch(error=>{
       console.log(error);
     })
-}, false)
+}, false);
 
 document.querySelector("#signupForm").addEventListener("submit", function(e){
   e.preventDefault();
@@ -132,12 +135,12 @@ document.querySelector("#signupForm").addEventListener("submit", function(e){
       password: document.getElementById('signupPass').value,
       subscribe: document.getElementById('subscribeCheckbox').checked
     })
-  }
+  };
 
-  fetch('http://localhost:3000/api/signup', fetchInit)
+  fetch(apiUrl+'/api/signup', fetchInit)
     .then(resp=>{
       if(resp.ok){
-        window.location.replace('http://localhost:8080');
+        window.location.replace(redirectUrl);
       } else {
         return resp.json();
       }

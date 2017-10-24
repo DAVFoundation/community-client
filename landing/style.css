@@ -24,6 +24,8 @@ body {
   font-weight: 300;
   font-size: 28px;
   color: #e3d3ff;
+  max-width: 570px;
+  margin: 0 auto;
 }
 
 #header .bold{
