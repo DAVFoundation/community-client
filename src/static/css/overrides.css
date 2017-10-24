@@ -37,6 +37,15 @@ a:hover {
   max-width: 70%;
 }
 
+.close-wrapper {
+  position: fixed;
+  z-index: 1;
+}
+
+.header-wrapper {
+  margin-top: 50px;
+}
+
 .custom-modal-overlay {
   position: fixed;
   top: 0;
@@ -84,17 +93,27 @@ label {
   .custom-modal {
     max-width: 90%;
   }
+
+  .close-wrapper{
+    width: 90%;
+  }
 }
 
 @media (min-width: 960px){
   .custom-modal {
     max-width: 90%;
   }
+  .close-wrapper {
+    width: 90%;
+  }
 }
 
 @media (min-width: 1200px){
   .custom-modal {
     max-width: 60%;
+  }
+  .close-wrapper {
+    width: 60%;
   }
 }
 
@@ -113,6 +132,10 @@ label {
 
   .custom-modal {
     max-width: 95%;
+  }
+
+  .close-wrapper {
+    width: 95%;
   }
 
   #content-wrapper {

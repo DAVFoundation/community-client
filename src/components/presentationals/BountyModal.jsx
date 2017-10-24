@@ -25,12 +25,12 @@ class BountyModal extends Component {
           onRequestClose={this.props.closeModal}
           className="custom-modal"
           overlayClassName="custom-modal-overlay">
-          <div className="row">
+          <div className="row close-wrapper">
             <div className="col-12 modal-close-bar">
               <span className="close" onClick={this.props.closeModal}>&times;</span>
             </div>
           </div>
-          <div className="row">
+          <div className="row header-wrapper">
             <div className="col-md-8 ml-auto">
               <BountyHeader trigger={this.trigger} info={this.props.info} selectedTab={this.props.selectedTab} setLocalState={true}/>
             </div>

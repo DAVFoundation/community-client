@@ -1,3 +1,12 @@
+.close-wrapper {
+  position: fixed;
+  z-index: 1;
+}
+
+.header-wrapper {
+  margin-top: 50px;
+}
+
 #bounty-modal-header li {
   padding: 0 1rem;
   vertical-align: text-top;
