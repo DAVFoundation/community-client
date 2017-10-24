@@ -105,7 +105,7 @@ class Form extends Component {
           hitType: 'event',
           eventCategory: 'Bounty',
           eventAction: 'add-station',
-          eventValue: this.props.formType
+          eventLabel: this.props.formType
         });
       }
 

@@ -23,7 +23,7 @@ class BountyHeader extends Component {
         hitType: 'event',
         eventCategory: 'Bounty',
         eventAction: 'open-station-form',
-        eventValue: tab
+        eventLabel: tab
       });
     }
 
