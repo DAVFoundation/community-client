@@ -75,10 +75,8 @@ var loginLink = document.getElementById("login-link");
 
 if(urlHash == "#login"){
   showLoginForm();
-  populateForm();
 } else if(urlHash == "#register"){
   showSignupForm();
-  populateForm();
 }
 
 function populateForm(){
@@ -100,11 +98,13 @@ signupLink.addEventListener('click', function(e){
 function showSignupForm(){
   loginForm.style.display = 'none';
   signupForm.style.display = 'block';
+  populateForm();
 }
 
 function showLoginForm(){
   loginForm.style.display = 'block';
   signupForm.style.display = 'none';
+  populateForm();
 }
 
 loginLink.addEventListener('click', function(e){
