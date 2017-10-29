@@ -7,6 +7,7 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto:300,500,700" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
   <link rel="stylesheet" href="./style.css">
+  <link rel="icon" href="/static/images/favicon.png" type="image/x-icon" />
 </head>
 <body>
   <div class="container">
@@ -57,17 +58,6 @@
       <div class="col-md-4"></div>
     </div>
   </div>
-<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104463303-1"></script>
-<script>
-  if(window.location.hostname != 'localhost'){
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'UA-104463303-1');
-  }
-</script>
 <script>
 
 var url = new URL(window.location.href);
@@ -121,11 +111,6 @@ loginLink.addEventListener('click', function(e){
   e.preventDefault();
   showLoginForm();
 });
-
-var fetchInitt = {
-  method: 'GET',
-  credentials :'include'
-};
 
 document.querySelector("#loginForm").addEventListener("submit", function(e){
   e.preventDefault();
@@ -199,5 +184,34 @@ document.querySelector("#signupForm").addEventListener("submit", function(e){
 }, false)
 
 </script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-104463303-1"></script>
+<script>
+  if(window.location.hostname != 'localhost'){
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-104463303-1');
+  }
+</script>
+
+<!-- Facebook Pixel Code -->
+<script>
+  !function(f,b,e,v,n,t,s)
+  {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window,document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+  fbq('init', '738526256352778');
+  fbq('track', 'PageView');
+</script>
+<noscript>
+  <img height="1" width="1" src="https://www.facebook.com/tr?id=738526256352778&ev=PageView&noscript=1"/>
+</noscript>
+<!-- End Facebook Pixel Code -->
 </body>
 </html>
