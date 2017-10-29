@@ -1,5 +1,34 @@
 $(document).ready(function(){
 
+  var url = new URL(window.location.href);
+
+  var urlHash = url.hash;
+  var searchParams = new URLSearchParams(url.search.slice(1));
+
+  var loginForm = document.getElementById("loginForm");
+  var signupForm = document.getElementById("signupForm");
+  var signupLink = document.getElementById("signup-link");
+  var loginLink = document.getElementById("login-link");
+
+  if(urlHash == "#login"){
+    $('#signupModal').modal('show');
+    showLoginForm();
+  } else if(urlHash == "#register"){
+    $('#signupModal').modal('show');
+    showSignupForm();
+  }
+
+  function populateForm(){
+    if(searchParams.has("email")){
+      document.getElementById("loginEmail").value = searchParams.get("email");
+      document.getElementById("signupEmail").value = searchParams.get("email");
+    }
+
+    if(searchParams.has("name")){
+      document.getElementById("signupName").value = searchParams.get("name");
+    }
+  }
+
   var apiUrl = 'https://communityapi.missions.io';
   var redirectUrl ='https://my.dav.network/';
 
@@ -122,22 +151,27 @@ $(document).ready(function(){
 
   // LOGIN/ SIGNUP
 
-  var loginForm = document.getElementById("loginForm");
-  var signupForm = document.getElementById("signupForm");
-  var signupLink = document.getElementById("signup-link");
-  var loginLink = document.getElementById("login-link");
-
   signupLink.addEventListener('click', function(e){
     e.preventDefault();
-    loginForm.style.display = 'none';
-    signupForm.style.display = 'block';
+    showSignupForm();
   });
 
   loginLink.addEventListener('click', function(e){
     e.preventDefault();
+    showLoginForm();
+  });
+
+  function showSignupForm(){
+    loginForm.style.display = 'none';
+    signupForm.style.display = 'block';
+    populateForm();
+  }
+
+  function showLoginForm(){
     loginForm.style.display = 'block';
     signupForm.style.display = 'none';
-  });
+    populateForm();
+  }
 
   document.querySelector("#loginForm").addEventListener("submit", function(e){
     e.preventDefault();
