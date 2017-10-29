@@ -70,6 +70,11 @@
 </script>
 <script>
 
+var url = new URL(window.location.href);
+
+var urlHash = url.hash;
+var searchParams = new URLSearchParams(url.search.slice(1));
+
 var apiUrl = 'https://communityapi.missions.io';
 var redirectUrl = 'https://my.dav.network/';
 
@@ -78,16 +83,43 @@ var signupForm = document.getElementById("signupForm");
 var signupLink = document.getElementById("signup-link");
 var loginLink = document.getElementById("login-link");
 
+if(urlHash == "#login"){
+  showLoginForm();
+  populateForm();
+} else if(urlHash == "#register"){
+  showSignupForm();
+  populateForm();
+}
+
+function populateForm(){
+  if(searchParams.has("email")){
+    document.getElementById("loginEmail").value = searchParams.get("email");
+    document.getElementById("signupEmail").value = searchParams.get("email");
+  }
+
+  if(searchParams.has("name")){
+    document.getElementById("signupName").value = searchParams.get("name");
+  }
+}
+
 signupLink.addEventListener('click', function(e){
   e.preventDefault();
+  showSignupForm();
+});
+
+function showSignupForm(){
   loginForm.style.display = 'none';
   signupForm.style.display = 'block';
-});
+}
+
+function showLoginForm(){
+  loginForm.style.display = 'block';
+  signupForm.style.display = 'none';
+}
 
 loginLink.addEventListener('click', function(e){
   e.preventDefault();
-  loginForm.style.display = 'block';
-  signupForm.style.display = 'none';
+  showLoginForm();
 });
 
 var fetchInitt = {
