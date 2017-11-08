@@ -5,14 +5,14 @@
   "license": "MIT",
   "author": "Abhishek Singh <abhishek@shek.it>",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DAVFoundation/community-client"
+  },
   "scripts": {
     "build": "./node_modules/.bin/webpack --config webpack.prod.js",
     "start": "./node_modules/.bin/webpack-dev-server --progress --config webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/DAVFoundation/community-client"
   },
   "dependencies": {
     "prop-types": "^15.5.10",
