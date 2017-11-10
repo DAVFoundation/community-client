@@ -17,6 +17,9 @@ Feel free to **Star** and **Watch** it, but watch out for falling debris.
 
 Feedback and contributions are always welcome and appreciated.
 
+### Gitter button - Link to gitter chat room
+[![Gitter](https://img.shields.io/gitter/room/DAVFoundation/DAV-Contributors.svg?style=flat-square)](https://gitter.im/DAVFoundation/DAV-Contributors)
+
 ### License
 
 Licensed under [MIT](https://github.com/DAVFoundation/community-client/blob/master/LICENSE).
