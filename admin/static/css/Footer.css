@@ -1,0 +1,25 @@
+#footer {
+  padding:2rem 0;
+}
+
+.copyright {
+  font-weight: 300;
+  font-size: 11px;
+  color: white;
+}
+
+.copyright a {
+  color: white;
+}
+
+.copyright a:hover {
+  color: #ddd;
+}
+
+#social-list li:not(:last-child){
+  margin-right: .7rem;
+}
+
+#social-list img {
+  width: 30px;
+}
