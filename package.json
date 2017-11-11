@@ -1,10 +1,14 @@
 {
   "name": "community-client",
   "version": "0.1.0",
-  "description": "",
+  "description": "DAV community site frontend",
   "license": "MIT",
   "author": "Abhishek Singh <abhishek@shek.it>",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DAVFoundation/community-client"
+  },
   "scripts": {
     "build": "./node_modules/.bin/webpack --config webpack.prod.js",
     "start": "./node_modules/.bin/webpack-dev-server --progress --config webpack.dev.js",

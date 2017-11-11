@@ -36,10 +36,6 @@ class SocialMediaBar extends Component {
         link: "https://goo.gl/cdWnCi"
       },
       {
-        name: "slack",
-        link: "https://goo.gl/XHFCG4"
-      },
-      {
         name: "github",
         link: "https://goo.gl/vLiZYy"
       },
