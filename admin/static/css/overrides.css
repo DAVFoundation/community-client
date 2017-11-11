@@ -1,0 +1,53 @@
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 15px;
+  background: #f4f8f9;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.section-header{
+  color: #512ca3;
+  font-weight:300;
+  font-size: 24px;
+  padding-bottom: 1.5rem;
+}
+
+label {
+  margin-bottom: 0;
+}
+
+.form-control{
+  font-weight: 300;
+}
+
+#nav-wrapper{
+  background-color: #3f1c78;
+}
+
+#content-wrapper {
+  padding:3rem 0;
+}
+
+#footer-wrapper{
+  background-color: #3f1c78;
+}
+
+@media (max-width: 768px){
+  .container .row {
+    padding-left: .3rem;
+    padding-right: .3rem;
+  }
+
+  #main-content {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
+
+  #content-wrapper {
+    padding: 0 0 3rem;
+  }
+}
