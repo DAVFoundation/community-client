@@ -17,8 +17,7 @@ class UpdateForm extends Component {
 
   submit(values){
     console.log(values);
-    return;
-    /*return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       this.props.submitUpdateForm({values, resolve, reject});
     }).then(res => {
       this.props.reset();
@@ -36,7 +35,7 @@ class UpdateForm extends Component {
       this.setState({
         formError: true
       });
-    });*/
+    });
   }
 
   handleKeyDown(e){
@@ -47,7 +46,6 @@ class UpdateForm extends Component {
 
   errorField({input, label, meta: {touched,error}, ...custom}){
     const hasError = touched && error != undefined;
-    console.log(error);
     return(
       <div className="form-error">
         {hasError && error}
