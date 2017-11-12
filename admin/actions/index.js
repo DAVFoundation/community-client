@@ -19,3 +19,9 @@ export const submitUpdateForm = createAction('SUBMIT_UPDATE_FORM');
 export const submitUpdateFormSuccess = createAction('SUBMIT_UPDATE_FORM_SUCCESS');
 
 export const submitUpdateFormError = createAction('SUBMIT_UPDATE_FORM_ERROR');
+
+export const deleteDavUpdate = createAction('DELETE_DAV_UPDATE');
+
+export const deleteDavUpdateSuccess = createAction('DELETE_DAV_UPDATE_SUCCESS');
+
+export const deleteDavUpdateError = createAction('DELETE_DAV_UPDATE_ERROR');
