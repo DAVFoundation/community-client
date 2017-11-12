@@ -31,7 +31,7 @@ export function apiLogoutUser(){
 
 
 export function apiGetDavUpdates(){
-  return fetch(`${config.api.endpoint}/api/admin/updates/list`, {
+  return fetch(`${config.api.endpoint}/api/admin/update/list`, {
     method: 'GET',
     credentials: 'include'
   })
