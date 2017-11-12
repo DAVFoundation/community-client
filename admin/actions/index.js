@@ -4,6 +4,8 @@ export const getUser = createAction('GET_USER');
 
 export const getUserSuccess = createAction('GET_USER_SUCCESS');
 
+export const getUserError = createAction('GET_USER_ERROR');
+
 export const logoutUser = createAction('LOGOUT_USER');
 
 export const getDavUpdates = createAction('GET_DAV_UPDATES');
