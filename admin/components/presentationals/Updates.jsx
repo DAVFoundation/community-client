@@ -21,9 +21,11 @@ class Updates extends Component {
         <h2 className="section-header">Update List</h2>
         <table className="table table-striped">
           <thead>
-            <th scope="col">Date</th>
-            <th scope="col">Description</th>
-            <th scope="col">Actions</th>
+            <tr>
+              <th scope="col">Date</th>
+              <th scope="col">Description</th>
+              <th scope="col">Actions</th>
+            </tr>
           </thead>
           <tbody>
             {updateList}
@@ -41,13 +43,11 @@ class UpdateItem extends Component {
 
   render() {
     return (
-      <div>
-        <tr>
-          <td>{this.props.details.createdAt}</td>
-          <td>{this.props.details.description}</td>
-          <td>Actions</td>
-        </tr>
-      </div>
+      <tr>
+        <td>{this.props.details.createdAt}</td>
+        <td>{this.props.details.description}</td>
+        <td>{this.props.details._id}</td>
+      </tr>
     );
   }
 
