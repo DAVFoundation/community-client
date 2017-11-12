@@ -39,9 +39,7 @@ class App extends Component {
         <div id="content-wrapper">
           <div className="container">
             <div className="row">
-              <div className="col-12">
-                <UpdateFormContainer />
-              </div>
+              <UpdateFormContainer />
             </div>
             <div className="row">
               <div className="col-12">
