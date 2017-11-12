@@ -12,6 +12,7 @@ export function* watchUpdateFormSubmit(){
 // WORKER
 
 export function* workerUpdateFormSubmit(action){
+  console.log(action.payload.values);
   try {
     const formData = action.payload.values;
     const resp = yield call(apiCreateDavUpdate, formData);
