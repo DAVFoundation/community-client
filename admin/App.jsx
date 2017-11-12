@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Navbar from './components/presentationals/Navbar.jsx';
 import {Footer} from './components/presentationals/Footer.jsx';
+import initApp from './lib/init';
 import './static/css/overrides.css';
 
 class App extends Component {
@@ -11,12 +12,17 @@ class App extends Component {
   }
 
   componentWillMount(){
-
+    initApp();
   }
 
   render(){
-    if(!this.props.authenticated){
+    if(!this.props.authenticated ){
       return null;
+    }
+    if(this.props.permissions){
+      if(!this.props.permissions.canAccessAdmin){
+        return null;
+      }
     }
 
     return(
@@ -55,7 +61,8 @@ class App extends Component {
 }
 
 App.propTypes = {
-  authenticated: PropTypes.bool
+  authenticated: PropTypes.bool,
+  permissions: PropTypes.object
 };
 
 export default App;

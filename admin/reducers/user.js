@@ -6,13 +6,14 @@ const initialState = {
 };
 
 export default handleActions({
-  [getUserSuccess]: (state, actions) => {
+  [getUserSuccess]: (state, action) => {
     let edited = Object.assign({}, state, action.payload);
     edited.authenticated = true;
+    console.log(edited);
     return edited;
   },
 
-  [getUserError]: (state, actions) => {
+  [getUserError]: (state, action) => {
     return state;
   }
 }, initialState);

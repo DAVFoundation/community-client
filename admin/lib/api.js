@@ -1,5 +1,4 @@
 import config from '../config';
-import store from '../store';
 import {getDavUpdates} from '../actions';
 
 export function apiGetUser(){
@@ -24,9 +23,9 @@ export function apiLogoutUser(){
     .then(handleApiErrors)
     .then(resp => resp.json())
     .then(json => {
-      window.location.replace(config.login.endpoint)
+      window.location.replace(config.login.endpoint);
     })
-    .catch(error => {throw error;})
+    .catch(error => {throw error;});
 }
 
 
