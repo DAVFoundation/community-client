@@ -10,4 +10,4 @@ export default handleActions({
     let edited = Object.assign({}, state, action.payload);
     return edited;
   }
-}, initialState)
+}, initialState);
