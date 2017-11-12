@@ -48,6 +48,17 @@ export function apiCreateDavUpdate(formData){
     .catch(error => {throw error;});
 }
 
+export function apiDeleteDavUpdate(id){
+  return fetch(`${config.api.endpoint}/api/admin/update/delete/${id}`, {
+    method: 'DELETE',
+    credentials: 'include'
+  })
+    .then(handleApiErrors)
+    .then(resp => resp.json())
+    .then(json => json)
+    .catch(error => {throw error;});
+}
+
 export function apiGetDavUpdates(){
   return fetch(`${config.api.endpoint}/api/admin/update/list`, {
     method: 'GET',
