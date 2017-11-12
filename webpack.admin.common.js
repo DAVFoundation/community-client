@@ -5,7 +5,7 @@ module.exports = {
     app:'./admin/index.jsx',
   },
   output: {
-    path: path.resolve(__dirname, 'admindist'),
+    path: path.resolve(__dirname, 'admin-dist'),
     publicPath: '/',
     filename: 'bundle.js'
   },
