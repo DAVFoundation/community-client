@@ -5,16 +5,21 @@ class Updates extends Component {
 
   constructor(props){
     super(props);
+    this.deleteItem = this.deleteItem.bind(this);
   }
 
   componentDidMount(){
     this.props.getDavUpdates();
   }
 
+  deleteItem(id){
+    this.props.deleteDavUpdate(id);
+  }
+
   render(){
 
     let updateList = this.props.updates.map((update, index) => {
-      return (<UpdateItem key={index} details={update} />);
+      return (<UpdateItem key={index} details={update} onRootClick={this.deleteItem}/>);
     });
     return(
       <div>
@@ -39,12 +44,12 @@ class Updates extends Component {
 class UpdateItem extends Component {
   constructor(props) {
     super(props);
-    this.deleteItem = this.deleteItem.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
-  deleteItem(e, val){
+  handleClick(e){
     e.preventDefault();
-    console.log(val);
+    this.props.onRootClick(this.props.details._id);
   }
 
   render() {
@@ -55,7 +60,7 @@ class UpdateItem extends Component {
       <tr>
         <td>{d.toLocaleString('en-US', dateOptions)}</td>
         <td>{this.props.details.description}</td>
-        <td><a href="#" onClick={(e) => this.deleteItem(e, id)}>Delete</a></td>
+        <td><a href="#" onClick={this.handleClick}>Delete</a></td>
       </tr>
     );
   }
@@ -63,11 +68,13 @@ class UpdateItem extends Component {
 
 Updates.propTypes = {
   updates: PropTypes.array,
-  getDavUpdates: PropTypes.func
+  getDavUpdates: PropTypes.func,
+  deleteDavUpdate: PropTypes.func
 };
 
 UpdateItem.propTypes = {
-  details: PropTypes.object
+  details: PropTypes.object,
+  onRootClick: PropTypes.func
 };
 
 export default Updates;
