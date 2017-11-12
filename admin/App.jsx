@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import Navbar from './components/presentationals/Navbar.jsx';
 import {Footer} from './components/presentationals/Footer.jsx';
 import UpdateFormContainer from './components/containers/UpdateFormContainer.jsx';
+import UpdatesContainer from './components/containers/UpdatesContainer.jsx';
 import initApp from './lib/init';
 import './static/css/overrides.css';
 
@@ -44,7 +45,7 @@ class App extends Component {
             </div>
             <div className="row">
               <div className="col-12">
-
+                <UpdatesContainer />
               </div>
             </div>
           </div>
