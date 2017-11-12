@@ -8,16 +8,51 @@ class UpdateForm extends Component {
   constructor(props){
     super(props);
     this.submit = this.submit.bind(this);
+
+    this.state = {
+      formSuccess: false,
+      formError: false
+    };
   }
 
   submit(values){
     console.log(values);
+    return;
+    /*return new Promise((resolve, reject) => {
+      this.props.submitUpdateForm({values, resolve, reject});
+    }).then(res => {
+      this.props.reset();
+      this.setState({
+        formSuccess: true,
+        formError: false
+      });
+
+      setTimeout(() => {
+        this.setState({
+          formSuccess: false
+        });
+      }, 1500);
+    }).catch(error => {
+      this.setState({
+        formError: true
+      });
+    });*/
   }
 
   handleKeyDown(e){
     if(e.key=='Enter' && e.shiftKey === false){
       e.preventDefault();
     }
+  }
+
+  errorField({input, label, meta: {touched,error}, ...custom}){
+    const hasError = touched && error != undefined;
+    console.log(error);
+    return(
+      <div className="form-error">
+        {hasError && error}
+      </div>
+    );
   }
 
   render(){
@@ -34,7 +69,9 @@ class UpdateForm extends Component {
           <form onSubmit={this.props.handleSubmit(this.submit)} onKeyDown={(e) => {this.handleKeyDown(e);}}>
             <Field name="description" className="form-control" component="textarea" type="text" placeholder="Description"/>
             <Field name="link" className="form-control" component="input" type="text" placeholder="Link (optional)"/>
-            <button type="submit" disabled={this.props.submitting} className="btn btn-custom">Add Update</button>
+            <Field name="error" component={this.errorField} />
+            <div className="form-error">{(this.state.formError ? "Error submitting. Please try again" : null)}</div>
+            <button type="submit" disabled={this.props.submitting} className="btn btn-custom">{(this.state.formSuccess ? "Added!" : "Add Update")}</button>
           </form>
         </div>
       </div>
@@ -51,10 +88,10 @@ export const validate = (values) => {
     errors.error += 'Description required ';
   }
 
-  if(!/(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-/]))?/i.test(values.link)){
+  if(values.link && !/(http|https):\/\/(\w+:{0,1}\w*)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%!\-/]))?/i.test(values.link)){
     errors.error += 'Invalid link ';
   }
-  console.log(errors);
+
   return errors;
 };
 
@@ -64,6 +101,7 @@ UpdateForm.propTypes = {
   submitting: PropTypes.bool,
   submitUpdateForm: PropTypes.func,
   handleSubmit: PropTypes.func,
+  reset: PropTypes.func,
   permissions: PropTypes.object
 };
 
