@@ -28,7 +28,20 @@ class App extends Component {
             </div>
           </div>
         </div>
+        <div id="content-wrapper">
+          <div className="container">
+            <div className="row">
+              <div className="col-12">
 
+              </div>
+            </div>
+            <div className="row">
+              <div className="col-12">
+
+              </div>
+            </div>
+          </div>
+        </div>
         <div id="footer-wrapper">
           <div className="container">
             <div className="row">
