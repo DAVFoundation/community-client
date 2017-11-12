@@ -39,18 +39,26 @@ class Updates extends Component {
 class UpdateItem extends Component {
   constructor(props) {
     super(props);
+    this.deleteItem = this.deleteItem.bind(this);
+  }
+
+  deleteItem(e, val){
+    e.preventDefault();
+    console.log(val);
   }
 
   render() {
+    let d = new Date(this.props.details.createdAt);
+    let dateOptions = {month: 'long', day: 'numeric', year:'numeric', hour: '2-digit', minute: '2-digit', hour12: false};
+    let id = this.props.details._id;
     return (
       <tr>
-        <td>{this.props.details.createdAt}</td>
+        <td>{d.toLocaleString('en-US', dateOptions)}</td>
         <td>{this.props.details.description}</td>
-        <td>{this.props.details._id}</td>
+        <td><a href="#" onClick={(e) => this.deleteItem(e, id)}>Delete</a></td>
       </tr>
     );
   }
-
 }
 
 Updates.propTypes = {
