@@ -1,5 +1,7 @@
 # DAV Community - Frontend
 
+[![license](https://img.shields.io/github/license/DAVFoundation/missions.svg?style=flat-square)](https://github.com/DAVFoundation/missions/blob/master/LICENSE)
+
 The center of DAV's community sits at [my.dav.network](https://my.dav.network/).
 
 It is the place for DAV enthusiasts to:
