@@ -1,7 +1,7 @@
 import {connect} from 'react-redux';
 import {reduxForm} from 'redux-form';
 import {submitUpdateForm} from '../../actions';
-import UpdateForm from '../presentationals/UpdateForm.jsx';
+import UpdateForm, {validate} from '../presentationals/UpdateForm.jsx';
 
 const mapStateToProps = (state) => ({
   success: state.forms.success,

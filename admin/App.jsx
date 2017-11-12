@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import Navbar from './components/presentationals/Navbar.jsx';
 import {Footer} from './components/presentationals/Footer.jsx';
+import UpdateFormContainer from './components/containers/UpdateFormContainer.jsx';
 import initApp from './lib/init';
 import './static/css/overrides.css';
 
@@ -38,7 +39,7 @@ class App extends Component {
           <div className="container">
             <div className="row">
               <div className="col-12">
-
+                <UpdateFormContainer />
               </div>
             </div>
             <div className="row">
