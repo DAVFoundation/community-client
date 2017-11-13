@@ -13,7 +13,10 @@ class Updates extends Component {
   }
 
   deleteItem(id){
-    this.props.deleteDavUpdate(id);
+    var del = confirm("Are you sure?");
+    if(del){
+      this.props.deleteDavUpdate(id);
+    }
   }
 
   render(){
