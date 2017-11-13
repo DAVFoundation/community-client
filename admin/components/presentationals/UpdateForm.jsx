@@ -65,6 +65,7 @@ class UpdateForm extends Component {
         <h2 className="section-header">Add Update</h2>
         <div id="form-wrapper">
           <form onSubmit={this.props.handleSubmit(this.submit)} onKeyDown={(e) => {this.handleKeyDown(e);}}>
+            <Field name="createdAt" className="form-control" component="input" type="datetime-local" />
             <Field name="description" className="form-control" component="textarea" type="text" placeholder="Description"/>
             <Field name="link" className="form-control" component="input" type="text" placeholder="Link (optional)"/>
             <Field name="error" component={this.errorField} />
