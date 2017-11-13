@@ -20,6 +20,10 @@ label {
   margin-bottom: 0;
 }
 
+.table {
+  background-color: white;
+}
+
 .form-control{
   font-weight: 300;
 }
@@ -30,6 +34,14 @@ label {
 
 #content-wrapper {
   padding:3rem 0;
+  background: url('../images/header-bg.png');
+  background-position: top center;
+  background-repeat: no-repeat;
+  padding-top: 10rem;
+}
+
+#update-list {
+  padding-top: 4rem;
 }
 
 #footer-wrapper{

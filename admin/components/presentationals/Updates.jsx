@@ -25,8 +25,8 @@ class Updates extends Component {
       return (<UpdateItem key={index} details={update} onRootClick={this.deleteItem}/>);
     });
     return(
-      <div>
-        <h2 className="section-header">Update List</h2>
+      <div id="update-list">
+        <h2 className="section-header">DAV Foundation Updates</h2>
         <table className="table table-striped">
           <thead>
             <tr>
@@ -61,8 +61,14 @@ class UpdateItem extends Component {
     let id = this.props.details._id;
     return (
       <tr>
-        <td>{d.toLocaleString('en-US', dateOptions)}</td>
-        <td>{this.props.details.description}</td>
+        <td width="20%">{d.toLocaleString('en-US', dateOptions)}</td>
+        <td>
+          <div>
+            {this.props.details.description}
+            <br/>
+            <a href={this.props.details.link} target="_blank">{this.props.details.link}</a>
+          </div>
+        </td>
         <td><a href="#" onClick={this.handleClick}>Delete</a></td>
       </tr>
     );

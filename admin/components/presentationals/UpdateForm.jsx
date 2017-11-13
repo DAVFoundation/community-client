@@ -62,7 +62,7 @@ class UpdateForm extends Component {
 
     return(
       <div className="col-md-6">
-        <h2 className="section-header">Add Update</h2>
+        <h2 className="section-header">Add DAV Update</h2>
         <div id="form-wrapper">
           <form onSubmit={this.props.handleSubmit(this.submit)} onKeyDown={(e) => {this.handleKeyDown(e);}}>
             <Field name="createdAt" className="form-control" component="input" type="datetime-local" />
