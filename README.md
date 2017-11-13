@@ -1,5 +1,7 @@
 # DAV Community - Frontend
 
+[![Gitter](https://img.shields.io/gitter/room/DAVFoundation/DAV-Contributors.svg?style=flat-square)](https://gitter.im/DAVFoundation/DAV-Contributors)
+
 The center of DAV's community sits at [my.dav.network](https://my.dav.network/).
 
 It is the place for DAV enthusiasts to:
@@ -16,9 +18,6 @@ The community-client project is the frontend part of the [community](https://git
 Feel free to **Star** and **Watch** it, but watch out for falling debris.
 
 Feedback and contributions are always welcome and appreciated.
-
-### Gitter button - Link to gitter chat room
-[![Gitter](https://img.shields.io/gitter/room/DAVFoundation/DAV-Contributors.svg?style=flat-square)](https://gitter.im/DAVFoundation/DAV-Contributors)
 
 ### License
 
