@@ -22,7 +22,7 @@ class Updates extends Component {
   render(){
 
     let updateList = this.props.updates.map((update, index) => {
-      return (<UpdateItem key={index} details={update} onRootClick={this.deleteItem}/>);
+      return (<UpdateItem key={index} details={update} onRootClick={this.deleteItem} permissions={this.props.permissions} />);
     });
     return(
       <div id="update-list">
@@ -56,6 +56,13 @@ class UpdateItem extends Component {
   }
 
   render() {
+
+    let deleteBtn = null;
+
+    if("canDeleteDavUpdates" in this.props.permissions && this.props.permissions["canDeleteDavUpdates"]){
+      deleteBtn = (<a href="#" onClick={this.handleClick}>Delete</a>);
+    }
+
     let d = new Date(this.props.details.createdAt);
     let dateOptions = {month: 'long', day: 'numeric', year:'numeric', hour: '2-digit', minute: '2-digit', hour12: false};
     let id = this.props.details._id;
@@ -69,7 +76,7 @@ class UpdateItem extends Component {
             <a href={this.props.details.link} target="_blank">{this.props.details.link}</a>
           </div>
         </td>
-        <td><a href="#" onClick={this.handleClick}>Delete</a></td>
+        <td>{deleteBtn}</td>
       </tr>
     );
   }
@@ -78,12 +85,14 @@ class UpdateItem extends Component {
 Updates.propTypes = {
   updates: PropTypes.array,
   getDavUpdates: PropTypes.func,
-  deleteDavUpdate: PropTypes.func
+  deleteDavUpdate: PropTypes.func,
+  permissions: PropTypes.object
 };
 
 UpdateItem.propTypes = {
   details: PropTypes.object,
-  onRootClick: PropTypes.func
+  onRootClick: PropTypes.func,
+  permissions: PropTypes.object
 };
 
 export default Updates;

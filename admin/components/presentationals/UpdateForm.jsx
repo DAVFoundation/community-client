@@ -54,10 +54,11 @@ class UpdateForm extends Component {
   }
 
   render(){
-    if(this.props.permissions){
-      if(!this.props.permissions.canAccessAdmin){
-        return null;
-      }
+    if("canPostDavUpdates" in this.props.permissions && this.props.permissions["canPostDavUpdates"]){
+      console.log("Access Granted");
+    } else {
+      console.log("Access Denied");
+      return null;
     }
 
     return(
