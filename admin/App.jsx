@@ -21,10 +21,12 @@ class App extends Component {
     if(!this.props.authenticated ){
       return null;
     }
-    if(this.props.permissions){
-      if(!this.props.permissions.canAccessAdmin){
-        return null;
-      }
+
+    if("canAccessAdmin" in this.props.permissions && this.props.permissions["canAccessAdmin"]){
+      console.log("Access Granted");
+    } else {
+      console.log("Access Denied");
+      return null;
     }
 
     return(
