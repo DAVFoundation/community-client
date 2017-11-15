@@ -57,10 +57,10 @@ class UpdateItem extends Component {
 
   render() {
 
-    let deleteBtn = null;
+    let deleteBtn = (<a href="#" onClick={this.handleClick}>Delete</a>);
 
-    if("canDeleteDavUpdates" in this.props.permissions && this.props.permissions["canDeleteDavUpdates"]){
-      deleteBtn = (<a href="#" onClick={this.handleClick}>Delete</a>);
+    if(!("canDeleteDavUpdates" in this.props.permissions) || !this.props.permissions["canDeleteDavUpdates"]){
+      deleteBtn = "No Permission";
     }
 
     let d = new Date(this.props.details.createdAt);
