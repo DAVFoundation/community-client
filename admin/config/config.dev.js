@@ -4,5 +4,8 @@ module.exports = {
   },
   login:{
     endpoint: "http://localhost:9090"
+  },
+  profile: {
+    endpoint: "http://localhost:8080"
   }
 };
