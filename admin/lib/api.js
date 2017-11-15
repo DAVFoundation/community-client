@@ -12,7 +12,12 @@ export function apiGetUser(){
       return resp;
     })
     .then(resp => resp.json())
-    .then(json => json)
+    .then(json => {
+      if(!json.permissions.canAccessAdmin){
+        window.location.replace(config.profile.endpoint);
+      }
+      return json;
+    })
     .catch(error => {throw error;});
 }
 
