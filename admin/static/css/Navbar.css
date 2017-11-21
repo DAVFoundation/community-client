@@ -1,0 +1,36 @@
+.navbar-custom {
+  background: #3f1c78;
+  padding: .8rem 0;
+}
+
+.nav-subwrapper {
+  width: 100%;
+}
+
+.navbar-brand {
+  padding: 0;
+}
+
+.nav-item a {
+  color: white;
+}
+
+.nav-item a:hover {
+  color: #eee;
+}
+
+.logo {
+  height: 40px;
+}
+
+.nav-item {
+  text-transform: uppercase;
+  font-size: 12px;
+}
+
+@media (max-width: 768px){
+  #nav-wrapper .container .row {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
