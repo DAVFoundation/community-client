@@ -1,6 +1,7 @@
 # DAV Community - Frontend
 
-[![license](https://img.shields.io/github/license/DAVFoundation/missions.svg?style=flat-square)](https://github.com/DAVFoundation/missions/blob/master/LICENSE)
+[![Gitter](https://img.shields.io/gitter/room/DAVFoundation/DAV-Contributors.svg?style=flat-square)](https://gitter.im/DAVFoundation/DAV-Contributors)
+[![license](https://img.shields.io/github/license/DAVFoundation/community-client.svg?style=flat-square)](https://github.com/DAVFoundation/community-client/blob/master/LICENSE)
 
 The center of DAV's community sits at [my.dav.network](https://my.dav.network/).
 
