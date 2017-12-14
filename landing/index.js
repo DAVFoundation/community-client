@@ -7,8 +7,11 @@ $(document).ready(function(){
 
   var loginForm = document.getElementById("loginForm");
   var signupForm = document.getElementById("signupForm");
-  var signupLink = document.getElementById("signup-link");
-  var loginLink = document.getElementById("login-link");
+  var forgotForm = document.getElementById("forgotForm");
+
+  var signupLink = document.getElementsByClassName("signup-link");
+  var loginLink = document.getElementsByClassName("login-link");
+  var forgotLink = document.getElementById("forgot-link");
 
   if(urlHash == "#login"){
     $('#signupModal').modal('show');
@@ -29,8 +32,8 @@ $(document).ready(function(){
     }
   }
 
-  var apiUrl = 'https://communityapi.missions.io';
-  var redirectUrl ='https://my.dav.network/';
+  var apiUrl = 'http://localhost:3000'//'https://communityapi.missions.io';
+  var redirectUrl ='http://localhost:8080' //'https://my.dav.network/';
 
   var minZoom = 2;
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
@@ -150,27 +153,45 @@ $(document).ready(function(){
   }
 
   // LOGIN/ SIGNUP
+  for(var i=0;i<signupLink.length; i++){
+    signupLink[i].addEventListener('click', function(e){
+      e.preventDefault();
+      showSignupForm();
+    });
+  }
 
-  signupLink.addEventListener('click', function(e){
-    e.preventDefault();
-    showSignupForm();
-  });
+  for(var i=0;i<loginLink.length; i++){
+    loginLink[i].addEventListener('click', function(e){
+      e.preventDefault();
+      showLoginForm();
+    });
+  }
 
-  loginLink.addEventListener('click', function(e){
+  forgotLink.addEventListener('click', function(e){
     e.preventDefault();
-    showLoginForm();
-  });
+    showForgotForm();
+  })
+
+
 
   function showSignupForm(){
     loginForm.style.display = 'none';
     signupForm.style.display = 'block';
+    forgotForm.style.display = "none";
     populateForm();
   }
 
   function showLoginForm(){
     loginForm.style.display = 'block';
     signupForm.style.display = 'none';
+    forgotForm.style.display = "none";
     populateForm();
+  }
+
+  function showForgotForm(){
+    loginForm.style.display = "none";
+    signupForm.style.display = "none";
+    forgotForm.style.display = "block";
   }
 
   document.querySelector("#loginForm").addEventListener("submit", function(e){

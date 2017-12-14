@@ -149,13 +149,17 @@ form h2{
   font-weight: 300;
 }
 
+.sub-links {
+  display: inline-block;
+}
+
 .change-form-link {
   margin-top: 2rem;
   font-size: 12px;
   font-weight: 300;
 }
 
-#loginForm{
+#loginForm, #forgotForm{
   display: none;
 }
 
