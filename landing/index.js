@@ -248,14 +248,19 @@ $(document).ready(function(){
         'Cache': 'no-cache'
       },
       body: JSON.stringify({
-        password: document.getElementById("verifyPassword").value
+        password: password,
+        passwordCopy: passwordCopy
       })
     };
 
     fetch(apiUrl+'/api/reset/'+token, fetchInit)
       .then(resp=>{
         if(resp.ok){
-          window.location.replace(redirectUrl);
+          //window.location.replace(redirectUrl);
+          document.getElementById('verify-error').innerHTML = resp.json().message
+          setTimeout(()=>{
+            showLoginForm();
+          },1000)
           return
         }
         return resp.json();
@@ -266,8 +271,7 @@ $(document).ready(function(){
 
       })
       .catch(error => {
-        document.getElementById('verify-error').innerHTML = json.message;
-        console.log(error);
+        document.getElementById('verify-error').innerHTML = error;
       });
 
   })
