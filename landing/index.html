@@ -100,12 +100,15 @@
                   </div>
                 </form>
                 <form id="forgotForm">
-                  <h2 class="text-center">Reset Password</h2>
+                  <h2 class="text-center">Forgot Your Password?</h2>
+
                   <div class="form-group">
                     <input type='text' name='email' id='forgotEmail' class="form-control" placeholder="Email">
-                    <p class="text-center" id="forgot-info"></p>
-                    <input type="submit" class="btn btn-modal" value="Reset">
-                    <div class="row">
+                  </div>
+
+                  <p class="text-center" id="forgot-info"></p>
+                  <input type="submit" class="btn btn-modal" value="Reset">
+                  <div class="row">
                     <div class="text-left col-6">
                       <a href="#" class="change-form-link login-link">Login?</a>
                     </div>
@@ -113,7 +116,25 @@
                       <a href="#" class="change-form-link signup-link">Signup?</a>
                     </div>
                   </div>
+                </form>
+                <form id="verifyForm">
+                  <h2 class="text-center">Reset Password</h2>
+                  <div class="form-group">
+                    <input type='password' name='password' id='verifyPassword' class="form-control" placeholder="Enter New Password">
                   </div>
+                  <div class="form-group">
+                    <input type='password' name='passwordCopy' id='verifyPasswordCopy' class="form-control" placeholder="Re-enter New Password">
+                  </div>
+                    <p class="text-center" id="verify-error"></p>
+                    <input type="submit" class="btn btn-modal" value="Set Password">
+                    <div class="row">
+                      <div class="text-left col-6">
+                        <a href="#" class="change-form-link login-link">Login?</a>
+                      </div>
+                      <div class="text-right col-6">
+                        <a href="#" class="change-form-link signup-link">Signup?</a>
+                      </div>
+                    </div>
                 </form>
               </div>
               <div class="col-sm-2 col-md-4"></div>
