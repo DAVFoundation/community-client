@@ -159,11 +159,11 @@ form h2{
   font-weight: 300;
 }
 
-#loginForm, #forgotForm{
+#loginForm, #forgotForm, #verifyForm{
   display: none;
 }
 
-#signup-errors, #login-errors, #forgot-info{
+#signup-errors, #login-errors, #forgot-info, #verify-error{
   color: red;
   font-weight: 500;
   font-size: 14px;

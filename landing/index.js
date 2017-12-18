@@ -8,6 +8,7 @@ $(document).ready(function(){
   var loginForm = document.getElementById("loginForm");
   var signupForm = document.getElementById("signupForm");
   var forgotForm = document.getElementById("forgotForm");
+  var verifyForm = document.getElementById("verifyForm");
 
   var signupLink = document.getElementsByClassName("signup-link");
   var loginLink = document.getElementsByClassName("login-link");
@@ -19,6 +20,9 @@ $(document).ready(function(){
   } else if(urlHash == "#register"){
     $('#signupModal').modal('show');
     showSignupForm();
+  } else if(urlHash == "#verify"){
+    $("#signupModal").modal('show');
+    showVerifyForm();
   }
 
   function populateForm(){
@@ -178,6 +182,7 @@ $(document).ready(function(){
     loginForm.style.display = 'none';
     signupForm.style.display = 'block';
     forgotForm.style.display = "none";
+    verifyForm.style.display = "none";
     populateForm();
   }
 
@@ -185,6 +190,7 @@ $(document).ready(function(){
     loginForm.style.display = 'block';
     signupForm.style.display = 'none';
     forgotForm.style.display = "none";
+    verifyForm.style.display = "none";
     populateForm();
   }
 
@@ -192,7 +198,57 @@ $(document).ready(function(){
     loginForm.style.display = "none";
     signupForm.style.display = "none";
     forgotForm.style.display = "block";
+    verifyForm.style.display = "none";
   }
+
+  function showVerifyForm(){
+    loginForm.style.display = "none";
+    signupForm.style.display = "none";
+    forgotForm.style.display = "none";
+    verifyForm.style.display = "block";
+
+    if(!searchParams.has("token")){
+      document.getElementById('verify-error').innerHTML = "This link is invalid. Please request a new password";
+    } else {
+      document.getElementById('verify-error').innerHTML = "";
+    }
+  }
+
+  verifyForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    var token = null
+
+    if(searchParams.has("token")){
+      token = searchParams.get("token")
+    } else {
+      document.getElementById('verify-error').innerHTML = "This link is invalid. Please request a new password"
+      return
+    }
+
+    var fetchInit = {
+      method: 'GET'
+    };
+
+    fetch(apiUrl+'/api/reset/'+token, fetchInit)
+      .then(resp=>{
+        if(resp.ok){
+          window.location.replace(redirectUrl);
+          return
+        }
+        return resp.json();
+      })
+      .then(json => {
+
+        document.getElementById('verify-error').innerHTML = json.message;
+
+      })
+      .catch(error => {
+        document.getElementById('verify-error').innerHTML = json.message;
+        console.log(error);
+      });
+
+  })
 
   forgotForm.addEventListener("submit", (e) => {
     e.preventDefault();
