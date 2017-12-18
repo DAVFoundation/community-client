@@ -218,11 +218,10 @@ $(document).ready(function(){
 
       })
       .then((json) => {
-        console.log(json);
         document.getElementById('forgot-info').innerHTML = json.message;
       })
       .catch((error) => {
-        console.log(error);
+        document.getElementById('forgot-info').innerHTML = error;
       });
 
   }, false);
