@@ -194,7 +194,40 @@ $(document).ready(function(){
     forgotForm.style.display = "block";
   }
 
-  document.querySelector("#loginForm").addEventListener("submit", function(e){
+  forgotForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    console.log("Submitting form");
+
+    var fetchInit = {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Accept':  'application/json',
+        'Content-Type': 'application/json',
+        'Cache': 'no-cache'
+      },
+      body: JSON.stringify({
+        email: document.getElementById("forgotEmail").value
+      })
+    };
+
+    fetch(apiUrl+'/api/forgot', fetchInit)
+      .then(resp => {
+
+        return resp.json();
+
+      })
+      .then((json) => {
+        console.log(json);
+        document.getElementById('forgot-info').innerHTML = json.message;
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+  }, false);
+
+  loginForm.addEventListener("submit", function(e){
     e.preventDefault();
 
     var fetchInit = {
@@ -228,7 +261,7 @@ $(document).ready(function(){
       });
   }, false);
 
-  document.querySelector("#signupForm").addEventListener("submit", function(e){
+  signupForm.addEventListener("submit", function(e){
     e.preventDefault();
 
     var fetchInit = {

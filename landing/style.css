@@ -163,7 +163,7 @@ form h2{
   display: none;
 }
 
-#signup-errors, #login-errors{
+#signup-errors, #login-errors, #forgot-info{
   color: red;
   font-weight: 500;
   font-size: 14px;
