@@ -226,8 +226,30 @@ $(document).ready(function(){
       return
     }
 
+    var password = document.getElementById("verifyPassword").value.trim();
+    var passwordCopy = document.getElementById("verifyPasswordCopy").value.trim();
+
+    if((password != passwordCopy)){
+      document.getElementById('verify-error').innerHTML = "Passwords don't match"
+      return
+    }
+
+    if(!password || !passwordCopy){
+      document.getElementById('verify-error').innerHTML = "Please enter your password twice"
+      return
+    }
+
     var fetchInit = {
-      method: 'GET'
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        'Accept':  'application/json',
+        'Content-Type': 'application/json',
+        'Cache': 'no-cache'
+      },
+      body: JSON.stringify({
+        password: document.getElementById("verifyPassword").value
+      })
     };
 
     fetch(apiUrl+'/api/reset/'+token, fetchInit)
