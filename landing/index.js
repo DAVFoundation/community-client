@@ -255,18 +255,15 @@ $(document).ready(function(){
 
     fetch(apiUrl+'/api/reset/'+token, fetchInit)
       .then(resp=>{
-        if(resp.ok){
-          //window.location.replace(redirectUrl);
-          document.getElementById('verify-error').innerHTML = resp.json().message
-          setTimeout(()=>{
-            showLoginForm();
-          },1000)
-          return
-        }
+
         return resp.json();
       })
       .then(json => {
-
+        if(!json.error){
+          setTimeout(()=>{
+            showLoginForm();
+          },2000)
+        }
         document.getElementById('verify-error').innerHTML = json.message;
 
       })
