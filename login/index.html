@@ -37,7 +37,7 @@
           <p class="text-center" id="signup-errors"></p>
           <input type="submit" class="btn btn-custom" value="join">
           <div class="text-center">
-            <a href="#" class="change-form-link" id="login-link">Login instead?</a>
+            <a href="#" class="change-form-link login-link">Login instead?</a>
           </div>
         </form>
         <form id="loginForm">
@@ -50,9 +50,51 @@
           </div>
           <p class="text-center" id="login-errors"></p>
           <input type="submit" class="btn btn-custom" value="Login">
-          <div class="text-center">
-            <a href="#" class="change-form-link" id="signup-link">Signup instead?</a>
+          <div class="row">
+            <div class="text-left col-6">
+              <a href="#" class="change-form-link" id="forgot-link">Forgot Password?</a>
+            </div>
+            <div class="text-right col-6">
+              <a href="#" class="change-form-link signup-link">Signup instead?</a>
+            </div>
           </div>
+        </form>
+        <form id="forgotForm">
+          <h2 class="text-center">Forgot Your Password?</h2>
+
+          <div class="form-group">
+            <input type='text' name='email' id='forgotEmail' class="form-control" placeholder="Email">
+          </div>
+
+          <p class="text-center" id="forgot-info"></p>
+          <input type="submit" class="btn btn-custom" value="Reset">
+          <div class="row">
+            <div class="text-left col-6">
+              <a href="#" class="change-form-link login-link">Login?</a>
+            </div>
+            <div class="text-right col-6">
+              <a href="#" class="change-form-link signup-link">Signup?</a>
+            </div>
+          </div>
+        </form>
+        <form id="verifyForm">
+          <h2 class="text-center">Reset Password</h2>
+          <div class="form-group">
+            <input type='password' name='password' id='verifyPassword' class="form-control" placeholder="Enter New Password">
+          </div>
+          <div class="form-group">
+            <input type='password' name='passwordCopy' id='verifyPasswordCopy' class="form-control" placeholder="Re-enter New Password">
+          </div>
+            <p class="text-center" id="verify-error"></p>
+            <input type="submit" class="btn btn-custom" value="Set Password">
+            <div class="row">
+              <div class="text-left col-6">
+                <a href="#" class="change-form-link login-link">Login?</a>
+              </div>
+              <div class="text-right col-6">
+                <a href="#" class="change-form-link signup-link">Signup?</a>
+              </div>
+            </div>
         </form>
       </div>
       <div class="col-md-4"></div>
@@ -65,18 +107,24 @@ var url = new URL(window.location.href);
 var urlHash = url.hash;
 var searchParams = new URLSearchParams(url.search.slice(1));
 
-var apiUrl = 'https://communityapi.missions.io';
+var apiUrl = 'http://localhost:3000'//'https://communityapi.missions.io';
 var redirectUrl = 'https://my.dav.network/';
 
 var loginForm = document.getElementById("loginForm");
 var signupForm = document.getElementById("signupForm");
-var signupLink = document.getElementById("signup-link");
-var loginLink = document.getElementById("login-link");
+var forgotForm = document.getElementById("forgotForm");
+var verifyForm = document.getElementById("verifyForm");
+
+var signupLink = document.getElementsByClassName("signup-link");
+var loginLink = document.getElementsByClassName("login-link");
+var forgotLink = document.getElementById("forgot-link");
 
 if(urlHash == "#login"){
   showLoginForm();
 } else if(urlHash == "#register"){
   showSignupForm();
+} else if(urlHash == "#verify"){
+  showVerifyForm();
 }
 
 function populateForm(){
@@ -90,29 +138,154 @@ function populateForm(){
   }
 }
 
-signupLink.addEventListener('click', function(e){
+// LOGIN/ SIGNUP
+for(var i=0;i<signupLink.length; i++){
+  signupLink[i].addEventListener('click', function(e){
+    e.preventDefault();
+    showSignupForm();
+  });
+}
+
+for(var i=0;i<loginLink.length; i++){
+  loginLink[i].addEventListener('click', function(e){
+    e.preventDefault();
+    showLoginForm();
+  });
+}
+
+forgotLink.addEventListener('click', function(e){
   e.preventDefault();
-  showSignupForm();
-});
+  showForgotForm();
+})
 
 function showSignupForm(){
   loginForm.style.display = 'none';
   signupForm.style.display = 'block';
+  forgotForm.style.display = "none";
+  verifyForm.style.display = "none";
   populateForm();
 }
 
 function showLoginForm(){
   loginForm.style.display = 'block';
   signupForm.style.display = 'none';
+  forgotForm.style.display = "none";
+  verifyForm.style.display = "none";
   populateForm();
 }
 
-loginLink.addEventListener('click', function(e){
-  e.preventDefault();
-  showLoginForm();
-});
+function showForgotForm(){
+  loginForm.style.display = "none";
+  signupForm.style.display = "none";
+  forgotForm.style.display = "block";
+  verifyForm.style.display = "none";
+}
 
-document.querySelector("#loginForm").addEventListener("submit", function(e){
+function showVerifyForm(){
+  loginForm.style.display = "none";
+  signupForm.style.display = "none";
+  forgotForm.style.display = "none";
+  verifyForm.style.display = "block";
+
+  if(!searchParams.has("token")){
+    document.getElementById('verify-error').innerHTML = "This link is invalid. Please request a new password";
+  } else {
+    document.getElementById('verify-error').innerHTML = "";
+  }
+}
+
+verifyForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+
+  var token = null
+
+  if(searchParams.has("token")){
+    token = searchParams.get("token")
+  } else {
+    document.getElementById('verify-error').innerHTML = "This link is invalid. Please request a new password"
+    return
+  }
+
+  var password = document.getElementById("verifyPassword").value.trim();
+  var passwordCopy = document.getElementById("verifyPasswordCopy").value.trim();
+
+  if((password != passwordCopy)){
+    document.getElementById('verify-error').innerHTML = "Passwords don't match"
+    return
+  }
+
+  if(!password || !passwordCopy){
+    document.getElementById('verify-error').innerHTML = "Please enter your password twice"
+    return
+  }
+
+  var fetchInit = {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Accept':  'application/json',
+      'Content-Type': 'application/json',
+      'Cache': 'no-cache'
+    },
+    body: JSON.stringify({
+      password: password,
+      passwordCopy: passwordCopy
+    })
+  };
+
+  fetch(apiUrl+'/api/reset/'+token, fetchInit)
+    .then(resp=>{
+
+      return resp.json();
+    })
+    .then(json => {
+      if(!json.error){
+        setTimeout(()=>{
+          showLoginForm();
+        },2000)
+      }
+      document.getElementById('verify-error').innerHTML = json.message;
+
+    })
+    .catch(error => {
+      document.getElementById('verify-error').innerHTML = error;
+    });
+
+})
+
+forgotForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  console.log("Submitting form");
+
+  var fetchInit = {
+    method: 'POST',
+    credentials: 'include',
+    headers: {
+      'Accept':  'application/json',
+      'Content-Type': 'application/json',
+      'Cache': 'no-cache'
+    },
+    body: JSON.stringify({
+      email: document.getElementById("forgotEmail").value
+    })
+  };
+
+  fetch(apiUrl+'/api/forgot', fetchInit)
+    .then(resp => {
+
+      return resp.json();
+
+    })
+    .then((json) => {
+      document.getElementById('forgot-info').innerHTML = json.message;
+    })
+    .catch((error) => {
+      document.getElementById('forgot-info').innerHTML = error;
+    });
+
+}, false);
+
+loginForm.addEventListener("submit", function(e){
   e.preventDefault();
 
   var fetchInit = {
@@ -146,7 +319,7 @@ document.querySelector("#loginForm").addEventListener("submit", function(e){
     })
 }, false);
 
-document.querySelector("#signupForm").addEventListener("submit", function(e){
+signupForm.addEventListener("submit", function(e){
   e.preventDefault();
 
   var fetchInit = {
