@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+  var apiUrl = 'https://communityapi.missions.io'; //'http://localhost:3000'//
+  var redirectUrl ='https://my.dav.network/'; //'http://localhost:8080' //;
+
   var url = new URL(window.location.href);
 
   var urlHash = url.hash;
@@ -36,8 +39,7 @@ $(document).ready(function(){
     }
   }
 
-  var apiUrl = 'http://localhost:3000'//'https://communityapi.missions.io';
-  var redirectUrl ='http://localhost:8080' //'https://my.dav.network/';
+
 
   var minZoom = 2;
   if( /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
