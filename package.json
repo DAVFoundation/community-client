@@ -8,6 +8,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/DAVFoundation/community-client"
+    "homepage": "https://github.com/DAVFoundation/community-client#readme"
   },
   "scripts": {
     "build": "./node_modules/.bin/webpack --config webpack.prod.js",
