@@ -12,7 +12,7 @@
   "homepage": "https://github.com/DAVFoundation/community-client#readme",
   "bugs": {
     "url": "https://github.com/DAVFoundation/community-client/issues"
-},
+  },
   "scripts": {
     "build": "./node_modules/.bin/webpack --config webpack.prod.js",
     "start": "./node_modules/.bin/webpack-dev-server --progress --config webpack.dev.js",
