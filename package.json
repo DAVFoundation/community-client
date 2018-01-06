@@ -9,6 +9,7 @@
     "type": "git",
     "url": "https://github.com/DAVFoundation/community-client"
   },
+  "homepage": "https://github.com/DAVFoundation/community-client#readme",
   "bugs": {
     "url": "https://github.com/DAVFoundation/community-client/issues"
   },
