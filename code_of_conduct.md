@@ -71,3 +71,7 @@ This Code of Conduct is adapted from the [Contributor Covenant][homepage], versi
 available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
 
 [homepage]: https://www.contributor-covenant.org
+
+Join the community conversation on Gitter!
+
+https://gitter.im/DAVFoundation/DAV-Contributors
