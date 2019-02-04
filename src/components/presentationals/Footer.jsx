@@ -87,7 +87,7 @@ class CopyrightInfo extends Component {
   render(){
     return (
       <div>
-        <h6 className="copyright">&copy; Copyright 2018 DAV - All Rights Reserved -- DAV is a registered nonprofit in Zug, Switzerland</h6>
+        <h6 className="copyright">&copy; Copyright 2019 DAV - All Rights Reserved -- DAV is a registered nonprofit in Zug, Switzerland</h6>
       </div>
     );
   }
